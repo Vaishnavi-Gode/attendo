@@ -141,15 +141,20 @@ const AttendancePage = () => {
       </Grid>
 
       {selectedClass && classStudents.length > 0 && (
-        <Card>
-          <CardContent>
+        <Card sx={{
+          background: 'rgba(255,255,255,0.8)',
+          backdropFilter: 'blur(15px)',
+          border: '1px solid rgba(255,255,255,0.4)',
+          borderRadius: '20px'
+        }}>
+          <CardContent sx={{ p: 3 }}>
             <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
               <Box display="flex" alignItems="center" gap={2}>
-                <Typography variant="h6">
+                <Typography variant="h6" sx={{ fontWeight: 600 }}>
                   Students ({classStudents.length})
                 </Typography>
                 <Box display="flex" alignItems="center" gap={1}>
-                  <Typography variant="body2">Mark All Present:</Typography>
+                  <Typography variant="body2" sx={{ fontWeight: 500 }}>Mark All Present:</Typography>
                   <Switch
                     checked={Object.values(attendance).every(status => status === 'present')}
                     onChange={(e) => {
@@ -164,29 +169,58 @@ const AttendancePage = () => {
                   />
                 </Box>
               </Box>
-              <Button variant="contained" onClick={handleSaveAttendance}>
+              <Button 
+                variant="contained" 
+                onClick={handleSaveAttendance}
+                sx={{
+                  background: 'linear-gradient(135deg, #4dd0e1 0%, #00acc1 100%)',
+                  borderRadius: '12px',
+                  px: 3,
+                  py: 1.5,
+                  fontWeight: 600
+                }}
+              >
                 Save Attendance
               </Button>
             </Box>
 
-            <TableContainer component={Paper}>
+            <TableContainer sx={{
+              borderRadius: '12px',
+              '& .MuiTableHead-root': {
+                '& .MuiTableCell-root': {
+                  background: 'rgba(0,96,100,0.8)',
+                  fontWeight: 600,
+                  borderBottom: '2px solid rgba(0,96,100,0.2)'
+                }
+              },
+              '& .MuiTableBody-root': {
+                '& .MuiTableRow-root': {
+                  '&:nth-of-type(even)': {
+                    background: 'rgba(255,255,255,0.3)'
+                  },
+                  '&:hover': {
+                    background: 'rgba(0,172,193,0.1)'
+                  }
+                }
+              }
+            }}>
               <Table size="small">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Roll No.</TableCell>
-                    <TableCell>Student Name</TableCell>
-                    <TableCell align="center">Status</TableCell>
-                    <TableCell align="center">Action</TableCell>
+                    <TableCell sx={{ fontWeight: 600 }}>Roll No.</TableCell>
+                    <TableCell sx={{ fontWeight: 600 }}>Student Name</TableCell>
+                    <TableCell align="center" sx={{ fontWeight: 600 }}>Status</TableCell>
+                    <TableCell align="center" sx={{ fontWeight: 600 }}>Action</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   {classStudents.map(student => (
                     <TableRow key={student.id}>
-                      <TableCell>{student.rollNumber}</TableCell>
+                      <TableCell sx={{ fontWeight: 500 }}>{student.rollNumber}</TableCell>
                       <TableCell>{student.firstName} {student.lastName}</TableCell>
                       <TableCell align="center">
                         {attendance[student.id] === 'present' ? (
-                          <CheckCircle sx={{ color: '#4caf50' }} />
+                          <CheckCircle sx={{ color: '#00ACC1' }} />
                         ) : (
                           <Cancel sx={{ color: '#f44336' }} />
                         )}

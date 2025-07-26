@@ -19,7 +19,9 @@ import {
   Select,
   MenuItem,
   FormControl,
-  InputLabel
+  InputLabel,
+  Autocomplete,
+  Grid
 } from '@mui/material';
 import { Add, Edit, Delete } from '@mui/icons-material';
 import { 
@@ -35,6 +37,8 @@ const ClassesPage = () => {
   const [classes, setClasses] = useState([]);
   const [teachers, setTeachers] = useState([]);
   const [students, setStudents] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchColumn, setSearchColumn] = useState('all');
   const [open, setOpen] = useState(false);
   const [editingClass, setEditingClass] = useState(null);
   const [formData, setFormData] = useState({
@@ -89,6 +93,28 @@ const ClassesPage = () => {
     return student ? `${student.firstName} ${student.lastName}` : '';
   };
 
+  const getSearchOptions = () => {
+    switch(searchColumn) {
+      case 'name': return classes.map(c => c.name);
+      case 'standard': return classes.map(c => c.standard);
+      case 'teacher': return classes.map(c => getTeacherName(c.teacherId));
+      default: return classes.map(c => [c.name, c.standard, getTeacherName(c.teacherId)]).flat();
+    }
+  };
+
+  const filteredClasses = classes.filter(classItem => {
+    if (!searchTerm) return true;
+    const term = searchTerm.toLowerCase();
+    switch(searchColumn) {
+      case 'name': return classItem.name.toLowerCase().includes(term);
+      case 'standard': return classItem.standard.toLowerCase().includes(term);
+      case 'teacher': return getTeacherName(classItem.teacherId).toLowerCase().includes(term);
+      default: return classItem.name.toLowerCase().includes(term) ||
+                     classItem.standard.toLowerCase().includes(term) ||
+                     getTeacherName(classItem.teacherId).toLowerCase().includes(term);
+    }
+  });
+
   return (
     <Box>
         <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
@@ -97,33 +123,100 @@ const ClassesPage = () => {
             variant="contained"
             startIcon={<Add />}
             onClick={() => setOpen(true)}
+            sx={{
+              background: 'linear-gradient(135deg, #4dd0e1 0%, #00acc1 100%)',
+              borderRadius: '12px',
+              px: 3,
+              py: 1.5,
+              fontWeight: 600
+            }}
           >
             Add Class
           </Button>
         </Box>
 
-        <TableContainer component={Paper}>
+        <Grid container spacing={2} sx={{ mb: 3 }}>
+          <Grid item xs={12} md={4}>
+            <TextField
+              select
+              fullWidth
+              label="Search Column"
+              value={searchColumn}
+              onChange={(e) => { setSearchColumn(e.target.value); setSearchTerm(''); }}
+              SelectProps={{ native: true }}
+            >
+              <option value="all">All Columns</option>
+              <option value="name">Class Name</option>
+              <option value="standard">Standard</option>
+              <option value="teacher">Teacher</option>
+            </TextField>
+          </Grid>
+          <Grid item xs={12} md={8}>
+            <Autocomplete
+              freeSolo
+              options={[...new Set(getSearchOptions())]}
+              value={searchTerm}
+              onInputChange={(event, newValue) => setSearchTerm(newValue || '')}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  placeholder={`Search by ${searchColumn === 'all' ? 'any column' : searchColumn}...`}
+                  fullWidth
+                />
+              )}
+            />
+          </Grid>
+        </Grid>
+
+        <TableContainer sx={{
+          background: 'rgba(255,255,255,0.8)',
+          backdropFilter: 'blur(15px)',
+          border: '1px solid rgba(255,255,255,0.4)',
+          borderRadius: '20px',
+          '& .MuiTableHead-root': {
+            '& .MuiTableCell-root': {
+              background: 'rgba(0,96,100,0.8)',
+              fontWeight: 600,
+              borderBottom: '2px solid rgba(0,96,100,0.2)'
+            }
+          },
+          '& .MuiTableBody-root': {
+            '& .MuiTableRow-root': {
+              '&:nth-of-type(even)': {
+                background: 'rgba(255,255,255,0.3)'
+              },
+              '&:hover': {
+                background: 'rgba(0,172,193,0.1)'
+              }
+            }
+          }
+        }}>
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>Class Name</TableCell>
-                <TableCell>Standard</TableCell>
-                <TableCell>Teacher</TableCell>
-                <TableCell>Actions</TableCell>
+                <TableCell sx={{ fontWeight: 600 }}>Class Name</TableCell>
+                <TableCell sx={{ fontWeight: 600 }}>Standard</TableCell>
+                <TableCell sx={{ fontWeight: 600 }}>Teacher</TableCell>
+                <TableCell sx={{ fontWeight: 600 }}>Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {classes.map((classItem) => (
+              {filteredClasses.map((classItem) => (
                 <TableRow key={classItem.id}>
-                  <TableCell>{classItem.name}</TableCell>
+                  <TableCell sx={{ fontWeight: 500 }}>{classItem.name}</TableCell>
                   <TableCell>{classItem.standard}</TableCell>
                   <TableCell>{getTeacherName(classItem.teacherId)}</TableCell>
                   <TableCell>
-                    <IconButton onClick={() => handleEdit(classItem)}>
+                    <IconButton 
+                      onClick={() => handleEdit(classItem)}
+                      sx={{ color: '#00ACC1', '&:hover': { background: 'rgba(0,172,193,0.1)' } }}
+                    >
                       <Edit />
                     </IconButton>
-
-                    <IconButton onClick={() => handleDelete(classItem.id)}>
+                    <IconButton 
+                      onClick={() => handleDelete(classItem.id)}
+                      sx={{ color: '#f44336', '&:hover': { background: 'rgba(244,67,54,0.1)' } }}
+                    >
                       <Delete />
                     </IconButton>
                   </TableCell>

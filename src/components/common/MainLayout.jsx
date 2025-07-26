@@ -54,7 +54,10 @@ const MainLayout = ({ children, currentPage, onPageChange }) => {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar position="fixed" sx={{ zIndex: 1201 }}>
+      <AppBar position="fixed" sx={{ 
+        zIndex: 1201,
+        background: 'linear-gradient(135deg, #006064 0%, #00838f 100%)'
+      }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -64,13 +67,20 @@ const MainLayout = ({ children, currentPage, onPageChange }) => {
             <MenuIcon />
           </IconButton>
           
-          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-          Attendo
-        </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginRight: '10px' }}>
+              <circle cx="16" cy="16" r="14" fill="#4dd0e1" stroke="white" strokeWidth="2"/>
+              <path d="M12 16l3 3 6-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <circle cx="8" cy="8" r="2" fill="white" opacity="0.8"/>
+              <circle cx="24" cy="8" r="1.5" fill="white" opacity="0.6"/>
+              <circle cx="8" cy="24" r="1" fill="white" opacity="0.4"/>
+            </svg>
+            <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'white' }}>
+              Attendo
+            </Typography>
+          </Box>
           
-          <Typography variant="h6" sx={{ flexGrow: 1, ml: 2 }}>
-            Admin Panel
-          </Typography>
+          <Box sx={{ flexGrow: 1 }} />
           
           <IconButton
             onClick={(e) => setAnchorEl(e.currentTarget)}
@@ -125,7 +135,9 @@ const MainLayout = ({ children, currentPage, onPageChange }) => {
         sx={{
           flexGrow: 1,
           p: 3,
-          mt: 8
+          mt: 8,
+          background: 'linear-gradient(135deg, #ECEFF1 0%, #e0f2f1 100%)',
+          minHeight: '100vh'
         }}
       >
         {children}

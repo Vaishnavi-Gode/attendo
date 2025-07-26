@@ -23,6 +23,10 @@ export const markAttendance = (classId, date, attendanceData) => {
   }
 
   localStorage.setItem(ATTENDANCE_KEY, JSON.stringify(records));
+  
+  // Dispatch custom event to notify components
+  window.dispatchEvent(new CustomEvent('attendanceUpdated'));
+  
   return newRecord;
 };
 

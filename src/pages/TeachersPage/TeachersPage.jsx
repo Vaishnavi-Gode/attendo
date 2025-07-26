@@ -19,7 +19,9 @@ import {
   Select,
   MenuItem,
   FormControl,
-  InputLabel
+  InputLabel,
+  Autocomplete,
+  Grid
 } from '@mui/material';
 import { Add, Edit, Delete, Assignment } from '@mui/icons-material';
 import { getTeachers, addTeacher, updateTeacher, deleteTeacher, getClasses, assignTeacherToClass } from '@services/dataService';
@@ -28,6 +30,8 @@ import ConfirmDialog from '@components/common/ConfirmDialog';
 const TeachersPage = () => {
   const [teachers, setTeachers] = useState([]);
   const [classes, setClasses] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchColumn, setSearchColumn] = useState('all');
   const [open, setOpen] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [editingTeacher, setEditingTeacher] = useState(null);
@@ -93,6 +97,28 @@ const TeachersPage = () => {
     return assignedClass ? `${assignedClass.name} (${assignedClass.standard})` : 'Not Assigned';
   };
 
+  const getSearchOptions = () => {
+    switch(searchColumn) {
+      case 'name': return teachers.map(t => `${t.firstName} ${t.lastName}`);
+      case 'email': return teachers.map(t => t.email);
+      case 'class': return teachers.map(t => getAssignedClass(t.id));
+      default: return teachers.map(t => [`${t.firstName} ${t.lastName}`, t.email, getAssignedClass(t.id)]).flat();
+    }
+  };
+
+  const filteredTeachers = teachers.filter(teacher => {
+    if (!searchTerm) return true;
+    const term = searchTerm.toLowerCase();
+    switch(searchColumn) {
+      case 'name': return `${teacher.firstName} ${teacher.lastName}`.toLowerCase().includes(term);
+      case 'email': return teacher.email.toLowerCase().includes(term);
+      case 'class': return getAssignedClass(teacher.id).toLowerCase().includes(term);
+      default: return `${teacher.firstName} ${teacher.lastName}`.toLowerCase().includes(term) ||
+                     teacher.email.toLowerCase().includes(term) ||
+                     getAssignedClass(teacher.id).toLowerCase().includes(term);
+    }
+  });
+
   return (
     <Box>
         <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
@@ -101,33 +127,100 @@ const TeachersPage = () => {
             variant="contained"
             startIcon={<Add />}
             onClick={() => setOpen(true)}
+            sx={{
+              background: 'linear-gradient(135deg, #4dd0e1 0%, #00acc1 100%)',
+              borderRadius: '12px',
+              px: 3,
+              py: 1.5,
+              fontWeight: 600
+            }}
           >
             Add Teacher
           </Button>
         </Box>
 
-        <TableContainer component={Paper}>
+        <Grid container spacing={2} sx={{ mb: 3 }}>
+          <Grid item xs={12} md={4}>
+            <TextField
+              select
+              fullWidth
+              label="Search Column"
+              value={searchColumn}
+              onChange={(e) => { setSearchColumn(e.target.value); setSearchTerm(''); }}
+              SelectProps={{ native: true }}
+            >
+              <option value="all">All Columns</option>
+              <option value="name">Name</option>
+              <option value="email">Email</option>
+              <option value="class">Assigned Class</option>
+            </TextField>
+          </Grid>
+          <Grid item xs={12} md={8}>
+            <Autocomplete
+              freeSolo
+              options={[...new Set(getSearchOptions())]}
+              value={searchTerm}
+              onInputChange={(event, newValue) => setSearchTerm(newValue || '')}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  placeholder={`Search by ${searchColumn === 'all' ? 'any column' : searchColumn}...`}
+                  fullWidth
+                />
+              )}
+            />
+          </Grid>
+        </Grid>
+
+        <TableContainer sx={{
+          background: 'rgba(255,255,255,0.8)',
+          backdropFilter: 'blur(15px)',
+          border: '1px solid rgba(255,255,255,0.4)',
+          borderRadius: '20px',
+          '& .MuiTableHead-root': {
+            '& .MuiTableCell-root': {
+              background: 'rgba(0,96,100,0.8)',
+              fontWeight: 600,
+              borderBottom: '2px solid rgba(0,96,100,0.2)'
+            }
+          },
+          '& .MuiTableBody-root': {
+            '& .MuiTableRow-root': {
+              '&:nth-of-type(even)': {
+                background: 'rgba(255,255,255,0.3)'
+              },
+              '&:hover': {
+                background: 'rgba(0,172,193,0.1)'
+              }
+            }
+          }
+        }}>
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>Name</TableCell>
-                <TableCell>Email</TableCell>
-                <TableCell>Assigned Class</TableCell>
-                <TableCell>Actions</TableCell>
+                <TableCell sx={{ fontWeight: 600 }}>Name</TableCell>
+                <TableCell sx={{ fontWeight: 600 }}>Email</TableCell>
+                <TableCell sx={{ fontWeight: 600 }}>Assigned Class</TableCell>
+                <TableCell sx={{ fontWeight: 600 }}>Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {teachers.map((teacher) => (
+              {filteredTeachers.map((teacher) => (
                 <TableRow key={teacher.id}>
-                  <TableCell>{teacher.firstName} {teacher.lastName}</TableCell>
+                  <TableCell sx={{ fontWeight: 500 }}>{teacher.firstName} {teacher.lastName}</TableCell>
                   <TableCell>{teacher.email}</TableCell>
                   <TableCell>{getAssignedClass(teacher.id)}</TableCell>
                   <TableCell>
-                    <IconButton onClick={() => handleEdit(teacher)}>
+                    <IconButton 
+                      onClick={() => handleEdit(teacher)}
+                      sx={{ color: '#00ACC1', '&:hover': { background: 'rgba(0,172,193,0.1)' } }}
+                    >
                       <Edit />
                     </IconButton>
-
-                    <IconButton onClick={() => handleDelete(teacher)}>
+                    <IconButton 
+                      onClick={() => handleDelete(teacher)}
+                      sx={{ color: '#f44336', '&:hover': { background: 'rgba(244,67,54,0.1)' } }}
+                    >
                       <Delete />
                     </IconButton>
                   </TableCell>

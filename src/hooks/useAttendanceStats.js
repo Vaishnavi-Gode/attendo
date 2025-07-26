@@ -14,6 +14,21 @@ export const useAttendanceStats = (selectedDate, userRole, userId) => {
 
   useEffect(() => {
     calculateStats();
+    
+    // Listen for localStorage changes
+    const handleStorageChange = () => {
+      calculateStats();
+    };
+    
+    window.addEventListener('storage', handleStorageChange);
+    
+    // Custom event for same-tab localStorage changes
+    window.addEventListener('attendanceUpdated', handleStorageChange);
+    
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('attendanceUpdated', handleStorageChange);
+    };
   }, [selectedDate, userRole, userId]);
 
   const calculateStats = () => {

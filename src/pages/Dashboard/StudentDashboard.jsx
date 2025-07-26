@@ -79,6 +79,15 @@ const StudentDashboard = () => {
   };
 
   const handleNextMonth = () => {
+    const today = new Date();
+    const nextMonth = currentMonth === 11 ? 0 : currentMonth + 1;
+    const nextYear = currentMonth === 11 ? currentYear + 1 : currentYear;
+    
+    // Don't allow navigation to future months
+    if (nextYear > today.getFullYear() || (nextYear === today.getFullYear() && nextMonth > today.getMonth())) {
+      return;
+    }
+    
     if (currentMonth === 11) {
       setCurrentMonth(0);
       setCurrentYear(currentYear + 1);
@@ -100,9 +109,12 @@ const StudentDashboard = () => {
     
     // Generate 42 days (6 weeks)
     for (let i = 0; i < 42; i++) {
-      const dateStr = current.toISOString().split('T')[0];
+      const year = current.getFullYear();
+      const month = String(current.getMonth() + 1).padStart(2, '0');
+      const day = String(current.getDate()).padStart(2, '0');
+      const dateStr = `${year}-${month}-${day}`;
       const isCurrentMonth = current.getMonth() === currentMonth;
-      const attendanceStatus = attendanceRecords[dateStr];
+      const attendanceStatus = isCurrentMonth ? attendanceRecords[dateStr] : null;
       
       days.push({
         date: new Date(current),
@@ -226,63 +238,104 @@ const StudentDashboard = () => {
   const renderPageContent = () => {
     return (
       <Box>
-        <Typography variant="h4" gutterBottom>
-          My Attendance
-        </Typography>
-        <Typography variant="body1" color="text.secondary" paragraph>
-          Welcome, {user?.firstName} {user?.lastName}
-        </Typography>
+        {/* Welcome Header */}
+        <Box sx={{
+          background: 'rgba(255,255,255,0.6)',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255,255,255,0.3)',
+          borderRadius: '20px',
+          p: 4,
+          mb: 4,
+          textAlign: 'center'
+        }}>
+          <Typography variant="h3" sx={{ 
+            fontWeight: 700, 
+            mb: 1,
+            background: 'linear-gradient(45deg, #1A1A1A, #00ACC1)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}>
+            Welcome, {user?.firstName}!
+          </Typography>
+          {studentClass ? (
+            <Typography variant="h6" color="text.secondary">
+              {studentClass.name} - {studentClass.standard}
+            </Typography>
+          ) : (
+            <Typography variant="h6" color="text.secondary">
+              Not assigned to any class
+            </Typography>
+          )}
+        </Box>
         
         {studentClass ? (
           <>
-            <Typography variant="h6" sx={{ mb: 3 }}>
-              {studentClass.name} - {studentClass.standard}
-            </Typography>
             
             <Grid container spacing={3} sx={{ mb: 4 }}>
               <Grid item xs={12} sm={3}>
-                <Card>
+                <Card sx={{
+                  background: 'rgba(255,255,255,0.8)',
+                  backdropFilter: 'blur(15px)',
+                  border: '1px solid rgba(255,255,255,0.4)',
+                  borderRadius: '20px'
+                }}>
                   <CardContent sx={{ textAlign: 'center' }}>
-                    <Typography variant="h6" color="text.secondary">
+                    <Typography variant="body2" color="text.secondary" sx={{ mb: 1, fontWeight: 500 }}>
                       Total Days
                     </Typography>
-                    <Typography variant="h3" sx={{ color: colors.primary }}>
+                    <Typography variant="h3" sx={{ color: colors.primary, fontWeight: 700 }}>
                       {stats.totalDays}
                     </Typography>
                   </CardContent>
                 </Card>
               </Grid>
               <Grid item xs={12} sm={3}>
-                <Card>
+                <Card sx={{
+                  background: 'rgba(255,255,255,0.8)',
+                  backdropFilter: 'blur(15px)',
+                  border: '1px solid rgba(255,255,255,0.4)',
+                  borderRadius: '20px'
+                }}>
                   <CardContent sx={{ textAlign: 'center' }}>
-                    <Typography variant="h6" color="text.secondary">
+                    <Typography variant="body2" color="text.secondary" sx={{ mb: 1, fontWeight: 500 }}>
                       Present
                     </Typography>
-                    <Typography variant="h3" sx={{ color: colors.accent }}>
+                    <Typography variant="h3" sx={{ color: colors.accent, fontWeight: 700 }}>
                       {stats.presentDays}
                     </Typography>
                   </CardContent>
                 </Card>
               </Grid>
               <Grid item xs={12} sm={3}>
-                <Card>
+                <Card sx={{
+                  background: 'rgba(255,255,255,0.8)',
+                  backdropFilter: 'blur(15px)',
+                  border: '1px solid rgba(255,255,255,0.4)',
+                  borderRadius: '20px'
+                }}>
                   <CardContent sx={{ textAlign: 'center' }}>
-                    <Typography variant="h6" color="text.secondary">
+                    <Typography variant="body2" color="text.secondary" sx={{ mb: 1, fontWeight: 500 }}>
                       Absent
                     </Typography>
-                    <Typography variant="h3" sx={{ color: colors.highlight }}>
+                    <Typography variant="h3" sx={{ color: colors.highlight, fontWeight: 700 }}>
                       {stats.absentDays}
                     </Typography>
                   </CardContent>
                 </Card>
               </Grid>
               <Grid item xs={12} sm={3}>
-                <Card>
+                <Card sx={{
+                  background: 'rgba(255,255,255,0.8)',
+                  backdropFilter: 'blur(15px)',
+                  border: '1px solid rgba(255,255,255,0.4)',
+                  borderRadius: '20px'
+                }}>
                   <CardContent sx={{ textAlign: 'center' }}>
-                    <Typography variant="h6" color="text.secondary">
+                    <Typography variant="body2" color="text.secondary" sx={{ mb: 1, fontWeight: 500 }}>
                       Attendance Rate
                     </Typography>
-                    <Typography variant="h3" sx={{ color: colors.accent }}>
+                    <Typography variant="h3" sx={{ color: colors.accent, fontWeight: 700 }}>
                       {stats.attendanceRate}%
                     </Typography>
                   </CardContent>
@@ -290,9 +343,14 @@ const StudentDashboard = () => {
               </Grid>
             </Grid>
 
-            <Card>
-              <CardContent>
-                <Typography variant="h6" gutterBottom>
+            <Card sx={{
+              background: 'rgba(255,255,255,0.8)',
+              backdropFilter: 'blur(15px)',
+              border: '1px solid rgba(255,255,255,0.4)',
+              borderRadius: '20px'
+            }}>
+              <CardContent sx={{ p: 3 }}>
+                <Typography variant="h6" gutterBottom sx={{ fontWeight: 600, mb: 3 }}>
                   Attendance Calendar
                 </Typography>
                 {renderCalendar()}
@@ -300,9 +358,18 @@ const StudentDashboard = () => {
             </Card>
           </>
         ) : (
-          <Typography variant="body1" color="text.secondary">
-            You are not assigned to any class. Please contact admin.
-          </Typography>
+          <Box sx={{
+            background: 'rgba(255,255,255,0.6)',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255,255,255,0.3)',
+            borderRadius: '20px',
+            p: 4,
+            textAlign: 'center'
+          }}>
+            <Typography variant="h6" color="text.secondary">
+              Please contact the administrator to get assigned to a class.
+            </Typography>
+          </Box>
         )}
       </Box>
     );
