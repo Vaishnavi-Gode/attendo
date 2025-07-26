@@ -2,9 +2,9 @@
 import { Box } from '@mui/material';
 import { useAuth, USER_ROLE } from '@context/AuthContext';
 import LandingPage from '@pages/LandingPage/LandingPage';
-import AdminPage from '@pages/AdminPage/AdminPage';
-import TeacherPage from '@pages/TeacherPage/TeacherPage';
-import StudentPage from '@pages/StudentPage/StudentPage';
+import AdminDashboard from '@pages/Dashboard/AdminPage';
+import TeacherDashboard from '@pages/Dashboard/TeacherDashboard';
+import StudentDashboard from '@pages/Dashboard/StudentDashboard';
 
 const App = () => {
   const { user, loading } = useAuth();
@@ -29,11 +29,11 @@ const App = () => {
   // Role-based routing
   switch (user.role) {
     case USER_ROLE.ADMIN:
-      return <AdminPage />;
+      return <AdminDashboard />;
     case USER_ROLE.TEACHER:
-      return <TeacherPage />;
+      return <TeacherDashboard />;
     case USER_ROLE.STUDENT:
-      return <StudentPage />;
+      return <StudentDashboard />;
     default:
       return <LandingPage />;
   }

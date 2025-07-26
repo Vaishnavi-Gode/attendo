@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Typography, Box, Card, CardContent, Grid, IconButton } from '@mui/material';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import { useAuth } from '@context/AuthContext';
-import AdminLayout from '@components/admin/AdminLayout';
+import MainLayout from '@components/common/MainLayout';
 import { getClasses } from '@services/dataService';
 import { getAttendanceRecords } from '@services/attendanceService';
 import { colors } from '@theme/theme';
 
-const StudentPage = () => {
+const StudentDashboard = () => {
   const { user } = useAuth();
   const [currentPage, setCurrentPage] = useState('dashboard');
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
@@ -309,10 +309,10 @@ const StudentPage = () => {
   };
 
   return (
-    <AdminLayout currentPage={currentPage} onPageChange={setCurrentPage}>
+    <MainLayout currentPage={currentPage} onPageChange={setCurrentPage}>
       {renderPageContent()}
-    </AdminLayout>
+    </MainLayout>
   );
 };
 
-export default StudentPage;
+export default StudentDashboard;

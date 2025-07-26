@@ -24,7 +24,7 @@ import {
 } from '@mui/icons-material';
 import { useAuth } from '@context/AuthContext';
 
-const AdminLayout = ({ children, currentPage, onPageChange }) => {
+const MainLayout = ({ children, currentPage, onPageChange }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const { user, logout } = useAuth();
@@ -134,4 +134,4 @@ const AdminLayout = ({ children, currentPage, onPageChange }) => {
   );
 };
 
-export default AdminLayout;
+export default MainLayout;

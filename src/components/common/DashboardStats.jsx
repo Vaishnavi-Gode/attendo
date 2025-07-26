@@ -1,0 +1,45 @@
+import React from 'react';
+import { Grid, Card, CardContent, Typography } from '@mui/material';
+import { colors } from '@theme/theme';
+
+const DashboardStats = ({ stats, userRole }) => {
+  const getStatsConfig = () => {
+    if (userRole === 'teacher') {
+      return [
+        { label: 'Total Students', value: stats.totalStudents, color: colors.primary },
+        { label: 'Present Today', value: `${stats.presentToday}/${stats.totalToday}`, color: colors.accent },
+        { label: 'Attendance Rate', value: `${stats.overallAttendanceRate}%`, color: colors.accent }
+      ];
+    }
+    
+    return [
+      { label: 'Total Students', value: stats.totalStudents, color: colors.primary },
+      { label: 'Total Classes', value: stats.totalClasses, color: colors.primary },
+      { label: 'Present Today', value: `${stats.presentToday}/${stats.totalToday}`, color: colors.accent },
+      { label: 'Attendance Rate', value: `${stats.overallAttendanceRate}%`, color: colors.accent }
+    ];
+  };
+
+  const statsConfig = getStatsConfig();
+
+  return (
+    <Grid container spacing={3} sx={{ mb: 4 }}>
+      {statsConfig.map((stat, index) => (
+        <Grid item xs={12} sm={6} md={12 / statsConfig.length} key={index}>
+          <Card>
+            <CardContent sx={{ textAlign: 'center' }}>
+              <Typography variant="h6" color="text.secondary">
+                {stat.label}
+              </Typography>
+              <Typography variant="h3" sx={{ color: stat.color }}>
+                {stat.value}
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+      ))}
+    </Grid>
+  );
+};
+
+export default DashboardStats;

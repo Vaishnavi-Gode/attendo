@@ -2,24 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { Typography, Box, Card, CardContent, Grid, TextField } from '@mui/material';
 import { PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useAuth } from '@context/AuthContext';
-import AdminLayout from '@components/admin/AdminLayout';
+import MainLayout from '@components/common/MainLayout';
+import DashboardStats from '@components/common/DashboardStats';
+import AttendanceCharts from '@components/common/AttendanceCharts';
+import { useAttendanceStats } from '@hooks/useAttendanceStats';
 import AttendancePage from '@pages/AttendancePage/AttendancePage';
 import { getClasses, getStudents } from '@services/dataService';
 import { getAttendanceRecords } from '@services/attendanceService';
 import { colors } from '@theme/theme';
 
-const TeacherPage = () => {
+const TeacherDashboard = () => {
   const { user } = useAuth();
   const [currentPage, setCurrentPage] = useState('dashboard');
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
   const [teacherClass, setTeacherClass] = useState(null);
-  const [stats, setStats] = useState({
-    totalStudents: 0,
-    presentToday: 0,
-    totalToday: 0,
-    overallAttendanceRate: 0,
-    todayPieData: []
-  });
+  const stats = useAttendanceStats(selectedDate, user?.role, user?.id);
 
   useEffect(() => {
     const classes = getClasses();
@@ -184,10 +181,10 @@ const TeacherPage = () => {
   };
 
   return (
-    <AdminLayout currentPage={currentPage} onPageChange={setCurrentPage}>
+    <MainLayout currentPage={currentPage} onPageChange={setCurrentPage}>
       {renderPageContent()}
-    </AdminLayout>
+    </MainLayout>
   );
 };
 
-export default TeacherPage;
+export default TeacherDashboard;

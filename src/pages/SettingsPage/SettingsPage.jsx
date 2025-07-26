@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Typography, Box, Button, Grid, Card, CardContent } from '@mui/material';
 import { initializeDummyData, clearAllData } from '@services/dataService';
+import { generateRandomData } from '@services/apiService';
 import ConfirmDialog from '@components/common/ConfirmDialog';
 import AlertDialog from '@components/common/AlertDialog';
 
@@ -27,82 +28,14 @@ const SettingsPage = () => {
     setAlertOpen(true);
   };
 
-  const generateRandomData = async () => {
+  const handleGenerateRandomData = async () => {
     setLoading(true);
     try {
-      // Generate random names
-      const namesResponse = await fetch('https://randomuser.me/api/?results=60&nat=us');
-      const namesData = await namesResponse.json();
-      const users = namesData.results;
+      const { teachers, students, classes, attendanceRecords } = await generateRandomData();
       
-      // Generate teachers (first 10 users)
-      const teachers = users.slice(0, 10).map((user, index) => ({
-        id: `t${index + 1}`,
-        firstName: user.name.first,
-        lastName: user.name.last,
-        email: `${user.name.first.toLowerCase()}.${user.name.last.toLowerCase()}@school.com`,
-        password: 'password',
-        subject: ['Mathematics', 'Physics', 'Chemistry', 'Biology', 'English', 'History', 'Geography', 'Computer Science', 'Art', 'Music'][index]
-      }));
-      
-      // Generate students (next 50 users)
-      const students = users.slice(10, 60).map((user, index) => ({
-        id: `s${index + 1}`,
-        firstName: user.name.first,
-        lastName: user.name.last,
-        email: `${user.name.first.toLowerCase()}.${user.name.last.toLowerCase()}@student.com`,
-        password: 'password',
-        rollNumber: `S${String(index + 1).padStart(3, '0')}`
-      }));
-      
-      // Generate classes
-      const classes = Array.from({ length: 10 }, (_, index) => {
-        const standards = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th'];
-        const classNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
-        
-        return {
-          id: `c${index + 1}`,
-          name: `Class ${classNames[index]}`,
-          standard: `${standards[index]} Standard`,
-          teacherId: teachers[index].id,
-          students: students.slice(index * 5, (index + 1) * 5).map(s => s.id)
-        };
-      });
-      
-      // Save to localStorage
       localStorage.setItem('attendo_teachers', JSON.stringify(teachers));
       localStorage.setItem('attendo_students', JSON.stringify(students));
       localStorage.setItem('attendo_classes', JSON.stringify(classes));
-      
-      // Generate attendance for past 60 days
-      const attendanceRecords = [];
-      const today = new Date();
-      
-      for (let dayOffset = 0; dayOffset < 60; dayOffset++) {
-        const date = new Date(today);
-        date.setDate(date.getDate() - dayOffset);
-        const dateStr = date.toISOString().split('T')[0];
-        
-        // Skip weekends
-        if (date.getDay() === 0 || date.getDay() === 6) continue;
-        
-        classes.forEach(classItem => {
-          const attendance = {};
-          classItem.students.forEach(studentId => {
-            // 85% chance of being present
-            attendance[studentId] = Math.random() > 0.15 ? 'present' : 'absent';
-          });
-          
-          attendanceRecords.push({
-            id: `${classItem.id}_${dateStr}`,
-            classId: classItem.id,
-            date: dateStr,
-            attendance,
-            markedAt: new Date().toISOString()
-          });
-        });
-      }
-      
       localStorage.setItem('attendo_attendance', JSON.stringify(attendanceRecords));
       
       setAlertMessage('Random data generated successfully! 10 teachers, 50 students, 10 classes with 60 days of attendance.');
@@ -141,7 +74,7 @@ const SettingsPage = () => {
                 <Button 
                   variant="contained" 
                   color="secondary"
-                  onClick={generateRandomData}
+                  onClick={handleGenerateRandomData}
                   disabled={loading}
                 >
                   {loading ? 'Generating...' : 'Generate Random Data'}
