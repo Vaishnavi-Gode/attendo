@@ -12,7 +12,8 @@ import {
   FormControl,
   InputLabel,
 } from "@mui/material";
-import { useAuth, USER_ROLE } from "@context/AuthContext";
+import { useAuth } from "@context/AuthContext";
+import { USER_ROLE } from "@constants";
 
 const LoginModal = ({ open, onClose }) => {
   const [email, setEmail] = useState("");

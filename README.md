@@ -1,100 +1,135 @@
-# Attendo - Student Attendance Tracker
+# Attendo - Modern Attendance Tracker
 
-A modern, professional student attendance tracking application built with React, JavaScript, and Material-UI.
+A professional, responsive attendance management system built with React and Material-UI for educational institutions.
 
 ## Features
 
-- 👥 **Student Management**: Add, edit, delete student records
-- 🏫 **Class Management**: Create classes/sections, assign teachers
-- ✅ **Attendance Tracking**: Mark attendance with multiple status options
-- 📊 **Analytics & Reports**: Visual charts and comprehensive reporting
-- 📅 **Calendar Integration**: Calendar view for attendance marking
-- 🔐 **Role-Based Access Control**: Admin, Teacher, Student roles
-- 🌙 **Dark/Light Mode**: Theme switching capability
-- 📱 **Mobile Responsive**: Works on all device sizes
-- 🔍 **Search & Filter**: Real-time filtering capabilities
-- 📄 **Export Options**: PDF and CSV export functionality
+- **Role-Based Access Control**: Admin, Teacher, and Student dashboards
+- **Student Management**: Complete CRUD operations for student records
+- **Teacher Management**: Manage teacher profiles and assignments
+- **Class Management**: Create and organize classes with teacher assignments
+- **Attendance Tracking**: Mark and track attendance with visual analytics
+- **Dashboard Analytics**: Real-time statistics and charts
+- **Responsive Design**: Works seamlessly on all devices
+- **Dark/Light Theme**: Toggle between themes with persistent storage
+- **Local Storage**: All data persisted locally for demo purposes
 
 ## Tech Stack
 
-- **Frontend**: React 18, JavaScript
-- **UI Framework**: Material-UI (MUI) v5
-- **Routing**: React Router v6
-- **State Management**: React Context + Zustand
-- **Charts**: Recharts
-- **Date Handling**: date-fns
-- **Forms**: React Hook Form
-- **HTTP Client**: Axios
-- **Build Tool**: Vite
-- **Styling**: Emotion (CSS-in-JS)
+- **React 18** - Modern React with hooks
+- **Material-UI v5** - Professional UI components
+- **Recharts** - Interactive charts and analytics
+- **React Router v6** - Client-side routing
+- **React Hot Toast** - Elegant notifications
+- **Vite** - Fast build tool and dev server
+- **ESLint** - Code quality and consistency
 
 ## Project Structure
 
 ```
 src/
-├── components/          # Reusable UI components
-│   ├── common/         # Shared components
-│   ├── students/       # Student-related components
-│   ├── classes/        # Class management components
-│   ├── attendance/     # Attendance components
-│   ├── reports/        # Reporting components
-│   ├── dashboard/      # Dashboard components
-│   └── auth/           # Authentication components
-├── pages/              # Page components
-├── context/            # React Context providers
-├── services/           # API services
-├── hooks/              # Custom React hooks
-├── utils/              # Utility functions
-├── types/              # TypeScript type definitions
-├── constants/          # Application constants
-├── theme/              # Material-UI theme configuration
-└── assets/             # Static assets
+├── components/common/     # Reusable UI components
+├── pages/                # Page components for different routes
+├── context/              # React Context providers (Auth, Theme)
+├── services/             # Data services and API calls
+├── hooks/                # Custom React hooks
+├── constants/            # Application constants
+├── theme/                # Material-UI theme configuration
+├── App.jsx               # Main application component
+└── main.jsx              # Application entry point
 ```
 
 ## Getting Started
 
-1. **Install dependencies**:
+### Prerequisites
+- Node.js 16+ and npm
 
+### Installation
+
+1. **Clone and install dependencies**:
    ```bash
    npm install
    ```
 
-2. **Set up environment variables**:
-
-   ```bash
-   cp .env.example .env
-   ```
-
-3. **Start development server**:
-
+2. **Start development server**:
    ```bash
    npm run dev
    ```
+   The app will open at `http://localhost:4000`
 
-4. **Build for production**:
+3. **Build for production**:
    ```bash
    npm run build
    ```
 
-## Development Workflow
+### Default Login Credentials
 
-The application is designed to be built page by page. Each page will include:
+- **Admin**: admin@example.com / password
+- **Teacher**: wilson@example.com / password (or any teacher from dummy data)
+- **Student**: john@example.com / password (or any student from dummy data)
 
-- Responsive layout with Material-UI components
-- Form validation and error handling
-- API integration with loading states
-- Search and filtering capabilities
-- Export functionality where applicable
-- Role-based access control
+## Key Components
 
-## Next Steps
+### Authentication System
+- Role-based login with persistent sessions
+- Automatic route protection based on user roles
+- Secure logout with session cleanup
 
-1. Provide your color palette for theme customization
-2. Implement individual pages starting with Dashboard
-3. Add specific components for each feature
-4. Integrate with backend API
-5. Add comprehensive testing
+### Dashboard Features
+- **Admin Dashboard**: Complete system overview with all statistics
+- **Teacher Dashboard**: Class-specific attendance and student management
+- **Student Dashboard**: Personal attendance records and class information
+
+### Data Management
+- Unified storage service for all CRUD operations
+- Real-time data synchronization across components
+- Dummy data initialization for demo purposes
+
+### Theme System
+- Professional light/dark theme implementation
+- Consistent color palette and typography
+- Responsive design patterns
+
+## Development Guidelines
+
+### Code Organization
+- Components are organized by feature and reusability
+- Services handle all data operations
+- Constants centralize configuration values
+- Hooks encapsulate reusable logic
+
+### Styling Approach
+- Material-UI theme system for consistent styling
+- Responsive design with mobile-first approach
+- Custom color palette with professional appearance
+
+### State Management
+- React Context for global state (auth, theme)
+- Local component state for UI interactions
+- Custom hooks for complex state logic
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
 ## Contributing
 
-Please follow the established folder structure and coding patterns when adding new features.
+1. Follow the established folder structure
+2. Use Material-UI components consistently
+3. Maintain responsive design patterns
+4. Add proper error handling
+5. Update documentation for new features
+
+## License
+
+This project is for educational and demonstration purposes.

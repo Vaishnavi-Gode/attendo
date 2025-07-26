@@ -16,7 +16,7 @@ import {
   CalendarToday, 
   People
 } from '@mui/icons-material';
-import { colors } from '@theme/theme';
+import { colors } from '@theme';
 import LoginModal from '@components/common/LoginModal';
 
 const LandingPage = () => {

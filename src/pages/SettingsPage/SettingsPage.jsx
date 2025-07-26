@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Typography, Box, Button, Grid, Card, CardContent } from '@mui/material';
-import { initializeDummyData, clearAllData } from '@services/dataService';
+import { initializeDummyData, clearAllData } from '@services/storageService';
 import { generateRandomData } from '@services/apiService';
+import { STORAGE_KEYS } from '@constants';
 import ConfirmDialog from '@components/common/ConfirmDialog';
 import AlertDialog from '@components/common/AlertDialog';
 
@@ -33,10 +34,10 @@ const SettingsPage = () => {
     try {
       const { teachers, students, classes, attendanceRecords } = await generateRandomData();
       
-      localStorage.setItem('attendo_teachers', JSON.stringify(teachers));
-      localStorage.setItem('attendo_students', JSON.stringify(students));
-      localStorage.setItem('attendo_classes', JSON.stringify(classes));
-      localStorage.setItem('attendo_attendance', JSON.stringify(attendanceRecords));
+      localStorage.setItem(STORAGE_KEYS.TEACHERS, JSON.stringify(teachers));
+      localStorage.setItem(STORAGE_KEYS.STUDENTS, JSON.stringify(students));
+      localStorage.setItem(STORAGE_KEYS.CLASSES, JSON.stringify(classes));
+      localStorage.setItem(STORAGE_KEYS.ATTENDANCE, JSON.stringify(attendanceRecords));
       
       setAlertMessage('Random data generated successfully! 10 teachers, 50 students, 10 classes with 60 days of attendance.');
       setAlertOpen(true);

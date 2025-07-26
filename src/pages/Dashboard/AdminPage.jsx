@@ -6,9 +6,9 @@ import MainLayout from '@components/common/MainLayout';
 import DashboardStats from '@components/common/DashboardStats';
 import AttendanceCharts from '@components/common/AttendanceCharts';
 import { useAttendanceStats } from '@hooks/useAttendanceStats';
-import { getClasses, getStudents } from '@services/dataService';
-import { getAttendanceRecords } from '@services/attendanceService';
-import { colors } from '@theme/theme';
+import { studentsService, teachersService, classesService, attendanceService } from '@services/storageService';
+import { colors } from '@theme';
+import { STORAGE_KEYS } from '@constants';
 import StudentsPage from '@pages/StudentsPage/StudentsPage';
 import TeachersPage from '@pages/TeachersPage/TeachersPage';
 import ClassesPage from '@pages/ClassesPage/ClassesPage';
@@ -29,10 +29,10 @@ const AdminDashboard = () => {
   }, [selectedDate]);
 
   const loadAttendanceData = () => {
-    const students = JSON.parse(localStorage.getItem('attendo_students') || '[]');
-    const teachers = JSON.parse(localStorage.getItem('attendo_teachers') || '[]');
-    const classes = JSON.parse(localStorage.getItem('attendo_classes') || '[]');
-    const attendanceRecords = JSON.parse(localStorage.getItem('attendo_attendance') || '[]');
+    const students = studentsService.getAll();
+    const teachers = teachersService.getAll();
+    const classes = classesService.getAll();
+    const attendanceRecords = attendanceService.getAll();
     
     const data = [];
     

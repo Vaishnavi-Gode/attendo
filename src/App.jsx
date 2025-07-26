@@ -1,6 +1,7 @@
 
 import { Box } from '@mui/material';
-import { useAuth, USER_ROLE } from '@context/AuthContext';
+import { useAuth } from '@context/AuthContext';
+import { USER_ROLE } from '@constants';
 import LandingPage from '@pages/LandingPage/LandingPage';
 import AdminDashboard from '@pages/Dashboard/AdminPage';
 import TeacherDashboard from '@pages/Dashboard/TeacherDashboard';

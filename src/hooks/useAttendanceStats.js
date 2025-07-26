@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { colors } from '@theme/theme';
+import { colors } from '@theme';
+import { STORAGE_KEYS, ATTENDANCE_STATUS } from '@constants';
 
 export const useAttendanceStats = (selectedDate, userRole, userId) => {
   const [stats, setStats] = useState({
@@ -23,18 +24,18 @@ export const useAttendanceStats = (selectedDate, userRole, userId) => {
     window.addEventListener('storage', handleStorageChange);
     
     // Custom event for same-tab localStorage changes
-    window.addEventListener('attendanceUpdated', handleStorageChange);
+    window.addEventListener('storageUpdated', handleStorageChange);
     
     return () => {
       window.removeEventListener('storage', handleStorageChange);
-      window.removeEventListener('attendanceUpdated', handleStorageChange);
+      window.removeEventListener('storageUpdated', handleStorageChange);
     };
   }, [selectedDate, userRole, userId]);
 
   const calculateStats = () => {
-    const students = JSON.parse(localStorage.getItem('attendo_students') || '[]');
-    const classes = JSON.parse(localStorage.getItem('attendo_classes') || '[]');
-    const attendanceRecords = JSON.parse(localStorage.getItem('attendo_attendance') || '[]');
+    const students = JSON.parse(localStorage.getItem(STORAGE_KEYS.STUDENTS) || '[]');
+    const classes = JSON.parse(localStorage.getItem(STORAGE_KEYS.CLASSES) || '[]');
+    const attendanceRecords = JSON.parse(localStorage.getItem(STORAGE_KEYS.ATTENDANCE) || '[]');
     
     let filteredClasses = classes;
     let filteredStudents = students;
@@ -63,8 +64,8 @@ export const useAttendanceStats = (selectedDate, userRole, userId) => {
       const classData = filteredClasses.find(c => c.id === record.classId);
       if (classData) {
         const attendance = Object.values(record.attendance);
-        const present = attendance.filter(s => s === 'present').length;
-        const absent = attendance.filter(s => s === 'absent').length;
+        const present = attendance.filter(s => s === ATTENDANCE_STATUS.PRESENT).length;
+        const absent = attendance.filter(s => s === ATTENDANCE_STATUS.ABSENT).length;
         
         presentToday += present;
         totalToday += present + absent;
@@ -87,7 +88,7 @@ export const useAttendanceStats = (selectedDate, userRole, userId) => {
     
     relevantRecords.forEach(record => {
       const attendance = Object.values(record.attendance);
-      totalPresentAll += attendance.filter(s => s === 'present').length;
+      totalPresentAll += attendance.filter(s => s === ATTENDANCE_STATUS.PRESENT).length;
       totalRecordsAll += attendance.length;
     });
     

@@ -7,9 +7,9 @@ import DashboardStats from '@components/common/DashboardStats';
 import AttendanceCharts from '@components/common/AttendanceCharts';
 import { useAttendanceStats } from '@hooks/useAttendanceStats';
 import AttendancePage from '@pages/AttendancePage/AttendancePage';
-import { getClasses, getStudents } from '@services/dataService';
-import { getAttendanceRecords } from '@services/attendanceService';
-import { colors } from '@theme/theme';
+import { classesService, studentsService, teachersService, attendanceService } from '@services/storageService';
+import { colors } from '@theme';
+import { STORAGE_KEYS, ATTENDANCE_STATUS } from '@constants';
 
 const TeacherDashboard = () => {
   const { user } = useAuth();
@@ -29,9 +29,9 @@ const TeacherDashboard = () => {
   const loadAttendanceData = () => {
     if (!teacherClass) return;
     
-    const students = JSON.parse(localStorage.getItem('attendo_students') || '[]');
-    const teachers = JSON.parse(localStorage.getItem('attendo_teachers') || '[]');
-    const attendanceRecords = JSON.parse(localStorage.getItem('attendo_attendance') || '[]');
+    const students = studentsService.getAll();
+    const teachers = teachersService.getAll();
+    const attendanceRecords = attendanceService.getAll();
     
     const teacher = teachers.find(t => t.id === teacherClass.teacherId);
     const teacherName = teacher ? `${teacher.firstName} ${teacher.lastName}` : 'No Teacher';
@@ -46,8 +46,8 @@ const TeacherDashboard = () => {
         
         attendanceRecords.forEach(record => {
           if (record.classId === teacherClass.id && record.attendance[studentId]) {
-            if (record.attendance[studentId] === 'present') present++;
-            else if (record.attendance[studentId] === 'absent') absent++;
+            if (record.attendance[studentId] === ATTENDANCE_STATUS.PRESENT) present++;
+            else if (record.attendance[studentId] === ATTENDANCE_STATUS.ABSENT) absent++;
           }
         });
         
@@ -69,7 +69,7 @@ const TeacherDashboard = () => {
   );
 
   useEffect(() => {
-    const classes = getClasses();
+    const classes = classesService.getAll();
     const assignedClass = classes.find(c => c.teacherId === user?.id);
     setTeacherClass(assignedClass);
   }, [user]);

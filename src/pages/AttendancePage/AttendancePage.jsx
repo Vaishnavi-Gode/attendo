@@ -21,8 +21,8 @@ import {
   Switch
 } from '@mui/material';
 import { CheckCircle, Cancel } from '@mui/icons-material';
-import { getClasses, getStudents } from '@services/dataService';
-import { markAttendance, getAttendanceByClassAndDate } from '@services/attendanceService';
+import { classesService, studentsService, attendanceService } from '@services/storageService';
+import { STORAGE_KEYS } from '@constants';
 import { useAuth } from '@context/AuthContext';
 import AlertDialog from '@components/common/AlertDialog';
 
@@ -38,8 +38,8 @@ const AttendancePage = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    const allClasses = getClasses();
-    const allStudents = getStudents();
+    const allClasses = classesService.getAll();
+    const allStudents = studentsService.getAll();
     
     // Filter classes based on user role
     if (user?.role === 'teacher') {
@@ -64,8 +64,7 @@ const AttendancePage = () => {
         setClassStudents(studentsInClass);
         
         // Load existing attendance
-        const attendanceRecords = JSON.parse(localStorage.getItem('attendo_attendance') || '[]');
-        const existingAttendance = attendanceRecords.find(r => r.classId === selectedClass && r.date === selectedDate);
+        const existingAttendance = attendanceService.getByClassAndDate(selectedClass, selectedDate);
         if (existingAttendance) {
           setAttendance(existingAttendance.attendance);
         } else {
@@ -92,7 +91,7 @@ const AttendancePage = () => {
       return;
     }
 
-    markAttendance(selectedClass, selectedDate, attendance);
+    attendanceService.mark(selectedClass, selectedDate, attendance);
     setAlertOpen(true);
   };
 

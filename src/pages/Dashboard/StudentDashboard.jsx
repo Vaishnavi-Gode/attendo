@@ -3,9 +3,9 @@ import { Typography, Box, Card, CardContent, Grid, IconButton } from '@mui/mater
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import { useAuth } from '@context/AuthContext';
 import MainLayout from '@components/common/MainLayout';
-import { getClasses } from '@services/dataService';
-import { getAttendanceRecords } from '@services/attendanceService';
-import { colors } from '@theme/theme';
+import { classesService } from '@services/storageService';
+import { colors } from '@theme';
+import { STORAGE_KEYS, ATTENDANCE_STATUS } from '@constants';
 
 const StudentDashboard = () => {
   const { user } = useAuth();
@@ -28,8 +28,8 @@ const StudentDashboard = () => {
   }, [currentPage, user]);
 
   const loadStudentData = () => {
-    const classes = getClasses();
-    const allAttendanceRecords = JSON.parse(localStorage.getItem('attendo_attendance') || '[]');
+    const classes = classesService.getAll();
+    const allAttendanceRecords = JSON.parse(localStorage.getItem(STORAGE_KEYS.ATTENDANCE) || '[]');
     
     // Find student's class
     const assignedClass = classes.find(c => c.students?.includes(user?.id));
@@ -50,7 +50,7 @@ const StudentDashboard = () => {
           studentAttendance[record.date] = status;
           
           totalDays++;
-          if (status === 'present') {
+          if (status === ATTENDANCE_STATUS.PRESENT) {
             presentDays++;
           }
         }
@@ -171,10 +171,10 @@ const StudentDashboard = () => {
             let bgColor = 'transparent';
             let textColor = day.isCurrentMonth ? 'text.primary' : 'text.disabled';
             
-            if (day.attendanceStatus === 'present') {
+            if (day.attendanceStatus === ATTENDANCE_STATUS.PRESENT) {
               bgColor = colors.accent;
               textColor = 'white';
-            } else if (day.attendanceStatus === 'absent') {
+            } else if (day.attendanceStatus === ATTENDANCE_STATUS.ABSENT) {
               bgColor = colors.highlight;
               textColor = 'white';
             }

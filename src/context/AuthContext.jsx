@@ -1,10 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-
-export const USER_ROLE = {
-  ADMIN: 'admin',
-  TEACHER: 'teacher',
-  STUDENT: 'student'
-};
+import { USER_ROLE, STORAGE_KEYS, DEFAULT_CREDENTIALS } from '@constants';
 
 const AuthContext = createContext();
 
@@ -20,18 +15,18 @@ export const AuthProvider = ({ children }) => {
       let foundUser = null;
       
       // Check admin credentials
-      if (role === USER_ROLE.ADMIN && email === 'admin@example.com' && password === 'password') {
+      if (role === USER_ROLE.ADMIN && email === DEFAULT_CREDENTIALS.ADMIN.email && password === DEFAULT_CREDENTIALS.ADMIN.password) {
         foundUser = {
           id: 'admin',
-          email: 'admin@example.com',
+          email: DEFAULT_CREDENTIALS.ADMIN.email,
           firstName: 'Admin',
           lastName: 'User',
           role: USER_ROLE.ADMIN
         };
       } else {
         // Get stored users from localStorage
-        const students = JSON.parse(localStorage.getItem('attendo_students') || '[]');
-        const teachers = JSON.parse(localStorage.getItem('attendo_teachers') || '[]');
+        const students = JSON.parse(localStorage.getItem(STORAGE_KEYS.STUDENTS) || '[]');
+        const teachers = JSON.parse(localStorage.getItem(STORAGE_KEYS.TEACHERS) || '[]');
         
         if (role === USER_ROLE.STUDENT) {
           foundUser = students.find(s => s.email === email && s.password === password);
@@ -54,7 +49,7 @@ export const AuthProvider = ({ children }) => {
       };
       
       setUser(user);
-      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(user));
     } catch (error) {
       throw new Error('Invalid email or password');
     } finally {
@@ -64,17 +59,17 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('user');
-    localStorage.removeItem('token');
+    localStorage.removeItem(STORAGE_KEYS.USER);
+    localStorage.removeItem(STORAGE_KEYS.TOKEN);
   };
 
   useEffect(() => {
-    const savedUser = localStorage.getItem('user');
+    const savedUser = localStorage.getItem(STORAGE_KEYS.USER);
     if (savedUser) {
       try {
         setUser(JSON.parse(savedUser));
       } catch (error) {
-        localStorage.removeItem('user');
+        localStorage.removeItem(STORAGE_KEYS.USER);
       }
     }
     setLoading(false);
@@ -94,3 +89,5 @@ export const useAuth = () => {
   }
   return context;
 };
+
+export { USER_ROLE };

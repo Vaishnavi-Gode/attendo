@@ -4,7 +4,14 @@ import { BrowserRouter } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { ThemeProvider } from '@context/ThemeContext';
 import { AuthProvider } from '@context/AuthContext';
+import { initializeDummyData } from '@services/storageService';
+import { STORAGE_KEYS } from '@constants';
 import App from './App';
+
+// Initialize dummy data if not exists
+if (!localStorage.getItem(STORAGE_KEYS.STUDENTS)) {
+  initializeDummyData();
+}
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

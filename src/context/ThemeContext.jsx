@@ -1,13 +1,14 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
-import { lightTheme, darkTheme } from '@theme/theme';
+import { lightTheme, darkTheme } from '@theme';
+import { STORAGE_KEYS } from '@constants';
 
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    const saved = localStorage.getItem('theme');
+    const saved = localStorage.getItem(STORAGE_KEYS.THEME);
     return saved ? saved === 'dark' : false;
   });
 
@@ -16,7 +17,7 @@ export const ThemeProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    localStorage.setItem(STORAGE_KEYS.THEME, isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
 
   const theme = isDarkMode ? darkTheme : lightTheme;
