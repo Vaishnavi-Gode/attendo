@@ -67,13 +67,15 @@ const MainLayout = ({ children, currentPage, onPageChange }) => {
             <MenuIcon />
           </IconButton>
           
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginRight: '10px' }}>
-              <circle cx="16" cy="16" r="14" fill="#4dd0e1" stroke="white" strokeWidth="2"/>
-              <path d="M12 16l3 3 6-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <circle cx="8" cy="8" r="2" fill="white" opacity="0.8"/>
-              <circle cx="24" cy="8" r="1.5" fill="white" opacity="0.6"/>
-              <circle cx="8" cy="24" r="1" fill="white" opacity="0.4"/>
+          <Box 
+            sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
+            onClick={() => onPageChange('dashboard')}
+          >
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginRight: '10px' }}>
+              <circle cx="12" cy="12" r="11" fill="#4dd0e1" stroke="white" strokeWidth="2"/>
+              <circle cx="12" cy="6" r="3" fill="white"/>
+              <path d="M12 10c-2 0-4 1-4 3v6h8v-6c0-2-2-3-4-3z" fill="white"/>
+              <path d="M16 12l3-6 2 1-3 6z" fill="white"/>
             </svg>
             <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'white' }}>
               Attendo

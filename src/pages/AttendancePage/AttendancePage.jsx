@@ -18,7 +18,8 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Switch
+  Switch,
+  ButtonGroup
 } from '@mui/material';
 import { CheckCircle, Cancel } from '@mui/icons-material';
 import { classesService, studentsService, attendanceService } from '@services/storageService';
@@ -34,6 +35,7 @@ const AttendancePage = () => {
   const [attendance, setAttendance] = useState({});
   const [classStudents, setClassStudents] = useState([]);
   const [alertOpen, setAlertOpen] = useState(false);
+  const [filterStatus, setFilterStatus] = useState('all');
 
   const { user } = useAuth();
 
@@ -147,7 +149,7 @@ const AttendancePage = () => {
           borderRadius: '20px'
         }}>
           <CardContent sx={{ p: 3 }}>
-            <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
+            <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
               <Box display="flex" alignItems="center" gap={2}>
                 <Typography variant="h6" sx={{ fontWeight: 600 }}>
                   Students ({classStudents.length})
@@ -167,6 +169,33 @@ const AttendancePage = () => {
                     color="success"
                   />
                 </Box>
+              </Box>
+            </Box>
+            <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
+              <Box sx={{ display: 'flex', gap: 1 }}>
+                <Button 
+                  variant={filterStatus === 'all' ? 'contained' : 'outlined'}
+                  onClick={() => setFilterStatus('all')}
+                  size="small"
+                >
+                  All
+                </Button>
+                <Button 
+                  variant={filterStatus === 'present' ? 'contained' : 'outlined'}
+                  onClick={() => setFilterStatus('present')}
+                  size="small"
+                  color="success"
+                >
+                  Present
+                </Button>
+                <Button 
+                  variant={filterStatus === 'absent' ? 'contained' : 'outlined'}
+                  onClick={() => setFilterStatus('absent')}
+                  size="small"
+                  color="error"
+                >
+                  Absent
+                </Button>
               </Box>
               <Button 
                 variant="contained" 
@@ -213,7 +242,14 @@ const AttendancePage = () => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {classStudents.map(student => (
+                  {classStudents
+                    .filter(student => {
+                      if (filterStatus === 'all') return true;
+                      if (filterStatus === 'present') return attendance[student.id] === 'present';
+                      if (filterStatus === 'absent') return attendance[student.id] === 'absent';
+                      return true;
+                    })
+                    .map(student => (
                     <TableRow key={student.id}>
                       <TableCell sx={{ fontWeight: 500 }}>{student.rollNumber}</TableCell>
                       <TableCell>{student.firstName} {student.lastName}</TableCell>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Box, TextField, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
+import toast from 'react-hot-toast';
 import { studentsService, classesService } from '@services/storageService';
 import PageHeader from '@components/common/PageHeader';
 import SearchFilter from '@components/common/SearchFilter';
@@ -39,13 +40,35 @@ const StudentsPage = () => {
   });
 
   useEffect(() => {
-    setClasses(classesService.getAll());
+    loadRelatedData();
+    
+    const handleStorageUpdate = () => {
+      loadRelatedData();
+    };
+    
+    window.addEventListener('storageUpdated', handleStorageUpdate);
+    
+    return () => {
+      window.removeEventListener('storageUpdated', handleStorageUpdate);
+    };
   }, []);
+  
+  const loadRelatedData = () => {
+    setClasses(classesService.getAll());
+  };
 
   const handleSubmit = () => {
     baseSumbit((editing, formData) => {
       if (editing) {
+        // Remove from previous class
+        const previousClass = classes.find(c => c.students?.includes(editing.id));
+        if (previousClass) {
+          classesService.removeStudent(previousClass.id, editing.id);
+        }
+        
         studentsService.update(editing.id, formData);
+        
+        // Assign to new class
         if (formData.classId) {
           classesService.assignStudent(formData.classId, editing.id);
         }
@@ -56,6 +79,7 @@ const StudentsPage = () => {
         }
       }
     });
+    toast.success(editingStudent ? 'Student updated successfully!' : 'Student added successfully!');
   };
 
   const handleEdit = (student) => {

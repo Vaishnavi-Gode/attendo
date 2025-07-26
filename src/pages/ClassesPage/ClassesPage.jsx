@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Box, TextField, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
+import toast from 'react-hot-toast';
 import { classesService, teachersService, studentsService } from '@services/storageService';
 import PageHeader from '@components/common/PageHeader';
 import SearchFilter from '@components/common/SearchFilter';
@@ -17,6 +18,7 @@ const ClassesPage = () => {
     searchColumn,
     setSearchColumn,
     open,
+    setOpen,
     editing: editingClass,
     formData,
     setFormData,
@@ -38,6 +40,15 @@ const ClassesPage = () => {
     if (window.confirm('Delete this class?')) {
       baseDelete(classItem);
     }
+  };
+
+  const handleFormSubmit = () => {
+    if (!formData.name || !formData.standard) {
+      toast.error('Please fill in all required fields');
+      return;
+    }
+    handleSubmit();
+    toast.success(editingClass ? 'Class updated successfully!' : 'Class added successfully!');
   };
 
 
@@ -110,7 +121,7 @@ const ClassesPage = () => {
         open={open}
         onClose={() => setOpen(false)}
         title={editingClass ? 'Edit Class' : 'Add Class'}
-        onSubmit={handleSubmit}
+        onSubmit={handleFormSubmit}
         submitText={editingClass ? 'Update' : 'Add'}
       >
         <TextField

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Box, Card, CardContent, Grid, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Autocomplete } from '@mui/material';
+import { Typography, Box, Card, CardContent, Grid, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Autocomplete, Button, ButtonGroup } from '@mui/material';
 import { PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useAuth } from '@context/AuthContext';
 import MainLayout from '@components/common/MainLayout';
@@ -18,6 +18,7 @@ const TeacherDashboard = () => {
   const [teacherClass, setTeacherClass] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [attendanceData, setAttendanceData] = useState([]);
+  const [filterStatus, setFilterStatus] = useState('all');
   const stats = useAttendanceStats(selectedDate, user?.role, user?.id);
 
   useEffect(() => {
@@ -51,12 +52,19 @@ const TeacherDashboard = () => {
           }
         });
         
+        // Get today's attendance status
+        const todayRecord = attendanceRecords.find(r => 
+          r.classId === teacherClass.id && r.date === selectedDate
+        );
+        const todayStatus = todayRecord?.attendance[studentId] || 'not_marked';
+        
         data.push({
           className: `${teacherClass.name} - ${teacherClass.standard}`,
           teacherName,
           studentName: `${student.firstName} ${student.lastName}`,
           present,
-          absent
+          absent,
+          todayStatus
         });
       }
     });
@@ -64,9 +72,13 @@ const TeacherDashboard = () => {
     setAttendanceData(data);
   };
 
-  const filteredAttendanceData = attendanceData.filter(row => 
-    row.studentName.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredAttendanceData = attendanceData.filter(row => {
+    const matchesSearch = row.studentName.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesFilter = filterStatus === 'all' || 
+      (filterStatus === 'present' && row.todayStatus === ATTENDANCE_STATUS.PRESENT) ||
+      (filterStatus === 'absent' && row.todayStatus === ATTENDANCE_STATUS.ABSENT);
+    return matchesSearch && matchesFilter;
+  });
 
   useEffect(() => {
     const classes = classesService.getAll();
@@ -145,7 +157,8 @@ const TeacherDashboard = () => {
                       <Typography variant="h6" gutterBottom sx={{ fontWeight: 600, mb: 2 }}>
                         My Class Attendance
                       </Typography>
-                      <Autocomplete
+                      <Box sx={{ display: 'flex', gap: 2, mb: 2, alignItems: 'center' }}>
+                        <Autocomplete
                         freeSolo
                         size="small"
                         options={[...new Set(attendanceData.map(row => row.studentName))]}
@@ -158,8 +171,34 @@ const TeacherDashboard = () => {
                             fullWidth
                           />
                         )}
-                        sx={{ mb: 2 }}
+                        sx={{ flex: 1 }}
                       />
+                        <Box sx={{ display: 'flex', gap: 1 }}>
+                          <Button 
+                            variant={filterStatus === 'all' ? 'contained' : 'outlined'}
+                            onClick={() => setFilterStatus('all')}
+                            size="small"
+                          >
+                            All
+                          </Button>
+                          <Button 
+                            variant={filterStatus === 'present' ? 'contained' : 'outlined'}
+                            onClick={() => setFilterStatus('present')}
+                            size="small"
+                            color="success"
+                          >
+                            Present
+                          </Button>
+                          <Button 
+                            variant={filterStatus === 'absent' ? 'contained' : 'outlined'}
+                            onClick={() => setFilterStatus('absent')}
+                            size="small"
+                            color="error"
+                          >
+                            Absent
+                          </Button>
+                        </Box>
+                      </Box>
                       <TableContainer sx={{ 
                         height: 300, 
                         borderRadius: '12px',
@@ -185,6 +224,7 @@ const TeacherDashboard = () => {
                           <TableHead>
                             <TableRow>
                               <TableCell sx={{ fontWeight: 600 }}>Student</TableCell>
+                              <TableCell align="center" sx={{ fontWeight: 600 }}>Today</TableCell>
                               <TableCell align="center" sx={{ fontWeight: 600 }}>Present</TableCell>
                               <TableCell align="center" sx={{ fontWeight: 600 }}>Absent</TableCell>
                             </TableRow>
@@ -193,6 +233,16 @@ const TeacherDashboard = () => {
                             {filteredAttendanceData.map((row, index) => (
                               <TableRow key={index}>
                                 <TableCell>{row.studentName}</TableCell>
+                                <TableCell align="center">
+                                  <Box sx={{ 
+                                    color: row.todayStatus === ATTENDANCE_STATUS.PRESENT ? '#00ACC1' : 
+                                           row.todayStatus === ATTENDANCE_STATUS.ABSENT ? '#f44336' : '#666',
+                                    fontWeight: 600
+                                  }}>
+                                    {row.todayStatus === ATTENDANCE_STATUS.PRESENT ? 'P' : 
+                                     row.todayStatus === ATTENDANCE_STATUS.ABSENT ? 'A' : '-'}
+                                  </Box>
+                                </TableCell>
                                 <TableCell align="center" sx={{ color: '#00ACC1', fontWeight: 600 }}>{row.present}</TableCell>
                                 <TableCell align="center" sx={{ color: '#f44336', fontWeight: 600 }}>{row.absent}</TableCell>
                               </TableRow>

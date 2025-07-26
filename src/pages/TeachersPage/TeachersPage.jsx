@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Box, TextField, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
+import toast from 'react-hot-toast';
 import { teachersService, classesService } from '@services/storageService';
 import PageHeader from '@components/common/PageHeader';
 import SearchFilter from '@components/common/SearchFilter';
@@ -17,6 +18,7 @@ const TeachersPage = () => {
     searchColumn,
     setSearchColumn,
     open,
+    setOpen,
     confirmOpen,
     editing: editingTeacher,
     deleting: deletingTeacher,
@@ -42,7 +44,15 @@ const TeachersPage = () => {
   const handleSubmit = () => {
     baseSubmit((editing, formData) => {
       if (editing) {
+        // Remove teacher from previous class
+        const previousClass = classes.find(c => c.teacherId === editing.id);
+        if (previousClass) {
+          classesService.assignTeacher(previousClass.id, null);
+        }
+        
         teachersService.update(editing.id, formData);
+        
+        // Assign to new class
         if (formData.classId) {
           classesService.assignTeacher(formData.classId, editing.id);
         }
@@ -53,6 +63,7 @@ const TeachersPage = () => {
         }
       }
     });
+    toast.success(editingTeacher ? 'Teacher updated successfully!' : 'Teacher added successfully!');
   };
 
   const handleEdit = (teacher) => {

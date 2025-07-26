@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Box, Card, CardContent, Grid, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Autocomplete } from '@mui/material';
+import { Typography, Box, Card, CardContent, Grid, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Autocomplete, Button } from '@mui/material';
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useAuth } from '@context/AuthContext';
 import MainLayout from '@components/common/MainLayout';
@@ -22,6 +22,7 @@ const AdminDashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchColumn, setSearchColumn] = useState('all');
   const [attendanceData, setAttendanceData] = useState([]);
+  const [filterStatus, setFilterStatus] = useState('all');
   const stats = useAttendanceStats(selectedDate, user?.role, user?.id);
 
   useEffect(() => {
@@ -53,12 +54,19 @@ const AdminDashboard = () => {
             }
           });
           
+          // Get today's attendance status
+          const todayRecord = attendanceRecords.find(r => 
+            r.classId === classItem.id && r.date === selectedDate
+          );
+          const todayStatus = todayRecord?.attendance[studentId] || 'not_marked';
+          
           data.push({
             className: `${classItem.name} - ${classItem.standard}`,
             teacherName,
             studentName: `${student.firstName} ${student.lastName}`,
             present,
-            absent
+            absent,
+            todayStatus
           });
         }
       });
@@ -77,16 +85,23 @@ const AdminDashboard = () => {
   };
 
   const filteredAttendanceData = attendanceData.filter(row => {
-    if (!searchTerm) return true;
-    const term = searchTerm.toLowerCase();
-    switch(searchColumn) {
-      case 'class': return row.className.toLowerCase().includes(term);
-      case 'teacher': return row.teacherName.toLowerCase().includes(term);
-      case 'student': return row.studentName.toLowerCase().includes(term);
-      default: return row.className.toLowerCase().includes(term) || 
-                     row.teacherName.toLowerCase().includes(term) || 
-                     row.studentName.toLowerCase().includes(term);
-    }
+    const matchesSearch = !searchTerm || (() => {
+      const term = searchTerm.toLowerCase();
+      switch(searchColumn) {
+        case 'class': return row.className.toLowerCase().includes(term);
+        case 'teacher': return row.teacherName.toLowerCase().includes(term);
+        case 'student': return row.studentName.toLowerCase().includes(term);
+        default: return row.className.toLowerCase().includes(term) || 
+                       row.teacherName.toLowerCase().includes(term) || 
+                       row.studentName.toLowerCase().includes(term);
+      }
+    })();
+    
+    const matchesFilter = filterStatus === 'all' || 
+      (filterStatus === 'present' && row.todayStatus === 'present') ||
+      (filterStatus === 'absent' && row.todayStatus === 'absent');
+    
+    return matchesSearch && matchesFilter;
   });
 
 
@@ -176,19 +191,47 @@ const AdminDashboard = () => {
                   </TextField>
                 </Grid>
                 <Grid item xs={12} md={8}>
-                  <Autocomplete
-                    freeSolo
-                    options={[...new Set(getSearchOptions())]}
-                    value={searchTerm}
-                    onInputChange={(event, newValue) => setSearchTerm(newValue || '')}
-                    renderInput={(params) => (
-                      <TextField
-                        {...params}
-                        placeholder={`Search by ${searchColumn === 'all' ? 'any column' : searchColumn}...`}
-                        fullWidth
-                      />
-                    )}
-                  />
+                  <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+                    <Autocomplete
+                      freeSolo
+                      options={[...new Set(getSearchOptions())]}
+                      value={searchTerm}
+                      onInputChange={(event, newValue) => setSearchTerm(newValue || '')}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          placeholder={`Search by ${searchColumn === 'all' ? 'any column' : searchColumn}...`}
+                          fullWidth
+                        />
+                      )}
+                      sx={{ flex: 1 }}
+                    />
+                    <Box sx={{ display: 'flex', gap: 1 }}>
+                      <Button 
+                        variant={filterStatus === 'all' ? 'contained' : 'outlined'}
+                        onClick={() => setFilterStatus('all')}
+                        size="small"
+                      >
+                        All
+                      </Button>
+                      <Button 
+                        variant={filterStatus === 'present' ? 'contained' : 'outlined'}
+                        onClick={() => setFilterStatus('present')}
+                        size="small"
+                        color="success"
+                      >
+                        Present
+                      </Button>
+                      <Button 
+                        variant={filterStatus === 'absent' ? 'contained' : 'outlined'}
+                        onClick={() => setFilterStatus('absent')}
+                        size="small"
+                        color="error"
+                      >
+                        Absent
+                      </Button>
+                    </Box>
+                  </Box>
                 </Grid>
               </Grid>
               <TableContainer sx={{ 
