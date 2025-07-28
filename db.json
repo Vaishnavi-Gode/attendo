@@ -647,13 +647,13 @@
       "classId": "c2",
       "date": "2025-07-28",
       "attendance": {
-        "s6": "present",
+        "s6": "absent",
         "s7": "present",
         "s8": "present",
         "s9": "present",
         "s10": "present"
       },
-      "markedAt": "2025-07-28T12:45:38.702Z"
+      "markedAt": "2025-07-28T12:55:49.192Z"
     },
     {
       "id": "c4_2025-07-28",

@@ -85,7 +85,13 @@ const MainLayout = ({ children }) => {
             <MenuIcon />
           </IconButton>
 
-          <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Box 
+            sx={{ display: "flex", alignItems: "center", cursor: "pointer" }}
+            onClick={() => {
+              const baseRoute = user?.role === 'admin' ? '/admin' : `/${user?.role}`;
+              navigate(baseRoute);
+            }}
+          >
             <svg
               width="28"
               height="28"
