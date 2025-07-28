@@ -53,29 +53,29 @@ const StudentsPage = () => {
     };
   }, []);
   
-  const loadRelatedData = () => {
-    setClasses(classesService.getAll());
+  const loadRelatedData = async () => {
+    setClasses(await classesService.getAll());
   };
 
   const handleSubmit = () => {
-    baseSumbit((editing, formData) => {
+    baseSumbit(async (editing, formData) => {
       if (editing) {
         // Remove from previous class
         const previousClass = classes.find(c => c.students?.includes(editing.id));
         if (previousClass) {
-          classesService.removeStudent(previousClass.id, editing.id);
+          await classesService.removeStudent(previousClass.id, editing.id);
         }
         
-        studentsService.update(editing.id, formData);
+        await studentsService.update(editing.id, formData);
         
         // Assign to new class
         if (formData.classId) {
-          classesService.assignStudent(formData.classId, editing.id);
+          await classesService.assignStudent(formData.classId, editing.id);
         }
       } else {
-        const newStudent = studentsService.add(formData);
+        const newStudent = await studentsService.add(formData);
         if (formData.classId) {
-          classesService.assignStudent(formData.classId, newStudent.id);
+          await classesService.assignStudent(formData.classId, newStudent.id);
         }
       }
     });

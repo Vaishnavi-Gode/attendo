@@ -1,11 +1,14 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { USER_ROLE, STORAGE_KEYS, DEFAULT_CREDENTIALS } from '@constants';
+import { studentsService, teachersService } from '@services/storageService';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   const isAuthenticated = !!user;
 
@@ -24,14 +27,13 @@ export const AuthProvider = ({ children }) => {
           role: USER_ROLE.ADMIN
         };
       } else {
-        // Get stored users from localStorage
-        const students = JSON.parse(localStorage.getItem(STORAGE_KEYS.STUDENTS) || '[]');
-        const teachers = JSON.parse(localStorage.getItem(STORAGE_KEYS.TEACHERS) || '[]');
-        
+        // Get users from API
         if (role === USER_ROLE.STUDENT) {
+          const students = await studentsService.getAll();
           foundUser = students.find(s => s.email === email && s.password === password);
           if (foundUser) foundUser.role = USER_ROLE.STUDENT;
         } else if (role === USER_ROLE.TEACHER) {
+          const teachers = await teachersService.getAll();
           foundUser = teachers.find(t => t.email === email && t.password === password);
           if (foundUser) foundUser.role = USER_ROLE.TEACHER;
         }
@@ -50,6 +52,11 @@ export const AuthProvider = ({ children }) => {
       
       setUser(user);
       localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(user));
+      
+      // Navigate based on role
+      if (user.role === USER_ROLE.ADMIN) navigate('/admin');
+      else if (user.role === USER_ROLE.TEACHER) navigate('/teacher');
+      else if (user.role === USER_ROLE.STUDENT) navigate('/student');
     } catch (error) {
       throw new Error('Invalid email or password');
     } finally {
@@ -61,6 +68,7 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
     localStorage.removeItem(STORAGE_KEYS.USER);
     localStorage.removeItem(STORAGE_KEYS.TOKEN);
+    navigate('/');
   };
 
   useEffect(() => {

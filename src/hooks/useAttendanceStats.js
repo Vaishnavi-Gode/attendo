@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { colors } from '@theme';
-import { STORAGE_KEYS, ATTENDANCE_STATUS } from '@constants';
+import { ATTENDANCE_STATUS } from '@constants';
+import { studentsService, classesService, attendanceService } from '@services/storageService';
 
 export const useAttendanceStats = (selectedDate, userRole, userId) => {
   const [stats, setStats] = useState({
@@ -15,27 +16,12 @@ export const useAttendanceStats = (selectedDate, userRole, userId) => {
 
   useEffect(() => {
     calculateStats();
-    
-    // Listen for localStorage changes
-    const handleStorageChange = () => {
-      calculateStats();
-    };
-    
-    window.addEventListener('storage', handleStorageChange);
-    
-    // Custom event for same-tab localStorage changes
-    window.addEventListener('storageUpdated', handleStorageChange);
-    
-    return () => {
-      window.removeEventListener('storage', handleStorageChange);
-      window.removeEventListener('storageUpdated', handleStorageChange);
-    };
   }, [selectedDate, userRole, userId]);
 
-  const calculateStats = () => {
-    const students = JSON.parse(localStorage.getItem(STORAGE_KEYS.STUDENTS) || '[]');
-    const classes = JSON.parse(localStorage.getItem(STORAGE_KEYS.CLASSES) || '[]');
-    const attendanceRecords = JSON.parse(localStorage.getItem(STORAGE_KEYS.ATTENDANCE) || '[]');
+  const calculateStats = async () => {
+    const students = await studentsService.getAll();
+    const classes = await classesService.getAll();
+    const attendanceRecords = await attendanceService.getAll();
     
     let filteredClasses = classes;
     let filteredStudents = students;

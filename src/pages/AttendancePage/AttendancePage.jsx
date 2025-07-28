@@ -40,22 +40,27 @@ const AttendancePage = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    const allClasses = classesService.getAll();
-    const allStudents = studentsService.getAll();
-    
-    // Filter classes based on user role
-    if (user?.role === 'teacher') {
-      const teacherClasses = allClasses.filter(c => c.teacherId === user.id);
-      setClasses(teacherClasses);
-      // Auto-select teacher's class
-      if (teacherClasses.length > 0) {
-        setSelectedClass(teacherClasses[0].id);
+    const loadData = async () => {
+      const [allClasses, allStudents] = await Promise.all([
+        classesService.getAll(),
+        studentsService.getAll()
+      ]);
+      
+      // Filter classes based on user role
+      if (user?.role === 'teacher') {
+        const teacherClasses = allClasses.filter(c => c.teacherId === user.id);
+        setClasses(teacherClasses);
+        // Auto-select teacher's class
+        if (teacherClasses.length > 0) {
+          setSelectedClass(teacherClasses[0].id);
+        }
+      } else {
+        setClasses(allClasses);
       }
-    } else {
-      setClasses(allClasses);
-    }
-    
-    setStudents(allStudents);
+      
+      setStudents(allStudents);
+    };
+    loadData();
   }, [user]);
 
   useEffect(() => {
@@ -66,17 +71,20 @@ const AttendancePage = () => {
         setClassStudents(studentsInClass);
         
         // Load existing attendance
-        const existingAttendance = attendanceService.getByClassAndDate(selectedClass, selectedDate);
-        if (existingAttendance) {
-          setAttendance(existingAttendance.attendance);
-        } else {
-          // Initialize with all present
-          const initialAttendance = {};
-          studentsInClass.forEach(student => {
-            initialAttendance[student.id] = 'present';
-          });
-          setAttendance(initialAttendance);
-        }
+        const loadAttendance = async () => {
+          const existingAttendance = await attendanceService.getByClassAndDate(selectedClass, selectedDate);
+          if (existingAttendance) {
+            setAttendance(existingAttendance.attendance);
+          } else {
+            // Initialize with all present
+            const initialAttendance = {};
+            studentsInClass.forEach(student => {
+              initialAttendance[student.id] = 'present';
+            });
+            setAttendance(initialAttendance);
+          }
+        };
+        loadAttendance();
       }
     }
   }, [selectedClass, selectedDate, classes, students]);
@@ -88,12 +96,12 @@ const AttendancePage = () => {
     }));
   };
 
-  const handleSaveAttendance = () => {
+  const handleSaveAttendance = async () => {
     if (!selectedClass || !selectedDate) {
       return;
     }
 
-    attendanceService.mark(selectedClass, selectedDate, attendance);
+    await attendanceService.mark(selectedClass, selectedDate, attendance);
     setAlertOpen(true);
   };
 

@@ -1,0 +1,5976 @@
+{
+  "users": [
+    {
+      "id": "admin",
+      "email": "admin@example.com",
+      "password": "password",
+      "firstName": "Admin",
+      "lastName": "User",
+      "role": "admin",
+      "isActive": true,
+      "createdAt": "2025-01-27T00:00:00.000Z",
+      "updatedAt": "2025-01-27T00:00:00.000Z"
+    }
+  ],
+  "students": [
+    {
+      "id": "s1",
+      "firstName": "Tommy",
+      "lastName": "Edwards",
+      "email": "tommy.edwards@student.com",
+      "password": "password",
+      "rollNumber": "S001"
+    },
+    {
+      "id": "s2",
+      "firstName": "Nora",
+      "lastName": "Long",
+      "email": "nora.long@student.com",
+      "password": "password",
+      "rollNumber": "S002"
+    },
+    {
+      "id": "s4",
+      "firstName": "Marvin",
+      "lastName": "Little",
+      "email": "marvin.little@student.com",
+      "password": "password",
+      "rollNumber": "S004"
+    },
+    {
+      "id": "s3",
+      "firstName": "Eduardo",
+      "lastName": "Lowe",
+      "email": "eduardo.lowe@student.com",
+      "password": "password",
+      "rollNumber": "S003"
+    },
+    {
+      "id": "s5",
+      "firstName": "Jordan",
+      "lastName": "Wells",
+      "email": "jordan.wells@student.com",
+      "password": "password",
+      "rollNumber": "S005"
+    },
+    {
+      "id": "s6",
+      "firstName": "Daniel",
+      "lastName": "Torres",
+      "email": "daniel.torres@student.com",
+      "password": "password",
+      "rollNumber": "S006"
+    },
+    {
+      "id": "s7",
+      "firstName": "Vernon",
+      "lastName": "Bailey",
+      "email": "vernon.bailey@student.com",
+      "password": "password",
+      "rollNumber": "S007"
+    },
+    {
+      "id": "s8",
+      "firstName": "Gwendolyn",
+      "lastName": "Davis",
+      "email": "gwendolyn.davis@student.com",
+      "password": "password",
+      "rollNumber": "S008"
+    },
+    {
+      "id": "s9",
+      "firstName": "Layla",
+      "lastName": "Sutton",
+      "email": "layla.sutton@student.com",
+      "password": "password",
+      "rollNumber": "S009"
+    },
+    {
+      "id": "s10",
+      "firstName": "Dolores",
+      "lastName": "Gilbert",
+      "email": "dolores.gilbert@student.com",
+      "password": "password",
+      "rollNumber": "S010"
+    },
+    {
+      "id": "s11",
+      "firstName": "Craig",
+      "lastName": "Porter",
+      "email": "craig.porter@student.com",
+      "password": "password",
+      "rollNumber": "S011"
+    },
+    {
+      "id": "s13",
+      "firstName": "John",
+      "lastName": "Austin",
+      "email": "john.austin@student.com",
+      "password": "password",
+      "rollNumber": "S013"
+    },
+    {
+      "id": "s12",
+      "firstName": "Beverly",
+      "lastName": "Butler",
+      "email": "beverly.butler@student.com",
+      "password": "password",
+      "rollNumber": "S012"
+    },
+    {
+      "id": "s14",
+      "firstName": "Holly",
+      "lastName": "Clark",
+      "email": "holly.clark@student.com",
+      "password": "password",
+      "rollNumber": "S014"
+    },
+    {
+      "id": "s16",
+      "firstName": "Miriam",
+      "lastName": "Bishop",
+      "email": "miriam.bishop@student.com",
+      "password": "password",
+      "rollNumber": "S016"
+    },
+    {
+      "id": "s17",
+      "firstName": "June",
+      "lastName": "Sanders",
+      "email": "june.sanders@student.com",
+      "password": "password",
+      "rollNumber": "S017"
+    },
+    {
+      "id": "s15",
+      "firstName": "Dale",
+      "lastName": "Miller",
+      "email": "dale.miller@student.com",
+      "password": "password",
+      "rollNumber": "S015"
+    },
+    {
+      "id": "s18",
+      "firstName": "Ana",
+      "lastName": "Larson",
+      "email": "ana.larson@student.com",
+      "password": "password",
+      "rollNumber": "S018"
+    },
+    {
+      "id": "s19",
+      "firstName": "Tyler",
+      "lastName": "Hopkins",
+      "email": "tyler.hopkins@student.com",
+      "password": "password",
+      "rollNumber": "S019"
+    },
+    {
+      "id": "s21",
+      "firstName": "Salvador",
+      "lastName": "Dixon",
+      "email": "salvador.dixon@student.com",
+      "password": "password",
+      "rollNumber": "S021"
+    },
+    {
+      "id": "s22",
+      "firstName": "Martin",
+      "lastName": "Pena",
+      "email": "martin.pena@student.com",
+      "password": "password",
+      "rollNumber": "S022"
+    },
+    {
+      "id": "s20",
+      "firstName": "Earl",
+      "lastName": "Price",
+      "email": "earl.price@student.com",
+      "password": "password",
+      "rollNumber": "S020"
+    },
+    {
+      "id": "s23",
+      "firstName": "Alvin",
+      "lastName": "Burns",
+      "email": "alvin.burns@student.com",
+      "password": "password",
+      "rollNumber": "S023"
+    },
+    {
+      "id": "s25",
+      "firstName": "Michelle",
+      "lastName": "Bryant",
+      "email": "michelle.bryant@student.com",
+      "password": "password",
+      "rollNumber": "S025"
+    },
+    {
+      "id": "s24",
+      "firstName": "Delores",
+      "lastName": "Daniels",
+      "email": "delores.daniels@student.com",
+      "password": "password",
+      "rollNumber": "S024"
+    },
+    {
+      "id": "s26",
+      "firstName": "Wyatt",
+      "lastName": "Freeman",
+      "email": "wyatt.freeman@student.com",
+      "password": "password",
+      "rollNumber": "S026"
+    },
+    {
+      "id": "s27",
+      "firstName": "Milton",
+      "lastName": "Russell",
+      "email": "milton.russell@student.com",
+      "password": "password",
+      "rollNumber": "S027"
+    },
+    {
+      "id": "s28",
+      "firstName": "Frederick",
+      "lastName": "Chambers",
+      "email": "frederick.chambers@student.com",
+      "password": "password",
+      "rollNumber": "S028"
+    },
+    {
+      "id": "s29",
+      "firstName": "Sandra",
+      "lastName": "Barnes",
+      "email": "sandra.barnes@student.com",
+      "password": "password",
+      "rollNumber": "S029"
+    },
+    {
+      "id": "s32",
+      "firstName": "Camila",
+      "lastName": "Nguyen",
+      "email": "camila.nguyen@student.com",
+      "password": "password",
+      "rollNumber": "S032"
+    },
+    {
+      "id": "s30",
+      "firstName": "Ricardo",
+      "lastName": "Watts",
+      "email": "ricardo.watts@student.com",
+      "password": "password",
+      "rollNumber": "S030"
+    },
+    {
+      "id": "s31",
+      "firstName": "Jo",
+      "lastName": "Thomas",
+      "email": "jo.thomas@student.com",
+      "password": "password",
+      "rollNumber": "S031"
+    },
+    {
+      "id": "s33",
+      "firstName": "Ramona",
+      "lastName": "Barrett",
+      "email": "ramona.barrett@student.com",
+      "password": "password",
+      "rollNumber": "S033"
+    },
+    {
+      "id": "s34",
+      "firstName": "Kristen",
+      "lastName": "Ramirez",
+      "email": "kristen.ramirez@student.com",
+      "password": "password",
+      "rollNumber": "S034"
+    },
+    {
+      "id": "s37",
+      "firstName": "Nathan",
+      "lastName": "Black",
+      "email": "nathan.black@student.com",
+      "password": "password",
+      "rollNumber": "S037"
+    },
+    {
+      "id": "s36",
+      "firstName": "Stella",
+      "lastName": "Horton",
+      "email": "stella.horton@student.com",
+      "password": "password",
+      "rollNumber": "S036"
+    },
+    {
+      "id": "s35",
+      "firstName": "Isabella",
+      "lastName": "Larson",
+      "email": "isabella.larson@student.com",
+      "password": "password",
+      "rollNumber": "S035"
+    },
+    {
+      "id": "s38",
+      "firstName": "Luis",
+      "lastName": "Powell",
+      "email": "luis.powell@student.com",
+      "password": "password",
+      "rollNumber": "S038"
+    },
+    {
+      "id": "s41",
+      "firstName": "Annette",
+      "lastName": "Peck",
+      "email": "annette.peck@student.com",
+      "password": "password",
+      "rollNumber": "S041"
+    },
+    {
+      "id": "s39",
+      "firstName": "Aaron",
+      "lastName": "Ryan",
+      "email": "aaron.ryan@student.com",
+      "password": "password",
+      "rollNumber": "S039"
+    },
+    {
+      "id": "s40",
+      "firstName": "Donald",
+      "lastName": "Spencer",
+      "email": "donald.spencer@student.com",
+      "password": "password",
+      "rollNumber": "S040"
+    },
+    {
+      "id": "s42",
+      "firstName": "Bertha",
+      "lastName": "Austin",
+      "email": "bertha.austin@student.com",
+      "password": "password",
+      "rollNumber": "S042"
+    },
+    {
+      "id": "s43",
+      "firstName": "Cathy",
+      "lastName": "Johnston",
+      "email": "cathy.johnston@student.com",
+      "password": "password",
+      "rollNumber": "S043"
+    },
+    {
+      "id": "s44",
+      "firstName": "Bernard",
+      "lastName": "Wheeler",
+      "email": "bernard.wheeler@student.com",
+      "password": "password",
+      "rollNumber": "S044"
+    },
+    {
+      "id": "s45",
+      "firstName": "Cody",
+      "lastName": "Hunt",
+      "email": "cody.hunt@student.com",
+      "password": "password",
+      "rollNumber": "S045"
+    },
+    {
+      "id": "s47",
+      "firstName": "Kathy",
+      "lastName": "Brown",
+      "email": "kathy.brown@student.com",
+      "password": "password",
+      "rollNumber": "S047"
+    },
+    {
+      "id": "s46",
+      "firstName": "Lily",
+      "lastName": "Nelson",
+      "email": "lily.nelson@student.com",
+      "password": "password",
+      "rollNumber": "S046"
+    },
+    {
+      "id": "s48",
+      "firstName": "Kathy",
+      "lastName": "Gregory",
+      "email": "kathy.gregory@student.com",
+      "password": "password",
+      "rollNumber": "S048"
+    },
+    {
+      "id": "s50",
+      "firstName": "Jennifer",
+      "lastName": "Anderson",
+      "email": "jennifer.anderson@student.com",
+      "password": "password",
+      "rollNumber": "S050"
+    },
+    {
+      "id": "s49",
+      "firstName": "Loretta",
+      "lastName": "Hicks",
+      "email": "loretta.hicks@student.com",
+      "password": "password",
+      "rollNumber": "S049"
+    }
+  ],
+  "teachers": [
+    {
+      "id": "t2",
+      "firstName": "Kelly",
+      "lastName": "Richards",
+      "email": "kelly.richards@school.com",
+      "password": "password",
+      "subject": "Physics"
+    },
+    {
+      "id": "t4",
+      "firstName": "Debra",
+      "lastName": "Bishop",
+      "email": "debra.bishop@school.com",
+      "password": "password",
+      "subject": "Biology"
+    },
+    {
+      "id": "t1",
+      "firstName": "Misty",
+      "lastName": "Lynch",
+      "email": "misty.lynch@school.com",
+      "password": "password",
+      "subject": "Mathematics"
+    },
+    {
+      "id": "t6",
+      "firstName": "Yvonne",
+      "lastName": "Miller",
+      "email": "yvonne.miller@school.com",
+      "password": "password",
+      "subject": "History"
+    },
+    {
+      "id": "t5",
+      "firstName": "Gilbert",
+      "lastName": "Fox",
+      "email": "gilbert.fox@school.com",
+      "password": "password",
+      "subject": "English"
+    },
+    {
+      "id": "t3",
+      "firstName": "Tomothy",
+      "lastName": "Kim",
+      "email": "tomothy.kim@school.com",
+      "password": "password",
+      "subject": "Chemistry"
+    },
+    {
+      "id": "t7",
+      "firstName": "Terri",
+      "lastName": "Baker",
+      "email": "terri.baker@school.com",
+      "password": "password",
+      "subject": "Geography"
+    },
+    {
+      "id": "t8",
+      "firstName": "Michelle",
+      "lastName": "Steward",
+      "email": "michelle.steward@school.com",
+      "password": "password",
+      "subject": "Computer Science"
+    },
+    {
+      "id": "t10",
+      "firstName": "Juanita",
+      "lastName": "Day",
+      "email": "juanita.day@school.com",
+      "password": "password",
+      "subject": "Music"
+    },
+    {
+      "id": "t9",
+      "firstName": "Nora",
+      "lastName": "Rhodes",
+      "email": "nora.rhodes@school.com",
+      "password": "password",
+      "subject": "Art"
+    }
+  ],
+  "classes": [
+    {
+      "id": "c2",
+      "name": "Class B",
+      "standard": "2nd Standard",
+      "teacherId": "t2",
+      "students": [
+        "s6",
+        "s7",
+        "s8",
+        "s9",
+        "s10"
+      ]
+    },
+    {
+      "id": "c1",
+      "name": "Class A",
+      "standard": "1st Standard",
+      "teacherId": "t1",
+      "students": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5"
+      ]
+    },
+    {
+      "id": "c3",
+      "name": "Class C",
+      "standard": "3rd Standard",
+      "teacherId": "t3",
+      "students": [
+        "s11",
+        "s12",
+        "s13",
+        "s14",
+        "s15"
+      ]
+    },
+    {
+      "id": "c4",
+      "name": "Class D",
+      "standard": "4th Standard",
+      "teacherId": "t4",
+      "students": [
+        "s16",
+        "s17",
+        "s18",
+        "s19",
+        "s20"
+      ]
+    },
+    {
+      "id": "c5",
+      "name": "Class E",
+      "standard": "5th Standard",
+      "teacherId": "t5",
+      "students": [
+        "s21",
+        "s22",
+        "s23",
+        "s24",
+        "s25"
+      ]
+    },
+    {
+      "id": "c6",
+      "name": "Class F",
+      "standard": "6th Standard",
+      "teacherId": "t6",
+      "students": [
+        "s26",
+        "s27",
+        "s28",
+        "s29",
+        "s30"
+      ]
+    },
+    {
+      "id": "c8",
+      "name": "Class H",
+      "standard": "8th Standard",
+      "teacherId": "t8",
+      "students": [
+        "s36",
+        "s37",
+        "s38",
+        "s39",
+        "s40"
+      ]
+    },
+    {
+      "id": "c10",
+      "name": "Class J",
+      "standard": "10th Standard",
+      "teacherId": "t10",
+      "students": [
+        "s46",
+        "s47",
+        "s48",
+        "s49",
+        "s50"
+      ]
+    },
+    {
+      "id": "c7",
+      "name": "Class G",
+      "standard": "7th Standard",
+      "teacherId": "t7",
+      "students": [
+        "s31",
+        "s32",
+        "s33",
+        "s34",
+        "s35"
+      ]
+    },
+    {
+      "id": "c9",
+      "name": "Class I",
+      "standard": "9th Standard",
+      "teacherId": "t9",
+      "students": [
+        "s41",
+        "s42",
+        "s43",
+        "s44",
+        "s45"
+      ]
+    }
+  ],
+  "attendance": [
+    {
+      "id": "c1_2025-07-28",
+      "classId": "c1",
+      "date": "2025-07-28",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "absent",
+        "s5": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-07-28",
+      "classId": "c2",
+      "date": "2025-07-28",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "present",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-07-28",
+      "classId": "c4",
+      "date": "2025-07-28",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "present",
+        "s20": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-07-28",
+      "classId": "c6",
+      "date": "2025-07-28",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "absent",
+        "s29": "absent",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-07-28",
+      "classId": "c3",
+      "date": "2025-07-28",
+      "attendance": {
+        "s11": "absent",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-07-28",
+      "classId": "c5",
+      "date": "2025-07-28",
+      "attendance": {
+        "s21": "present",
+        "s22": "absent",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-07-28",
+      "classId": "c7",
+      "date": "2025-07-28",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-07-28",
+      "classId": "c8",
+      "date": "2025-07-28",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-07-28",
+      "classId": "c9",
+      "date": "2025-07-28",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-07-25",
+      "classId": "c2",
+      "date": "2025-07-25",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "present",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-07-28",
+      "classId": "c10",
+      "date": "2025-07-28",
+      "attendance": {
+        "s46": "absent",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-07-25",
+      "classId": "c1",
+      "date": "2025-07-25",
+      "attendance": {
+        "s1": "present",
+        "s2": "absent",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-07-25",
+      "classId": "c4",
+      "date": "2025-07-25",
+      "attendance": {
+        "s16": "absent",
+        "s17": "present",
+        "s18": "present",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-07-25",
+      "classId": "c3",
+      "date": "2025-07-25",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-07-25",
+      "classId": "c5",
+      "date": "2025-07-25",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-07-25",
+      "classId": "c7",
+      "date": "2025-07-25",
+      "attendance": {
+        "s31": "present",
+        "s32": "absent",
+        "s33": "present",
+        "s34": "absent",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-07-25",
+      "classId": "c8",
+      "date": "2025-07-25",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "absent",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-07-25",
+      "classId": "c6",
+      "date": "2025-07-25",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-07-25",
+      "classId": "c9",
+      "date": "2025-07-25",
+      "attendance": {
+        "s41": "present",
+        "s42": "absent",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-07-25",
+      "classId": "c10",
+      "date": "2025-07-25",
+      "attendance": {
+        "s46": "absent",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-07-24",
+      "classId": "c2",
+      "date": "2025-07-24",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "present",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-07-24",
+      "classId": "c1",
+      "date": "2025-07-24",
+      "attendance": {
+        "s1": "present",
+        "s2": "absent",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-07-24",
+      "classId": "c3",
+      "date": "2025-07-24",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "absent",
+        "s14": "absent",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-07-24",
+      "classId": "c6",
+      "date": "2025-07-24",
+      "attendance": {
+        "s26": "absent",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-07-24",
+      "classId": "c4",
+      "date": "2025-07-24",
+      "attendance": {
+        "s16": "present",
+        "s17": "absent",
+        "s18": "present",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-07-24",
+      "classId": "c5",
+      "date": "2025-07-24",
+      "attendance": {
+        "s21": "present",
+        "s22": "absent",
+        "s23": "absent",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-07-24",
+      "classId": "c7",
+      "date": "2025-07-24",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-07-24",
+      "classId": "c8",
+      "date": "2025-07-24",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-07-24",
+      "classId": "c9",
+      "date": "2025-07-24",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-07-23",
+      "classId": "c1",
+      "date": "2025-07-23",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "absent",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-07-24",
+      "classId": "c10",
+      "date": "2025-07-24",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "absent",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-07-23",
+      "classId": "c2",
+      "date": "2025-07-23",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "absent",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-07-23",
+      "classId": "c3",
+      "date": "2025-07-23",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "absent",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-07-23",
+      "classId": "c5",
+      "date": "2025-07-23",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-07-23",
+      "classId": "c4",
+      "date": "2025-07-23",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "absent",
+        "s19": "absent",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-07-23",
+      "classId": "c7",
+      "date": "2025-07-23",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-07-23",
+      "classId": "c8",
+      "date": "2025-07-23",
+      "attendance": {
+        "s36": "present",
+        "s37": "absent",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-07-23",
+      "classId": "c6",
+      "date": "2025-07-23",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "absent",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-07-23",
+      "classId": "c10",
+      "date": "2025-07-23",
+      "attendance": {
+        "s46": "absent",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-07-23",
+      "classId": "c9",
+      "date": "2025-07-23",
+      "attendance": {
+        "s41": "absent",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-07-22",
+      "classId": "c1",
+      "date": "2025-07-22",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-07-22",
+      "classId": "c2",
+      "date": "2025-07-22",
+      "attendance": {
+        "s6": "absent",
+        "s7": "present",
+        "s8": "absent",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-07-22",
+      "classId": "c6",
+      "date": "2025-07-22",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-07-22",
+      "classId": "c5",
+      "date": "2025-07-22",
+      "attendance": {
+        "s21": "present",
+        "s22": "absent",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-07-22",
+      "classId": "c3",
+      "date": "2025-07-22",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "absent",
+        "s15": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-07-22",
+      "classId": "c8",
+      "date": "2025-07-22",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-07-22",
+      "classId": "c4",
+      "date": "2025-07-22",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-07-22",
+      "classId": "c7",
+      "date": "2025-07-22",
+      "attendance": {
+        "s31": "absent",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-07-22",
+      "classId": "c9",
+      "date": "2025-07-22",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-07-21",
+      "classId": "c1",
+      "date": "2025-07-21",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "absent",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-07-22",
+      "classId": "c10",
+      "date": "2025-07-22",
+      "attendance": {
+        "s46": "present",
+        "s47": "absent",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-07-21",
+      "classId": "c3",
+      "date": "2025-07-21",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-07-21",
+      "classId": "c6",
+      "date": "2025-07-21",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "absent",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-07-21",
+      "classId": "c2",
+      "date": "2025-07-21",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "absent",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-07-21",
+      "classId": "c5",
+      "date": "2025-07-21",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-07-21",
+      "classId": "c4",
+      "date": "2025-07-21",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-07-21",
+      "classId": "c9",
+      "date": "2025-07-21",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-07-21",
+      "classId": "c7",
+      "date": "2025-07-21",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-07-21",
+      "classId": "c8",
+      "date": "2025-07-21",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-07-21",
+      "classId": "c10",
+      "date": "2025-07-21",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-07-18",
+      "classId": "c3",
+      "date": "2025-07-18",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-07-18",
+      "classId": "c2",
+      "date": "2025-07-18",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "absent",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-07-18",
+      "classId": "c4",
+      "date": "2025-07-18",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-07-18",
+      "classId": "c1",
+      "date": "2025-07-18",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "absent",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-07-18",
+      "classId": "c5",
+      "date": "2025-07-18",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-07-18",
+      "classId": "c6",
+      "date": "2025-07-18",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-07-18",
+      "classId": "c8",
+      "date": "2025-07-18",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "absent",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-07-18",
+      "classId": "c7",
+      "date": "2025-07-18",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-07-18",
+      "classId": "c9",
+      "date": "2025-07-18",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "absent",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-07-18",
+      "classId": "c10",
+      "date": "2025-07-18",
+      "attendance": {
+        "s46": "present",
+        "s47": "absent",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-07-17",
+      "classId": "c1",
+      "date": "2025-07-17",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-07-17",
+      "classId": "c2",
+      "date": "2025-07-17",
+      "attendance": {
+        "s6": "absent",
+        "s7": "present",
+        "s8": "present",
+        "s9": "present",
+        "s10": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-07-17",
+      "classId": "c3",
+      "date": "2025-07-17",
+      "attendance": {
+        "s11": "absent",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-07-17",
+      "classId": "c4",
+      "date": "2025-07-17",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-07-17",
+      "classId": "c5",
+      "date": "2025-07-17",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-07-17",
+      "classId": "c8",
+      "date": "2025-07-17",
+      "attendance": {
+        "s36": "present",
+        "s37": "absent",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-07-17",
+      "classId": "c6",
+      "date": "2025-07-17",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-07-17",
+      "classId": "c7",
+      "date": "2025-07-17",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-07-16",
+      "classId": "c1",
+      "date": "2025-07-16",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "absent",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-07-17",
+      "classId": "c9",
+      "date": "2025-07-17",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-07-17",
+      "classId": "c10",
+      "date": "2025-07-17",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-07-16",
+      "classId": "c2",
+      "date": "2025-07-16",
+      "attendance": {
+        "s6": "absent",
+        "s7": "present",
+        "s8": "present",
+        "s9": "absent",
+        "s10": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-07-16",
+      "classId": "c3",
+      "date": "2025-07-16",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "absent",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-07-16",
+      "classId": "c4",
+      "date": "2025-07-16",
+      "attendance": {
+        "s16": "absent",
+        "s17": "present",
+        "s18": "present",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-07-16",
+      "classId": "c5",
+      "date": "2025-07-16",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-07-16",
+      "classId": "c6",
+      "date": "2025-07-16",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-07-16",
+      "classId": "c8",
+      "date": "2025-07-16",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-07-16",
+      "classId": "c9",
+      "date": "2025-07-16",
+      "attendance": {
+        "s41": "absent",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-07-16",
+      "classId": "c7",
+      "date": "2025-07-16",
+      "attendance": {
+        "s31": "present",
+        "s32": "absent",
+        "s33": "absent",
+        "s34": "present",
+        "s35": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-07-16",
+      "classId": "c10",
+      "date": "2025-07-16",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-07-15",
+      "classId": "c3",
+      "date": "2025-07-15",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-07-15",
+      "classId": "c1",
+      "date": "2025-07-15",
+      "attendance": {
+        "s1": "absent",
+        "s2": "present",
+        "s3": "present",
+        "s4": "absent",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-07-15",
+      "classId": "c4",
+      "date": "2025-07-15",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-07-15",
+      "classId": "c7",
+      "date": "2025-07-15",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-07-15",
+      "classId": "c2",
+      "date": "2025-07-15",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "present",
+        "s9": "absent",
+        "s10": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-07-15",
+      "classId": "c5",
+      "date": "2025-07-15",
+      "attendance": {
+        "s21": "absent",
+        "s22": "present",
+        "s23": "present",
+        "s24": "absent",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-07-15",
+      "classId": "c6",
+      "date": "2025-07-15",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-07-15",
+      "classId": "c8",
+      "date": "2025-07-15",
+      "attendance": {
+        "s36": "absent",
+        "s37": "present",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-07-15",
+      "classId": "c9",
+      "date": "2025-07-15",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "absent",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-07-14",
+      "classId": "c1",
+      "date": "2025-07-14",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-07-15",
+      "classId": "c10",
+      "date": "2025-07-15",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-07-14",
+      "classId": "c4",
+      "date": "2025-07-14",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "present",
+        "s20": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-07-14",
+      "classId": "c3",
+      "date": "2025-07-14",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-07-14",
+      "classId": "c2",
+      "date": "2025-07-14",
+      "attendance": {
+        "s6": "present",
+        "s7": "absent",
+        "s8": "present",
+        "s9": "present",
+        "s10": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-07-14",
+      "classId": "c8",
+      "date": "2025-07-14",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "absent",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-07-14",
+      "classId": "c6",
+      "date": "2025-07-14",
+      "attendance": {
+        "s26": "absent",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-07-14",
+      "classId": "c5",
+      "date": "2025-07-14",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-07-14",
+      "classId": "c10",
+      "date": "2025-07-14",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "absent",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-07-14",
+      "classId": "c9",
+      "date": "2025-07-14",
+      "attendance": {
+        "s41": "absent",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-07-14",
+      "classId": "c7",
+      "date": "2025-07-14",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "absent",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-07-11",
+      "classId": "c3",
+      "date": "2025-07-11",
+      "attendance": {
+        "s11": "present",
+        "s12": "absent",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-07-11",
+      "classId": "c1",
+      "date": "2025-07-11",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-07-11",
+      "classId": "c2",
+      "date": "2025-07-11",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "present",
+        "s9": "absent",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-07-11",
+      "classId": "c6",
+      "date": "2025-07-11",
+      "attendance": {
+        "s26": "present",
+        "s27": "absent",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-07-11",
+      "classId": "c5",
+      "date": "2025-07-11",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "absent",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-07-11",
+      "classId": "c4",
+      "date": "2025-07-11",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "absent",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-07-11",
+      "classId": "c7",
+      "date": "2025-07-11",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "absent",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-07-11",
+      "classId": "c8",
+      "date": "2025-07-11",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "absent",
+        "s39": "absent",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-07-11",
+      "classId": "c9",
+      "date": "2025-07-11",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-07-11",
+      "classId": "c10",
+      "date": "2025-07-11",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-07-10",
+      "classId": "c1",
+      "date": "2025-07-10",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-07-10",
+      "classId": "c2",
+      "date": "2025-07-10",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "absent",
+        "s9": "absent",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-07-10",
+      "classId": "c4",
+      "date": "2025-07-10",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-07-10",
+      "classId": "c5",
+      "date": "2025-07-10",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-07-10",
+      "classId": "c3",
+      "date": "2025-07-10",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "absent",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-07-10",
+      "classId": "c6",
+      "date": "2025-07-10",
+      "attendance": {
+        "s26": "present",
+        "s27": "absent",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-07-10",
+      "classId": "c7",
+      "date": "2025-07-10",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-07-10",
+      "classId": "c9",
+      "date": "2025-07-10",
+      "attendance": {
+        "s41": "present",
+        "s42": "absent",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-07-10",
+      "classId": "c8",
+      "date": "2025-07-10",
+      "attendance": {
+        "s36": "absent",
+        "s37": "present",
+        "s38": "absent",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-07-09",
+      "classId": "c2",
+      "date": "2025-07-09",
+      "attendance": {
+        "s6": "present",
+        "s7": "absent",
+        "s8": "present",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-07-09",
+      "classId": "c1",
+      "date": "2025-07-09",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-07-10",
+      "classId": "c10",
+      "date": "2025-07-10",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "absent",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-07-09",
+      "classId": "c3",
+      "date": "2025-07-09",
+      "attendance": {
+        "s11": "present",
+        "s12": "absent",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-07-09",
+      "classId": "c4",
+      "date": "2025-07-09",
+      "attendance": {
+        "s16": "absent",
+        "s17": "present",
+        "s18": "absent",
+        "s19": "absent",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-07-09",
+      "classId": "c7",
+      "date": "2025-07-09",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-07-09",
+      "classId": "c6",
+      "date": "2025-07-09",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-07-09",
+      "classId": "c5",
+      "date": "2025-07-09",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "absent",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-07-09",
+      "classId": "c8",
+      "date": "2025-07-09",
+      "attendance": {
+        "s36": "absent",
+        "s37": "present",
+        "s38": "absent",
+        "s39": "absent",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-07-09",
+      "classId": "c10",
+      "date": "2025-07-09",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-07-09",
+      "classId": "c9",
+      "date": "2025-07-09",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "absent",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-07-08",
+      "classId": "c1",
+      "date": "2025-07-08",
+      "attendance": {
+        "s1": "present",
+        "s2": "absent",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-07-08",
+      "classId": "c4",
+      "date": "2025-07-08",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-07-08",
+      "classId": "c2",
+      "date": "2025-07-08",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "present",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-07-08",
+      "classId": "c3",
+      "date": "2025-07-08",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "absent",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-07-08",
+      "classId": "c5",
+      "date": "2025-07-08",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-07-08",
+      "classId": "c7",
+      "date": "2025-07-08",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-07-08",
+      "classId": "c6",
+      "date": "2025-07-08",
+      "attendance": {
+        "s26": "absent",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-07-08",
+      "classId": "c9",
+      "date": "2025-07-08",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "absent",
+        "s44": "absent",
+        "s45": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-07-08",
+      "classId": "c8",
+      "date": "2025-07-08",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-07-07",
+      "classId": "c1",
+      "date": "2025-07-07",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "absent",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-07-08",
+      "classId": "c10",
+      "date": "2025-07-08",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-07-07",
+      "classId": "c3",
+      "date": "2025-07-07",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "absent",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-07-07",
+      "classId": "c2",
+      "date": "2025-07-07",
+      "attendance": {
+        "s6": "absent",
+        "s7": "present",
+        "s8": "absent",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-07-07",
+      "classId": "c4",
+      "date": "2025-07-07",
+      "attendance": {
+        "s16": "absent",
+        "s17": "present",
+        "s18": "present",
+        "s19": "absent",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-07-07",
+      "classId": "c8",
+      "date": "2025-07-07",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-07-07",
+      "classId": "c5",
+      "date": "2025-07-07",
+      "attendance": {
+        "s21": "absent",
+        "s22": "absent",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-07-07",
+      "classId": "c6",
+      "date": "2025-07-07",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-07-07",
+      "classId": "c7",
+      "date": "2025-07-07",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-07-07",
+      "classId": "c10",
+      "date": "2025-07-07",
+      "attendance": {
+        "s46": "absent",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-07-07",
+      "classId": "c9",
+      "date": "2025-07-07",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "absent",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-07-04",
+      "classId": "c1",
+      "date": "2025-07-04",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-07-04",
+      "classId": "c4",
+      "date": "2025-07-04",
+      "attendance": {
+        "s16": "absent",
+        "s17": "present",
+        "s18": "present",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-07-04",
+      "classId": "c6",
+      "date": "2025-07-04",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-07-04",
+      "classId": "c3",
+      "date": "2025-07-04",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-07-04",
+      "classId": "c2",
+      "date": "2025-07-04",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "present",
+        "s9": "absent",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-07-04",
+      "classId": "c5",
+      "date": "2025-07-04",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-07-04",
+      "classId": "c8",
+      "date": "2025-07-04",
+      "attendance": {
+        "s36": "absent",
+        "s37": "present",
+        "s38": "absent",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-07-04",
+      "classId": "c10",
+      "date": "2025-07-04",
+      "attendance": {
+        "s46": "absent",
+        "s47": "present",
+        "s48": "absent",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-07-03",
+      "classId": "c2",
+      "date": "2025-07-03",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "absent",
+        "s9": "absent",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-07-04",
+      "classId": "c7",
+      "date": "2025-07-04",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-07-04",
+      "classId": "c9",
+      "date": "2025-07-04",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-07-03",
+      "classId": "c4",
+      "date": "2025-07-03",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "absent",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-07-03",
+      "classId": "c3",
+      "date": "2025-07-03",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-07-03",
+      "classId": "c5",
+      "date": "2025-07-03",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-07-03",
+      "classId": "c6",
+      "date": "2025-07-03",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-07-03",
+      "classId": "c1",
+      "date": "2025-07-03",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-07-03",
+      "classId": "c7",
+      "date": "2025-07-03",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-07-03",
+      "classId": "c9",
+      "date": "2025-07-03",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "absent",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-07-03",
+      "classId": "c8",
+      "date": "2025-07-03",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-07-03",
+      "classId": "c10",
+      "date": "2025-07-03",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "absent",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-07-02",
+      "classId": "c2",
+      "date": "2025-07-02",
+      "attendance": {
+        "s6": "present",
+        "s7": "absent",
+        "s8": "present",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-07-02",
+      "classId": "c3",
+      "date": "2025-07-02",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-07-02",
+      "classId": "c1",
+      "date": "2025-07-02",
+      "attendance": {
+        "s1": "absent",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-07-02",
+      "classId": "c4",
+      "date": "2025-07-02",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "absent",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-07-02",
+      "classId": "c5",
+      "date": "2025-07-02",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-07-02",
+      "classId": "c6",
+      "date": "2025-07-02",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-07-02",
+      "classId": "c7",
+      "date": "2025-07-02",
+      "attendance": {
+        "s31": "absent",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-07-02",
+      "classId": "c9",
+      "date": "2025-07-02",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-07-01",
+      "classId": "c1",
+      "date": "2025-07-01",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-07-02",
+      "classId": "c10",
+      "date": "2025-07-02",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-07-01",
+      "classId": "c2",
+      "date": "2025-07-01",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "present",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-07-01",
+      "classId": "c5",
+      "date": "2025-07-01",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-07-01",
+      "classId": "c3",
+      "date": "2025-07-01",
+      "attendance": {
+        "s11": "present",
+        "s12": "absent",
+        "s13": "present",
+        "s14": "absent",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-07-01",
+      "classId": "c4",
+      "date": "2025-07-01",
+      "attendance": {
+        "s16": "present",
+        "s17": "absent",
+        "s18": "present",
+        "s19": "present",
+        "s20": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-07-01",
+      "classId": "c6",
+      "date": "2025-07-01",
+      "attendance": {
+        "s26": "absent",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-07-01",
+      "classId": "c7",
+      "date": "2025-07-01",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-06-30",
+      "classId": "c1",
+      "date": "2025-06-30",
+      "attendance": {
+        "s1": "absent",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-07-01",
+      "classId": "c9",
+      "date": "2025-07-01",
+      "attendance": {
+        "s41": "absent",
+        "s42": "present",
+        "s43": "present",
+        "s44": "absent",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-07-01",
+      "classId": "c8",
+      "date": "2025-07-01",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-06-30",
+      "classId": "c2",
+      "date": "2025-06-30",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "present",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-07-01",
+      "classId": "c10",
+      "date": "2025-07-01",
+      "attendance": {
+        "s46": "absent",
+        "s47": "present",
+        "s48": "absent",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-06-30",
+      "classId": "c3",
+      "date": "2025-06-30",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-06-30",
+      "classId": "c5",
+      "date": "2025-06-30",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "absent",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-06-30",
+      "classId": "c4",
+      "date": "2025-06-30",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "absent",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-06-30",
+      "classId": "c7",
+      "date": "2025-06-30",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-06-30",
+      "classId": "c6",
+      "date": "2025-06-30",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-06-30",
+      "classId": "c8",
+      "date": "2025-06-30",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "absent",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-06-27",
+      "classId": "c2",
+      "date": "2025-06-27",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "present",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-06-30",
+      "classId": "c10",
+      "date": "2025-06-30",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-06-27",
+      "classId": "c3",
+      "date": "2025-06-27",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-06-30",
+      "classId": "c9",
+      "date": "2025-06-30",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-06-27",
+      "classId": "c1",
+      "date": "2025-06-27",
+      "attendance": {
+        "s1": "absent",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-06-27",
+      "classId": "c4",
+      "date": "2025-06-27",
+      "attendance": {
+        "s16": "present",
+        "s17": "absent",
+        "s18": "present",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-06-27",
+      "classId": "c6",
+      "date": "2025-06-27",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-06-27",
+      "classId": "c9",
+      "date": "2025-06-27",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-06-27",
+      "classId": "c8",
+      "date": "2025-06-27",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "absent",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-06-27",
+      "classId": "c5",
+      "date": "2025-06-27",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-06-27",
+      "classId": "c10",
+      "date": "2025-06-27",
+      "attendance": {
+        "s46": "absent",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-06-26",
+      "classId": "c1",
+      "date": "2025-06-26",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-06-26",
+      "classId": "c2",
+      "date": "2025-06-26",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "absent",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-06-26",
+      "classId": "c6",
+      "date": "2025-06-26",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-06-26",
+      "classId": "c3",
+      "date": "2025-06-26",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-06-26",
+      "classId": "c4",
+      "date": "2025-06-26",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-06-26",
+      "classId": "c5",
+      "date": "2025-06-26",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-06-26",
+      "classId": "c7",
+      "date": "2025-06-26",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "absent",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-06-27",
+      "classId": "c7",
+      "date": "2025-06-27",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "absent",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-06-26",
+      "classId": "c8",
+      "date": "2025-06-26",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-06-26",
+      "classId": "c9",
+      "date": "2025-06-26",
+      "attendance": {
+        "s41": "absent",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-06-26",
+      "classId": "c10",
+      "date": "2025-06-26",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-06-25",
+      "classId": "c1",
+      "date": "2025-06-25",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-06-25",
+      "classId": "c2",
+      "date": "2025-06-25",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "absent",
+        "s9": "present",
+        "s10": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-06-25",
+      "classId": "c3",
+      "date": "2025-06-25",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-06-25",
+      "classId": "c4",
+      "date": "2025-06-25",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-06-25",
+      "classId": "c9",
+      "date": "2025-06-25",
+      "attendance": {
+        "s41": "present",
+        "s42": "absent",
+        "s43": "absent",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-06-25",
+      "classId": "c6",
+      "date": "2025-06-25",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-06-25",
+      "classId": "c5",
+      "date": "2025-06-25",
+      "attendance": {
+        "s21": "present",
+        "s22": "absent",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-06-25",
+      "classId": "c7",
+      "date": "2025-06-25",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "absent",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-06-25",
+      "classId": "c10",
+      "date": "2025-06-25",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-06-25",
+      "classId": "c8",
+      "date": "2025-06-25",
+      "attendance": {
+        "s36": "present",
+        "s37": "absent",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-06-24",
+      "classId": "c3",
+      "date": "2025-06-24",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-06-24",
+      "classId": "c4",
+      "date": "2025-06-24",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "absent",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-06-24",
+      "classId": "c5",
+      "date": "2025-06-24",
+      "attendance": {
+        "s21": "present",
+        "s22": "absent",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-06-24",
+      "classId": "c1",
+      "date": "2025-06-24",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-06-24",
+      "classId": "c8",
+      "date": "2025-06-24",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-06-24",
+      "classId": "c2",
+      "date": "2025-06-24",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "present",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-06-24",
+      "classId": "c7",
+      "date": "2025-06-24",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "absent",
+        "s35": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-06-24",
+      "classId": "c6",
+      "date": "2025-06-24",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-06-24",
+      "classId": "c10",
+      "date": "2025-06-24",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-06-23",
+      "classId": "c1",
+      "date": "2025-06-23",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-06-24",
+      "classId": "c9",
+      "date": "2025-06-24",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-06-23",
+      "classId": "c3",
+      "date": "2025-06-23",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-06-23",
+      "classId": "c2",
+      "date": "2025-06-23",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "absent",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-06-23",
+      "classId": "c5",
+      "date": "2025-06-23",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-06-23",
+      "classId": "c4",
+      "date": "2025-06-23",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "absent",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-06-23",
+      "classId": "c8",
+      "date": "2025-06-23",
+      "attendance": {
+        "s36": "present",
+        "s37": "absent",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-06-23",
+      "classId": "c6",
+      "date": "2025-06-23",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-06-23",
+      "classId": "c7",
+      "date": "2025-06-23",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-06-23",
+      "classId": "c10",
+      "date": "2025-06-23",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-06-23",
+      "classId": "c9",
+      "date": "2025-06-23",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-06-20",
+      "classId": "c1",
+      "date": "2025-06-20",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "absent",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-06-20",
+      "classId": "c3",
+      "date": "2025-06-20",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-06-20",
+      "classId": "c2",
+      "date": "2025-06-20",
+      "attendance": {
+        "s6": "absent",
+        "s7": "present",
+        "s8": "present",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-06-20",
+      "classId": "c4",
+      "date": "2025-06-20",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-06-20",
+      "classId": "c5",
+      "date": "2025-06-20",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "absent",
+        "s24": "present",
+        "s25": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-06-20",
+      "classId": "c6",
+      "date": "2025-06-20",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-06-20",
+      "classId": "c7",
+      "date": "2025-06-20",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-06-20",
+      "classId": "c8",
+      "date": "2025-06-20",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-06-20",
+      "classId": "c10",
+      "date": "2025-06-20",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-06-20",
+      "classId": "c9",
+      "date": "2025-06-20",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-06-19",
+      "classId": "c1",
+      "date": "2025-06-19",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "absent",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-06-19",
+      "classId": "c4",
+      "date": "2025-06-19",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "present",
+        "s20": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-06-19",
+      "classId": "c2",
+      "date": "2025-06-19",
+      "attendance": {
+        "s6": "absent",
+        "s7": "present",
+        "s8": "present",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-06-19",
+      "classId": "c3",
+      "date": "2025-06-19",
+      "attendance": {
+        "s11": "present",
+        "s12": "absent",
+        "s13": "present",
+        "s14": "present",
+        "s15": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-06-19",
+      "classId": "c5",
+      "date": "2025-06-19",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-06-19",
+      "classId": "c7",
+      "date": "2025-06-19",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "absent",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-06-19",
+      "classId": "c8",
+      "date": "2025-06-19",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "absent",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-06-19",
+      "classId": "c6",
+      "date": "2025-06-19",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "absent",
+        "s30": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-06-19",
+      "classId": "c9",
+      "date": "2025-06-19",
+      "attendance": {
+        "s41": "present",
+        "s42": "absent",
+        "s43": "present",
+        "s44": "present",
+        "s45": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-06-19",
+      "classId": "c10",
+      "date": "2025-06-19",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-06-18",
+      "classId": "c1",
+      "date": "2025-06-18",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-06-18",
+      "classId": "c3",
+      "date": "2025-06-18",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-06-18",
+      "classId": "c5",
+      "date": "2025-06-18",
+      "attendance": {
+        "s21": "present",
+        "s22": "absent",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-06-18",
+      "classId": "c2",
+      "date": "2025-06-18",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "present",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-06-18",
+      "classId": "c6",
+      "date": "2025-06-18",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-06-18",
+      "classId": "c4",
+      "date": "2025-06-18",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "absent",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-06-18",
+      "classId": "c8",
+      "date": "2025-06-18",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "absent",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-06-18",
+      "classId": "c10",
+      "date": "2025-06-18",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "absent",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-06-18",
+      "classId": "c7",
+      "date": "2025-06-18",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-06-18",
+      "classId": "c9",
+      "date": "2025-06-18",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-06-17",
+      "classId": "c1",
+      "date": "2025-06-17",
+      "attendance": {
+        "s1": "absent",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-06-17",
+      "classId": "c2",
+      "date": "2025-06-17",
+      "attendance": {
+        "s6": "absent",
+        "s7": "present",
+        "s8": "present",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-06-17",
+      "classId": "c3",
+      "date": "2025-06-17",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-06-17",
+      "classId": "c4",
+      "date": "2025-06-17",
+      "attendance": {
+        "s16": "present",
+        "s17": "absent",
+        "s18": "present",
+        "s19": "present",
+        "s20": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-06-17",
+      "classId": "c5",
+      "date": "2025-06-17",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-06-17",
+      "classId": "c6",
+      "date": "2025-06-17",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "absent",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-06-17",
+      "classId": "c8",
+      "date": "2025-06-17",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-06-17",
+      "classId": "c7",
+      "date": "2025-06-17",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-06-17",
+      "classId": "c9",
+      "date": "2025-06-17",
+      "attendance": {
+        "s41": "absent",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-06-16",
+      "classId": "c2",
+      "date": "2025-06-16",
+      "attendance": {
+        "s6": "present",
+        "s7": "absent",
+        "s8": "absent",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-06-17",
+      "classId": "c10",
+      "date": "2025-06-17",
+      "attendance": {
+        "s46": "absent",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-06-16",
+      "classId": "c1",
+      "date": "2025-06-16",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-06-16",
+      "classId": "c3",
+      "date": "2025-06-16",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-06-16",
+      "classId": "c4",
+      "date": "2025-06-16",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-06-16",
+      "classId": "c5",
+      "date": "2025-06-16",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-06-16",
+      "classId": "c9",
+      "date": "2025-06-16",
+      "attendance": {
+        "s41": "absent",
+        "s42": "present",
+        "s43": "absent",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-06-16",
+      "classId": "c6",
+      "date": "2025-06-16",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-06-16",
+      "classId": "c7",
+      "date": "2025-06-16",
+      "attendance": {
+        "s31": "present",
+        "s32": "absent",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-06-16",
+      "classId": "c8",
+      "date": "2025-06-16",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "absent",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-06-16",
+      "classId": "c10",
+      "date": "2025-06-16",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-06-13",
+      "classId": "c2",
+      "date": "2025-06-13",
+      "attendance": {
+        "s6": "absent",
+        "s7": "absent",
+        "s8": "present",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-06-13",
+      "classId": "c1",
+      "date": "2025-06-13",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-06-13",
+      "classId": "c3",
+      "date": "2025-06-13",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-06-13",
+      "classId": "c4",
+      "date": "2025-06-13",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-06-13",
+      "classId": "c5",
+      "date": "2025-06-13",
+      "attendance": {
+        "s21": "present",
+        "s22": "absent",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-06-13",
+      "classId": "c7",
+      "date": "2025-06-13",
+      "attendance": {
+        "s31": "absent",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-06-13",
+      "classId": "c6",
+      "date": "2025-06-13",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-06-13",
+      "classId": "c8",
+      "date": "2025-06-13",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-06-13",
+      "classId": "c10",
+      "date": "2025-06-13",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-06-12",
+      "classId": "c1",
+      "date": "2025-06-12",
+      "attendance": {
+        "s1": "absent",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-06-13",
+      "classId": "c9",
+      "date": "2025-06-13",
+      "attendance": {
+        "s41": "present",
+        "s42": "absent",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-06-12",
+      "classId": "c2",
+      "date": "2025-06-12",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "present",
+        "s9": "present",
+        "s10": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-06-12",
+      "classId": "c4",
+      "date": "2025-06-12",
+      "attendance": {
+        "s16": "present",
+        "s17": "absent",
+        "s18": "present",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-06-12",
+      "classId": "c3",
+      "date": "2025-06-12",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-06-12",
+      "classId": "c8",
+      "date": "2025-06-12",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "absent",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-06-12",
+      "classId": "c5",
+      "date": "2025-06-12",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-06-12",
+      "classId": "c6",
+      "date": "2025-06-12",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-06-12",
+      "classId": "c9",
+      "date": "2025-06-12",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-06-12",
+      "classId": "c10",
+      "date": "2025-06-12",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-06-12",
+      "classId": "c7",
+      "date": "2025-06-12",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-06-11",
+      "classId": "c3",
+      "date": "2025-06-11",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-06-11",
+      "classId": "c1",
+      "date": "2025-06-11",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "absent",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-06-11",
+      "classId": "c2",
+      "date": "2025-06-11",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "present",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-06-11",
+      "classId": "c6",
+      "date": "2025-06-11",
+      "attendance": {
+        "s26": "present",
+        "s27": "absent",
+        "s28": "absent",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-06-11",
+      "classId": "c5",
+      "date": "2025-06-11",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-06-11",
+      "classId": "c4",
+      "date": "2025-06-11",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "absent",
+        "s19": "present",
+        "s20": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-06-11",
+      "classId": "c7",
+      "date": "2025-06-11",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-06-11",
+      "classId": "c9",
+      "date": "2025-06-11",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-06-10",
+      "classId": "c1",
+      "date": "2025-06-10",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-06-11",
+      "classId": "c8",
+      "date": "2025-06-11",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-06-11",
+      "classId": "c10",
+      "date": "2025-06-11",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-06-10",
+      "classId": "c2",
+      "date": "2025-06-10",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "absent",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-06-10",
+      "classId": "c3",
+      "date": "2025-06-10",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "absent",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-06-10",
+      "classId": "c4",
+      "date": "2025-06-10",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "absent",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-06-10",
+      "classId": "c5",
+      "date": "2025-06-10",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-06-10",
+      "classId": "c7",
+      "date": "2025-06-10",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-06-10",
+      "classId": "c6",
+      "date": "2025-06-10",
+      "attendance": {
+        "s26": "absent",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-06-10",
+      "classId": "c9",
+      "date": "2025-06-10",
+      "attendance": {
+        "s41": "absent",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-06-10",
+      "classId": "c8",
+      "date": "2025-06-10",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "absent",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-06-10",
+      "classId": "c10",
+      "date": "2025-06-10",
+      "attendance": {
+        "s46": "absent",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-06-09",
+      "classId": "c6",
+      "date": "2025-06-09",
+      "attendance": {
+        "s26": "absent",
+        "s27": "present",
+        "s28": "present",
+        "s29": "absent",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-06-09",
+      "classId": "c5",
+      "date": "2025-06-09",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-06-09",
+      "classId": "c8",
+      "date": "2025-06-09",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-06-09",
+      "classId": "c7",
+      "date": "2025-06-09",
+      "attendance": {
+        "s31": "present",
+        "s32": "absent",
+        "s33": "present",
+        "s34": "present",
+        "s35": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-06-09",
+      "classId": "c9",
+      "date": "2025-06-09",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "absent",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-06-06",
+      "classId": "c1",
+      "date": "2025-06-06",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "absent",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-06-06",
+      "classId": "c2",
+      "date": "2025-06-06",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "present",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-06-06",
+      "classId": "c4",
+      "date": "2025-06-06",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-06-09",
+      "classId": "c10",
+      "date": "2025-06-09",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-06-06",
+      "classId": "c3",
+      "date": "2025-06-06",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-06-06",
+      "classId": "c5",
+      "date": "2025-06-06",
+      "attendance": {
+        "s21": "present",
+        "s22": "absent",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-06-06",
+      "classId": "c6",
+      "date": "2025-06-06",
+      "attendance": {
+        "s26": "present",
+        "s27": "absent",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-06-06",
+      "classId": "c7",
+      "date": "2025-06-06",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-06-06",
+      "classId": "c8",
+      "date": "2025-06-06",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "absent",
+        "s39": "present",
+        "s40": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-06-06",
+      "classId": "c9",
+      "date": "2025-06-06",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-06-05",
+      "classId": "c1",
+      "date": "2025-06-05",
+      "attendance": {
+        "s1": "absent",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-06-05",
+      "classId": "c3",
+      "date": "2025-06-05",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-06-06",
+      "classId": "c10",
+      "date": "2025-06-06",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "absent",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-06-05",
+      "classId": "c4",
+      "date": "2025-06-05",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "present",
+        "s20": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-06-05",
+      "classId": "c5",
+      "date": "2025-06-05",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "absent",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-06-05",
+      "classId": "c2",
+      "date": "2025-06-05",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "present",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-06-05",
+      "classId": "c6",
+      "date": "2025-06-05",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-06-05",
+      "classId": "c9",
+      "date": "2025-06-05",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-06-05",
+      "classId": "c7",
+      "date": "2025-06-05",
+      "attendance": {
+        "s31": "present",
+        "s32": "absent",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-06-05",
+      "classId": "c8",
+      "date": "2025-06-05",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "absent",
+        "s40": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-06-04",
+      "classId": "c1",
+      "date": "2025-06-04",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-06-05",
+      "classId": "c10",
+      "date": "2025-06-05",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-06-04",
+      "classId": "c3",
+      "date": "2025-06-04",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-06-04",
+      "classId": "c2",
+      "date": "2025-06-04",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "present",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-06-04",
+      "classId": "c7",
+      "date": "2025-06-04",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-06-04",
+      "classId": "c8",
+      "date": "2025-06-04",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-06-04",
+      "classId": "c4",
+      "date": "2025-06-04",
+      "attendance": {
+        "s16": "absent",
+        "s17": "present",
+        "s18": "present",
+        "s19": "present",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-06-04",
+      "classId": "c5",
+      "date": "2025-06-04",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-06-04",
+      "classId": "c6",
+      "date": "2025-06-04",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "absent",
+        "s29": "absent",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-06-04",
+      "classId": "c9",
+      "date": "2025-06-04",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-06-03",
+      "classId": "c1",
+      "date": "2025-06-03",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "absent",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-06-03",
+      "classId": "c2",
+      "date": "2025-06-03",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "present",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-06-03",
+      "classId": "c3",
+      "date": "2025-06-03",
+      "attendance": {
+        "s11": "absent",
+        "s12": "present",
+        "s13": "absent",
+        "s14": "absent",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-06-03",
+      "classId": "c4",
+      "date": "2025-06-03",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "absent",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-06-03",
+      "classId": "c7",
+      "date": "2025-06-03",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-06-04",
+      "classId": "c10",
+      "date": "2025-06-04",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "absent",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-06-03",
+      "classId": "c6",
+      "date": "2025-06-03",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "absent",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-06-03",
+      "classId": "c9",
+      "date": "2025-06-03",
+      "attendance": {
+        "s41": "present",
+        "s42": "present",
+        "s43": "present",
+        "s44": "absent",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-06-03",
+      "classId": "c8",
+      "date": "2025-06-03",
+      "attendance": {
+        "s36": "absent",
+        "s37": "present",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-06-03",
+      "classId": "c10",
+      "date": "2025-06-03",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-06-03",
+      "classId": "c5",
+      "date": "2025-06-03",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-06-02",
+      "classId": "c3",
+      "date": "2025-06-02",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "present",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-06-02",
+      "classId": "c1",
+      "date": "2025-06-02",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-06-02",
+      "classId": "c8",
+      "date": "2025-06-02",
+      "attendance": {
+        "s36": "present",
+        "s37": "absent",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-06-02",
+      "classId": "c7",
+      "date": "2025-06-02",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-06-02",
+      "classId": "c9",
+      "date": "2025-06-02",
+      "attendance": {
+        "s41": "present",
+        "s42": "absent",
+        "s43": "present",
+        "s44": "present",
+        "s45": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-06-02",
+      "classId": "c10",
+      "date": "2025-06-02",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c1_2025-05-30",
+      "classId": "c1",
+      "date": "2025-05-30",
+      "attendance": {
+        "s1": "present",
+        "s2": "present",
+        "s3": "present",
+        "s4": "present",
+        "s5": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c2_2025-05-30",
+      "classId": "c2",
+      "date": "2025-05-30",
+      "attendance": {
+        "s6": "present",
+        "s7": "present",
+        "s8": "absent",
+        "s9": "present",
+        "s10": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c3_2025-05-30",
+      "classId": "c3",
+      "date": "2025-05-30",
+      "attendance": {
+        "s11": "present",
+        "s12": "present",
+        "s13": "absent",
+        "s14": "present",
+        "s15": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c4_2025-05-30",
+      "classId": "c4",
+      "date": "2025-05-30",
+      "attendance": {
+        "s16": "present",
+        "s17": "present",
+        "s18": "present",
+        "s19": "absent",
+        "s20": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c5_2025-05-30",
+      "classId": "c5",
+      "date": "2025-05-30",
+      "attendance": {
+        "s21": "present",
+        "s22": "present",
+        "s23": "present",
+        "s24": "present",
+        "s25": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c6_2025-05-30",
+      "classId": "c6",
+      "date": "2025-05-30",
+      "attendance": {
+        "s26": "present",
+        "s27": "present",
+        "s28": "present",
+        "s29": "present",
+        "s30": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c8_2025-05-30",
+      "classId": "c8",
+      "date": "2025-05-30",
+      "attendance": {
+        "s36": "present",
+        "s37": "present",
+        "s38": "present",
+        "s39": "present",
+        "s40": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c10_2025-05-30",
+      "classId": "c10",
+      "date": "2025-05-30",
+      "attendance": {
+        "s46": "present",
+        "s47": "present",
+        "s48": "present",
+        "s49": "present",
+        "s50": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c9_2025-05-30",
+      "classId": "c9",
+      "date": "2025-05-30",
+      "attendance": {
+        "s41": "absent",
+        "s42": "present",
+        "s43": "present",
+        "s44": "present",
+        "s45": "absent"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    },
+    {
+      "id": "c7_2025-05-30",
+      "classId": "c7",
+      "date": "2025-05-30",
+      "attendance": {
+        "s31": "present",
+        "s32": "present",
+        "s33": "present",
+        "s34": "present",
+        "s35": "present"
+      },
+      "markedAt": "2025-07-28T12:45:38.702Z"
+    }
+  ]
+}

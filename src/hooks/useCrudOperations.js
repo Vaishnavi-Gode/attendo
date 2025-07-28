@@ -10,22 +10,27 @@ const useCrudOperations = (service, initialFormData = {}) => {
   const [deleting, setDeleting] = useState(null);
   const [formData, setFormData] = useState(initialFormData);
 
-  const loadData = () => {
-    setData(service.getAll());
+  const loadData = async () => {
+    setData(await service.getAll());
   };
 
   useEffect(() => {
     loadData();
   }, []);
 
-  const handleSubmit = (customLogic) => {
+  // Refresh data when component remounts (page navigation)
+  useEffect(() => {
+    loadData();
+  });
+
+  const handleSubmit = async (customLogic) => {
     if (customLogic) {
-      customLogic(editing, formData);
+      await customLogic(editing, formData);
     } else {
       if (editing) {
-        service.update(editing.id, formData);
+        await service.update(editing.id, formData);
       } else {
-        service.add(formData);
+        await service.add(formData);
       }
     }
     setOpen(false);
@@ -45,8 +50,8 @@ const useCrudOperations = (service, initialFormData = {}) => {
     setConfirmOpen(true);
   };
 
-  const confirmDelete = () => {
-    service.delete(deleting.id);
+  const confirmDelete = async () => {
+    await service.delete(deleting.id);
     setConfirmOpen(false);
     setDeleting(null);
     loadData();

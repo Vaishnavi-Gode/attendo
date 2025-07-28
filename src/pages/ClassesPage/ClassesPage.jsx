@@ -32,8 +32,15 @@ const ClassesPage = () => {
   });
 
   useEffect(() => {
-    setTeachers(teachersService.getAll());
-    setStudents(studentsService.getAll());
+    const loadData = async () => {
+      const [teachersData, studentsData] = await Promise.all([
+        teachersService.getAll(),
+        studentsService.getAll()
+      ]);
+      setTeachers(teachersData);
+      setStudents(studentsData);
+    };
+    loadData();
   }, []);
 
   const handleDelete = (classItem) => {
@@ -54,6 +61,7 @@ const ClassesPage = () => {
 
 
   const getTeacherName = (teacherId) => {
+    if (!teachers || teachers.length === 0) return 'Loading...';
     const teacher = teachers.find(t => t.id === teacherId);
     return teacher ? `${teacher.firstName} ${teacher.lastName}` : 'Not Assigned';
   };

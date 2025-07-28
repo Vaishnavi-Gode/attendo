@@ -38,28 +38,32 @@ const TeachersPage = () => {
   });
 
   useEffect(() => {
-    setClasses(classesService.getAll());
+    const loadClasses = async () => {
+      const classesData = await classesService.getAll();
+      setClasses(classesData);
+    };
+    loadClasses();
   }, []);
 
   const handleSubmit = () => {
-    baseSubmit((editing, formData) => {
+    baseSubmit(async (editing, formData) => {
       if (editing) {
         // Remove teacher from previous class
         const previousClass = classes.find(c => c.teacherId === editing.id);
         if (previousClass) {
-          classesService.assignTeacher(previousClass.id, null);
+          await classesService.assignTeacher(previousClass.id, null);
         }
         
-        teachersService.update(editing.id, formData);
+        await teachersService.update(editing.id, formData);
         
         // Assign to new class
         if (formData.classId) {
-          classesService.assignTeacher(formData.classId, editing.id);
+          await classesService.assignTeacher(formData.classId, editing.id);
         }
       } else {
-        const newTeacher = teachersService.add(formData);
+        const newTeacher = await teachersService.add(formData);
         if (formData.classId) {
-          classesService.assignTeacher(formData.classId, newTeacher.id);
+          await classesService.assignTeacher(formData.classId, newTeacher.id);
         }
       }
     });

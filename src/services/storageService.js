@@ -1,175 +1,172 @@
 import { STORAGE_KEYS } from '@constants';
 
-const getFromStorage = (key) => {
-  return JSON.parse(localStorage.getItem(key) || '[]');
-};
-
-const saveToStorage = (key, data) => {
-  localStorage.setItem(key, JSON.stringify(data));
-  window.dispatchEvent(new CustomEvent('storageUpdated', { detail: { key, data } }));
-};
+const API_BASE = 'http://localhost:3001';
 
 const generateId = () => Date.now().toString();
 
 export const studentsService = {
-  getAll: () => getFromStorage(STORAGE_KEYS.STUDENTS),
-  add: (student) => {
-    const students = getFromStorage(STORAGE_KEYS.STUDENTS);
-    const newStudent = { ...student, id: generateId() };
-    students.push(newStudent);
-    saveToStorage(STORAGE_KEYS.STUDENTS, students);
-    return newStudent;
+  getAll: async () => {
+    const response = await fetch(`${API_BASE}/students`);
+    return response.json();
   },
-  update: (id, updatedStudent) => {
-    const students = getFromStorage(STORAGE_KEYS.STUDENTS);
-    const index = students.findIndex(s => s.id === id);
-    if (index !== -1) {
-      students[index] = { ...students[index], ...updatedStudent };
-      saveToStorage(STORAGE_KEYS.STUDENTS, students);
-      return students[index];
-    }
-    return null;
+  add: async (student) => {
+    const response = await fetch(`${API_BASE}/students`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...student, id: generateId() })
+    });
+    return response.json();
   },
-  delete: (id) => {
-    const students = getFromStorage(STORAGE_KEYS.STUDENTS);
-    const filtered = students.filter(s => s.id !== id);
-    saveToStorage(STORAGE_KEYS.STUDENTS, filtered);
+  update: async (id, updatedStudent) => {
+    const response = await fetch(`${API_BASE}/students/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updatedStudent)
+    });
+    return response.json();
+  },
+  delete: async (id) => {
+    await fetch(`${API_BASE}/students/${id}`, { method: 'DELETE' });
     return true;
   }
 };
 
 export const teachersService = {
-  getAll: () => getFromStorage(STORAGE_KEYS.TEACHERS),
-  add: (teacher) => {
-    const teachers = getFromStorage(STORAGE_KEYS.TEACHERS);
-    const newTeacher = { ...teacher, id: generateId() };
-    teachers.push(newTeacher);
-    saveToStorage(STORAGE_KEYS.TEACHERS, teachers);
-    return newTeacher;
+  getAll: async () => {
+    const response = await fetch(`${API_BASE}/teachers`);
+    return response.json();
   },
-  update: (id, updatedTeacher) => {
-    const teachers = getFromStorage(STORAGE_KEYS.TEACHERS);
-    const index = teachers.findIndex(t => t.id === id);
-    if (index !== -1) {
-      teachers[index] = { ...teachers[index], ...updatedTeacher };
-      saveToStorage(STORAGE_KEYS.TEACHERS, teachers);
-      return teachers[index];
-    }
-    return null;
+  add: async (teacher) => {
+    const response = await fetch(`${API_BASE}/teachers`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...teacher, id: generateId() })
+    });
+    return response.json();
   },
-  delete: (id) => {
-    const teachers = getFromStorage(STORAGE_KEYS.TEACHERS);
-    const filtered = teachers.filter(t => t.id !== id);
-    saveToStorage(STORAGE_KEYS.TEACHERS, filtered);
+  update: async (id, updatedTeacher) => {
+    const response = await fetch(`${API_BASE}/teachers/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updatedTeacher)
+    });
+    return response.json();
+  },
+  delete: async (id) => {
+    await fetch(`${API_BASE}/teachers/${id}`, { method: 'DELETE' });
     return true;
   }
 };
 
 export const classesService = {
-  getAll: () => getFromStorage(STORAGE_KEYS.CLASSES),
-  add: (classData) => {
-    const classes = getFromStorage(STORAGE_KEYS.CLASSES);
-    const newClass = { ...classData, id: generateId(), students: [], teacherId: null };
-    classes.push(newClass);
-    saveToStorage(STORAGE_KEYS.CLASSES, classes);
-    return newClass;
+  getAll: async () => {
+    const response = await fetch(`${API_BASE}/classes`);
+    return response.json();
   },
-  update: (id, updatedClass) => {
-    const classes = getFromStorage(STORAGE_KEYS.CLASSES);
-    const index = classes.findIndex(c => c.id === id);
-    if (index !== -1) {
-      classes[index] = { ...classes[index], ...updatedClass };
-      saveToStorage(STORAGE_KEYS.CLASSES, classes);
-      return classes[index];
-    }
-    return null;
+  add: async (classData) => {
+    const response = await fetch(`${API_BASE}/classes`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...classData, id: generateId(), students: [], teacherId: null })
+    });
+    return response.json();
   },
-  delete: (id) => {
-    const classes = getFromStorage(STORAGE_KEYS.CLASSES);
-    const filtered = classes.filter(c => c.id !== id);
-    saveToStorage(STORAGE_KEYS.CLASSES, filtered);
+  update: async (id, updatedClass) => {
+    const response = await fetch(`${API_BASE}/classes/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updatedClass)
+    });
+    return response.json();
+  },
+  delete: async (id) => {
+    await fetch(`${API_BASE}/classes/${id}`, { method: 'DELETE' });
     return true;
   },
-  assignTeacher: (classId, teacherId) => {
+  assignTeacher: async (classId, teacherId) => {
     return classesService.update(classId, { teacherId });
   },
-  assignStudent: (classId, studentId) => {
-    const classes = getFromStorage(STORAGE_KEYS.CLASSES);
-    const classIndex = classes.findIndex(c => c.id === classId);
-    if (classIndex !== -1 && !classes[classIndex].students.includes(studentId)) {
-      classes[classIndex].students.push(studentId);
-      saveToStorage(STORAGE_KEYS.CLASSES, classes);
-      return classes[classIndex];
+  assignStudent: async (classId, studentId) => {
+    const response = await fetch(`${API_BASE}/classes/${classId}`);
+    const classData = await response.json();
+    if (!classData.students.includes(studentId)) {
+      classData.students.push(studentId);
+      return classesService.update(classId, classData);
     }
-    return null;
+    return classData;
   },
-  removeStudent: (classId, studentId) => {
-    const classes = getFromStorage(STORAGE_KEYS.CLASSES);
-    const classIndex = classes.findIndex(c => c.id === classId);
-    if (classIndex !== -1) {
-      classes[classIndex].students = classes[classIndex].students.filter(id => id !== studentId);
-      saveToStorage(STORAGE_KEYS.CLASSES, classes);
-      return classes[classIndex];
-    }
-    return null;
+  removeStudent: async (classId, studentId) => {
+    const response = await fetch(`${API_BASE}/classes/${classId}`);
+    const classData = await response.json();
+    classData.students = classData.students.filter(id => id !== studentId);
+    return classesService.update(classId, classData);
   }
 };
 
 export const attendanceService = {
-  getAll: () => getFromStorage(STORAGE_KEYS.ATTENDANCE),
-  mark: (classId, date, attendanceData) => {
-    const records = getFromStorage(STORAGE_KEYS.ATTENDANCE);
-    const existingIndex = records.findIndex(r => r.classId === classId && r.date === date);
+  getAll: async () => {
+    const response = await fetch(`${API_BASE}/attendance`);
+    return response.json();
+  },
+  mark: async (classId, date, attendanceData) => {
+    const response = await fetch(`${API_BASE}/attendance?classId=${classId}&date=${date}`);
+    const existing = await response.json();
     
-    const newRecord = {
-      id: existingIndex >= 0 ? records[existingIndex].id : generateId(),
+    const record = {
+      id: existing.length > 0 ? existing[0].id : generateId(),
       classId,
       date,
       attendance: attendanceData,
       markedAt: new Date().toISOString()
     };
 
-    if (existingIndex >= 0) {
-      records[existingIndex] = newRecord;
+    if (existing.length > 0) {
+      const updateResponse = await fetch(`${API_BASE}/attendance/${existing[0].id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(record)
+      });
+      return updateResponse.json();
     } else {
-      records.push(newRecord);
+      const createResponse = await fetch(`${API_BASE}/attendance`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(record)
+      });
+      return createResponse.json();
     }
-
-    saveToStorage(STORAGE_KEYS.ATTENDANCE, records);
-    return newRecord;
   },
-  getByClassAndDate: (classId, date) => {
-    const records = getFromStorage(STORAGE_KEYS.ATTENDANCE);
-    return records.find(r => r.classId === classId && r.date === date);
+  getByClassAndDate: async (classId, date) => {
+    const response = await fetch(`${API_BASE}/attendance?classId=${classId}&date=${date}`);
+    const records = await response.json();
+    return records[0] || null;
   }
 };
 
-export const initializeDummyData = () => {
-  const dummyStudents = [
-    { id: '1', firstName: 'John', lastName: 'Doe', email: 'john@example.com', password: 'password', rollNumber: 'S001' },
-    { id: '2', firstName: 'Jane', lastName: 'Smith', email: 'jane@example.com', password: 'password', rollNumber: 'S002' },
-    { id: '3', firstName: 'Mike', lastName: 'Johnson', email: 'mike@example.com', password: 'password', rollNumber: 'S003' }
-  ];
 
-  const dummyTeachers = [
-    { id: '1', firstName: 'Prof', lastName: 'Wilson', email: 'wilson@example.com', password: 'password', subject: 'Mathematics' },
-    { id: '2', firstName: 'Dr', lastName: 'Brown', email: 'brown@example.com', password: 'password', subject: 'Physics' }
-  ];
 
-  const dummyClasses = [
-    { id: '1', name: 'Class A', standard: '5th Standard', teacherId: '1', students: ['1', '2'] },
-    { id: '2', name: 'Class B', standard: '6th Standard', teacherId: '2', students: ['2', '3'] }
-  ];
+export const clearAllData = async () => {
+  try {
+    const [students, teachers, classes, attendance] = await Promise.all([
+      fetch(`${API_BASE}/students`).then(r => r.json()),
+      fetch(`${API_BASE}/teachers`).then(r => r.json()),
+      fetch(`${API_BASE}/classes`).then(r => r.json()),
+      fetch(`${API_BASE}/attendance`).then(r => r.json())
+    ]);
 
-  saveToStorage(STORAGE_KEYS.STUDENTS, dummyStudents);
-  saveToStorage(STORAGE_KEYS.TEACHERS, dummyTeachers);
-  saveToStorage(STORAGE_KEYS.CLASSES, dummyClasses);
-};
+    await Promise.all([
+      ...students.map(s => fetch(`${API_BASE}/students/${s.id}`, { method: 'DELETE' })),
+      ...teachers.map(t => fetch(`${API_BASE}/teachers/${t.id}`, { method: 'DELETE' })),
+      ...classes.map(c => fetch(`${API_BASE}/classes/${c.id}`, { method: 'DELETE' })),
+      ...attendance.map(a => fetch(`${API_BASE}/attendance/${a.id}`, { method: 'DELETE' }))
+    ]);
 
-export const clearAllData = () => {
-  Object.values(STORAGE_KEYS).forEach(key => {
-    if (key !== STORAGE_KEYS.USER && key !== STORAGE_KEYS.TOKEN && key !== STORAGE_KEYS.THEME) {
-      localStorage.removeItem(key);
-    }
-  });
+    Object.values(STORAGE_KEYS).forEach(key => {
+      if (key !== STORAGE_KEYS.USER && key !== STORAGE_KEYS.TOKEN && key !== STORAGE_KEYS.THEME) {
+        localStorage.removeItem(key);
+      }
+    });
+  } catch (error) {
+    console.error('Error clearing data:', error);
+  }
 };

@@ -6,14 +6,12 @@ import MainLayout from '@components/common/MainLayout';
 import DashboardStats from '@components/common/DashboardStats';
 import AttendanceCharts from '@components/common/AttendanceCharts';
 import { useAttendanceStats } from '@hooks/useAttendanceStats';
-import AttendancePage from '@pages/AttendancePage/AttendancePage';
 import { classesService, studentsService, teachersService, attendanceService } from '@services/storageService';
 import { colors } from '@theme';
 import { STORAGE_KEYS, ATTENDANCE_STATUS } from '@constants';
 
 const TeacherDashboard = () => {
   const { user } = useAuth();
-  const [currentPage, setCurrentPage] = useState('dashboard');
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
   const [teacherClass, setTeacherClass] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -27,12 +25,12 @@ const TeacherDashboard = () => {
     }
   }, [teacherClass, selectedDate]);
 
-  const loadAttendanceData = () => {
+  const loadAttendanceData = async () => {
     if (!teacherClass) return;
     
-    const students = studentsService.getAll();
-    const teachers = teachersService.getAll();
-    const attendanceRecords = attendanceService.getAll();
+    const students = await studentsService.getAll();
+    const teachers = await teachersService.getAll();
+    const attendanceRecords = await attendanceService.getAll();
     
     const teacher = teachers.find(t => t.id === teacherClass.teacherId);
     const teacherName = teacher ? `${teacher.firstName} ${teacher.lastName}` : 'No Teacher';
@@ -80,18 +78,18 @@ const TeacherDashboard = () => {
     return matchesSearch && matchesFilter;
   });
 
-  useEffect(() => {
-    const classes = classesService.getAll();
+  const loadTeacherClass = async () => {
+    const classes = await classesService.getAll();
     const assignedClass = classes.find(c => c.teacherId === user?.id);
     setTeacherClass(assignedClass);
+  };
+
+  useEffect(() => {
+    loadTeacherClass();
   }, [user]);
 
-  const renderPageContent = () => {
-    switch (currentPage) {
-      case 'attendance':
-        return <AttendancePage />;
-      default:
-        return (
+  return (
+    <Box>
           <Box>
             {/* Welcome Header */}
             <Box sx={{
@@ -269,14 +267,7 @@ const TeacherDashboard = () => {
               </Box>
             )}
           </Box>
-        );
-    }
-  };
-
-  return (
-    <MainLayout currentPage={currentPage} onPageChange={setCurrentPage}>
-      {renderPageContent()}
-    </MainLayout>
+    </Box>
   );
 };
 

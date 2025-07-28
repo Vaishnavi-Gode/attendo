@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Typography, Box, Button, Grid, Card, CardContent } from '@mui/material';
-import { initializeDummyData, clearAllData } from '@services/storageService';
+import { clearAllData } from '@services/storageService';
 import { generateRandomData } from '@services/apiService';
 import { STORAGE_KEYS } from '@constants';
 import ConfirmDialog from '@components/common/ConfirmDialog';
@@ -12,18 +12,14 @@ const SettingsPage = () => {
   const [alertMessage, setAlertMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleInitializeData = () => {
-    initializeDummyData();
-    setAlertMessage('Dummy data initialized successfully!');
-    setAlertOpen(true);
-  };
+
 
   const handleClearData = () => {
     setConfirmOpen(true);
   };
 
-  const confirmClearData = () => {
-    clearAllData();
+  const confirmClearData = async () => {
+    await clearAllData();
     setConfirmOpen(false);
     setAlertMessage('All data cleared successfully!');
     setAlertOpen(true);
@@ -34,10 +30,7 @@ const SettingsPage = () => {
     try {
       const { teachers, students, classes, attendanceRecords } = await generateRandomData();
       
-      localStorage.setItem(STORAGE_KEYS.TEACHERS, JSON.stringify(teachers));
-      localStorage.setItem(STORAGE_KEYS.STUDENTS, JSON.stringify(students));
-      localStorage.setItem(STORAGE_KEYS.CLASSES, JSON.stringify(classes));
-      localStorage.setItem(STORAGE_KEYS.ATTENDANCE, JSON.stringify(attendanceRecords));
+      // Data is already saved to json-server by generateRandomData
       
       setAlertMessage('Random data generated successfully! 10 teachers, 50 students, 10 classes with 60 days of attendance.');
       setAlertOpen(true);
@@ -63,15 +56,10 @@ const SettingsPage = () => {
                 Data Management
               </Typography>
               <Typography variant="body2" color="text.secondary" paragraph>
-                Initialize the system with sample data or clear all existing data.
+                Generate random data or clear all existing data.
               </Typography>
               <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
-                <Button 
-                  variant="contained" 
-                  onClick={handleInitializeData}
-                >
-                  Initialize Dummy Data
-                </Button>
+
                 <Button 
                   variant="contained" 
                   color="secondary"

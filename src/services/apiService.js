@@ -99,5 +99,37 @@ export const generateRandomData = async () => {
     });
   }
 
+  // Save to json-server
+  await Promise.all([
+    ...teachers.map(teacher => 
+      fetch('http://localhost:3001/teachers', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(teacher)
+      })
+    ),
+    ...students.map(student => 
+      fetch('http://localhost:3001/students', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(student)
+      })
+    ),
+    ...classes.map(classItem => 
+      fetch('http://localhost:3001/classes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(classItem)
+      })
+    ),
+    ...attendanceRecords.map(record => 
+      fetch('http://localhost:3001/attendance', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(record)
+      })
+    )
+  ]);
+
   return { teachers, students, classes, attendanceRecords };
 };

@@ -1,31 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
-import { ThemeProvider } from '@context/ThemeContext';
-import { AuthProvider } from '@context/AuthContext';
-import { initializeDummyData } from '@services/storageService';
-import { STORAGE_KEYS } from '@constants';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+import { ThemeProvider } from "@context/ThemeContext";
+import { AuthProvider } from "@context/AuthContext";
 
-// Initialize dummy data if not exists
-if (!localStorage.getItem(STORAGE_KEYS.STUDENTS)) {
-  initializeDummyData();
-}
+import { STORAGE_KEYS } from "@constants";
+import App from "./App";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeProvider>
         <AuthProvider>
           <App />
+          {/* For Global toast notifications like success, error, info  */}
           <Toaster
             position="top-right"
             toastOptions={{
               duration: 4000,
               style: {
-                background: '#363636',
-                color: '#fff',
+                background: "#363636",
+                color: "#fff",
               },
             }}
           />

@@ -3,13 +3,12 @@ import { Typography, Box, Card, CardContent, Grid, IconButton } from '@mui/mater
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import { useAuth } from '@context/AuthContext';
 import MainLayout from '@components/common/MainLayout';
-import { classesService } from '@services/storageService';
+import { classesService, attendanceService } from '@services/storageService';
 import { colors } from '@theme';
 import { STORAGE_KEYS, ATTENDANCE_STATUS } from '@constants';
 
 const StudentDashboard = () => {
   const { user } = useAuth();
-  const [currentPage, setCurrentPage] = useState('dashboard');
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [studentClass, setStudentClass] = useState(null);
@@ -22,14 +21,12 @@ const StudentDashboard = () => {
   });
 
   useEffect(() => {
-    if (currentPage === 'dashboard') {
-      loadStudentData();
-    }
-  }, [currentPage, user]);
+    loadStudentData();
+  }, [user]);
 
-  const loadStudentData = () => {
-    const classes = classesService.getAll();
-    const allAttendanceRecords = JSON.parse(localStorage.getItem(STORAGE_KEYS.ATTENDANCE) || '[]');
+  const loadStudentData = async () => {
+    const classes = await classesService.getAll();
+    const allAttendanceRecords = await attendanceService.getAll();
     
     // Find student's class
     const assignedClass = classes.find(c => c.students?.includes(user?.id));
@@ -235,8 +232,8 @@ const StudentDashboard = () => {
     );
   };
 
-  const renderPageContent = () => {
-    return (
+  return (
+    <Box>
       <Box>
         {/* Welcome Header */}
         <Box sx={{
@@ -372,13 +369,7 @@ const StudentDashboard = () => {
           </Box>
         )}
       </Box>
-    );
-  };
-
-  return (
-    <MainLayout currentPage={currentPage} onPageChange={setCurrentPage}>
-      {renderPageContent()}
-    </MainLayout>
+    </Box>
   );
 };
 
