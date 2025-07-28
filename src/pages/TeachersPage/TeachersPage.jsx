@@ -1,16 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { Box, TextField, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
-import toast from 'react-hot-toast';
-import { teachersService, classesService } from '@services/storageService';
-import PageHeader from '@components/common/PageHeader';
-import SearchFilter from '@components/common/SearchFilter';
-import DataTable from '@components/common/DataTable';
-import FormDialog from '@components/common/FormDialog';
-import ConfirmDialog from '@components/common/ConfirmDialog';
-import useCrudOperations from '@hooks/useCrudOperations';
+import React, { useState, useEffect } from "react";
+import {
+  Box,
+  TextField,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+} from "@mui/material";
+import toast from "react-hot-toast";
+import { teachersService, classesService } from "@services/baseService";
+import { validateTeacher } from "@utils/validations";
+import PageHeader from "@components/common/PageHeader";
+import SearchFilter from "@components/common/SearchFilter";
+import DataTable from "@components/common/DataTable";
+import FormDialog from "@components/common/FormDialog";
+import ConfirmDialog from "@components/common/ConfirmDialog";
+import useCrudOperations from "@hooks/useCrudOperations";
 
 const TeachersPage = () => {
   const [classes, setClasses] = useState([]);
+  const [error, setError] = useState("");
   const {
     data: teachers,
     searchTerm,
@@ -20,6 +29,7 @@ const TeachersPage = () => {
     open,
     setOpen,
     confirmOpen,
+    setConfirmOpen,
     editing: editingTeacher,
     deleting: deletingTeacher,
     formData,
@@ -28,34 +38,47 @@ const TeachersPage = () => {
     handleEdit: baseEdit,
     handleDelete,
     handleAdd,
-    confirmDelete
+    confirmDelete,
   } = useCrudOperations(teachersService, {
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    classId: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    classId: "",
   });
 
+  const loadClasses = async () => {
+    const classesData = await classesService.getAll();
+    setClasses(classesData);
+  };
+
   useEffect(() => {
-    const loadClasses = async () => {
-      const classesData = await classesService.getAll();
-      setClasses(classesData);
-    };
     loadClasses();
   }, []);
 
-  const handleSubmit = () => {
-    baseSubmit(async (editing, formData) => {
+  const handleSubmit = async () => {
+    const validationError = validateTeacher(
+      formData,
+      teachers,
+      classes,
+      editingTeacher
+    );
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
+    setError("");
+
+    await baseSubmit(async (editing, formData) => {
       if (editing) {
         // Remove teacher from previous class
-        const previousClass = classes.find(c => c.teacherId === editing.id);
+        const previousClass = classes.find((c) => c.teacherId === editing.id);
         if (previousClass) {
           await classesService.assignTeacher(previousClass.id, null);
         }
-        
+
         await teachersService.update(editing.id, formData);
-        
+
         // Assign to new class
         if (formData.classId) {
           await classesService.assignTeacher(formData.classId, editing.id);
@@ -67,64 +90,101 @@ const TeachersPage = () => {
         }
       }
     });
-    toast.success(editingTeacher ? 'Teacher updated successfully!' : 'Teacher added successfully!');
+    await loadClasses();
+    toast.success(
+      editingTeacher
+        ? "Teacher updated successfully!"
+        : "Teacher added successfully!"
+    );
   };
 
   const handleEdit = (teacher) => {
-    const assignedClass = classes.find(c => c.teacherId === teacher.id);
-    baseEdit(teacher, { ...teacher, classId: assignedClass?.id || '' });
+    const assignedClass = classes.find((c) => c.teacherId === teacher.id);
+    baseEdit(teacher, { ...teacher, classId: assignedClass?.id || "" });
   };
 
-
-
   const getAssignedClass = (teacherId) => {
-    const assignedClass = classes.find(c => c.teacherId === teacherId);
-    return assignedClass ? `${assignedClass.name} (${assignedClass.standard})` : 'Not Assigned';
+    const assignedClass = classes.find((c) => c.teacherId === teacherId);
+    return assignedClass
+      ? `${assignedClass.name} (${assignedClass.standard})`
+      : "Not Assigned";
   };
 
   const getSearchOptions = () => {
-    switch(searchColumn) {
-      case 'name': return teachers.map(t => `${t.firstName} ${t.lastName}`);
-      case 'email': return teachers.map(t => t.email);
-      case 'class': return teachers.map(t => getAssignedClass(t.id));
-      default: return teachers.map(t => [`${t.firstName} ${t.lastName}`, t.email, getAssignedClass(t.id)]).flat();
+    switch (searchColumn) {
+      case "name":
+        return teachers.map((t) => `${t.firstName} ${t.lastName}`);
+      case "email":
+        return teachers.map((t) => t.email);
+      case "class":
+        return teachers.map((t) => getAssignedClass(t.id));
+      default:
+        return teachers
+          .map((t) => [
+            `${t.firstName} ${t.lastName}`,
+            t.email,
+            getAssignedClass(t.id),
+          ])
+          .flat();
     }
   };
 
-  const filteredTeachers = teachers.filter(teacher => {
+  const filteredTeachers = teachers.filter((teacher) => {
     if (!searchTerm) return true;
     const term = searchTerm.toLowerCase();
-    switch(searchColumn) {
-      case 'name': return `${teacher.firstName} ${teacher.lastName}`.toLowerCase().includes(term);
-      case 'email': return teacher.email.toLowerCase().includes(term);
-      case 'class': return getAssignedClass(teacher.id).toLowerCase().includes(term);
-      default: return `${teacher.firstName} ${teacher.lastName}`.toLowerCase().includes(term) ||
-                     teacher.email.toLowerCase().includes(term) ||
-                     getAssignedClass(teacher.id).toLowerCase().includes(term);
+    switch (searchColumn) {
+      case "name":
+        return `${teacher.firstName} ${teacher.lastName}`
+          .toLowerCase()
+          .includes(term);
+      case "email":
+        return teacher.email.toLowerCase().includes(term);
+      case "class":
+        return getAssignedClass(teacher.id).toLowerCase().includes(term);
+      default:
+        return (
+          `${teacher.firstName} ${teacher.lastName}`
+            .toLowerCase()
+            .includes(term) ||
+          teacher.email.toLowerCase().includes(term) ||
+          getAssignedClass(teacher.id).toLowerCase().includes(term)
+        );
     }
   });
 
   const columns = [
-    { key: 'name', label: 'Name', bold: true, render: (row) => `${row.firstName} ${row.lastName}` },
-    { key: 'email', label: 'Email' },
-    { key: 'assignedClass', label: 'Assigned Class', render: (row) => getAssignedClass(row.id) }
+    {
+      key: "name",
+      label: "Name",
+      bold: true,
+      render: (row) => `${row.firstName} ${row.lastName}`,
+    },
+    { key: "email", label: "Email" },
+    {
+      key: "assignedClass",
+      label: "Assigned Class",
+      render: (row) => getAssignedClass(row.id),
+    },
   ];
 
   const columnOptions = [
-    { value: 'all', label: 'All Columns' },
-    { value: 'name', label: 'Name' },
-    { value: 'email', label: 'Email' },
-    { value: 'class', label: 'Assigned Class' }
+    { value: "all", label: "All Columns" },
+    { value: "name", label: "Name" },
+    { value: "email", label: "Email" },
+    { value: "class", label: "Assigned Class" },
   ];
 
   return (
     <Box>
-      <PageHeader 
-        title="Teachers" 
-        onAdd={handleAdd} 
-        addButtonText="Add Teacher" 
+      <PageHeader
+        title="Teachers"
+        onAdd={() => {
+          handleAdd();
+          setError("");
+        }}
+        addButtonText="Add Teacher"
       />
-      
+
       <SearchFilter
         searchColumn={searchColumn}
         setSearchColumn={setSearchColumn}
@@ -133,33 +193,41 @@ const TeachersPage = () => {
         searchOptions={getSearchOptions()}
         columnOptions={columnOptions}
       />
-      
+
       <DataTable
         columns={columns}
         data={filteredTeachers}
         onEdit={handleEdit}
         onDelete={handleDelete}
       />
-      
+
       <FormDialog
         open={open}
-        onClose={() => setOpen(false)}
-        title={editingTeacher ? 'Edit Teacher' : 'Add Teacher'}
+        onClose={() => {
+          setOpen(false);
+          setError("");
+        }}
+        title={editingTeacher ? "Edit Teacher" : "Add Teacher"}
         onSubmit={handleSubmit}
-        submitText={editingTeacher ? 'Update' : 'Add'}
+        submitText={editingTeacher ? "Update" : "Add"}
+        error={error}
       >
         <TextField
           fullWidth
           label="First Name"
           value={formData.firstName}
-          onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+          onChange={(e) =>
+            setFormData({ ...formData, firstName: e.target.value })
+          }
           margin="normal"
         />
         <TextField
           fullWidth
           label="Last Name"
           value={formData.lastName}
-          onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+          onChange={(e) =>
+            setFormData({ ...formData, lastName: e.target.value })
+          }
           margin="normal"
         />
         <TextField
@@ -174,18 +242,22 @@ const TeachersPage = () => {
           label="Password"
           type="password"
           value={formData.password}
-          onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+          onChange={(e) =>
+            setFormData({ ...formData, password: e.target.value })
+          }
           margin="normal"
         />
         <FormControl fullWidth margin="normal">
           <InputLabel>Assign Class (Optional)</InputLabel>
           <Select
-            value={formData.classId || ''}
-            onChange={(e) => setFormData({ ...formData, classId: e.target.value })}
+            value={formData.classId || ""}
+            onChange={(e) =>
+              setFormData({ ...formData, classId: e.target.value })
+            }
             label="Assign Class (Optional)"
           >
             <MenuItem value="">No Class</MenuItem>
-            {classes.map(classItem => (
+            {classes.map((classItem) => (
               <MenuItem key={classItem.id} value={classItem.id}>
                 {classItem.name} - {classItem.standard}
               </MenuItem>
@@ -193,7 +265,7 @@ const TeachersPage = () => {
           </Select>
         </FormControl>
       </FormDialog>
-      
+
       <ConfirmDialog
         open={confirmOpen}
         title="Delete Teacher"

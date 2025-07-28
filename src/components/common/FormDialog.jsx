@@ -1,4 +1,4 @@
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from '@mui/material';
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Alert } from '@mui/material';
 
 const FormDialog = ({ 
   open, 
@@ -6,11 +6,13 @@ const FormDialog = ({
   title, 
   onSubmit, 
   submitText = 'Save',
-  children 
+  children,
+  error 
 }) => (
   <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
     <DialogTitle>{title}</DialogTitle>
     <DialogContent>
+      {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
       {children}
     </DialogContent>
     <DialogActions>

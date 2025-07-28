@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Typography, Box, Card, CardContent, Grid, IconButton } from '@mui/material';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import { useAuth } from '@context/AuthContext';
-import MainLayout from '@components/common/MainLayout';
 import { classesService, attendanceService } from '@services/storageService';
 import { colors } from '@theme';
-import { STORAGE_KEYS, ATTENDANCE_STATUS } from '@constants';
+import { ATTENDANCE_STATUS } from '@constants';
 
 const StudentDashboard = () => {
   const { user } = useAuth();

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Box, TextField, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 import toast from 'react-hot-toast';
-import { classesService, teachersService, studentsService } from '@services/storageService';
+import { classesService, teachersService, studentsService } from '@services/baseService';
+import { validateClass, validateClassDeletion } from '@utils/validations';
 import PageHeader from '@components/common/PageHeader';
 import SearchFilter from '@components/common/SearchFilter';
 import DataTable from '@components/common/DataTable';
@@ -11,6 +12,7 @@ import useCrudOperations from '@hooks/useCrudOperations';
 const ClassesPage = () => {
   const [teachers, setTeachers] = useState([]);
   const [students, setStudents] = useState([]);
+  const [error, setError] = useState('');
   const {
     data: classes,
     searchTerm,
@@ -44,16 +46,25 @@ const ClassesPage = () => {
   }, []);
 
   const handleDelete = (classItem) => {
+    const validationError = validateClassDeletion(classItem);
+    if (validationError) {
+      toast.error(validationError);
+      return;
+    }
+    
     if (window.confirm('Delete this class?')) {
       baseDelete(classItem);
     }
   };
 
   const handleFormSubmit = () => {
-    if (!formData.name || !formData.standard) {
-      toast.error('Please fill in all required fields');
+    const validationError = validateClass(formData, classes, editingClass);
+    if (validationError) {
+      setError(validationError);
       return;
     }
+    setError('');
+    
     handleSubmit();
     toast.success(editingClass ? 'Class updated successfully!' : 'Class added successfully!');
   };
@@ -105,7 +116,7 @@ const ClassesPage = () => {
     <Box>
       <PageHeader 
         title="Classes" 
-        onAdd={handleAdd} 
+        onAdd={() => { handleAdd(); setError(''); }} 
         addButtonText="Add Class" 
       />
       
@@ -127,10 +138,11 @@ const ClassesPage = () => {
       
       <FormDialog
         open={open}
-        onClose={() => setOpen(false)}
+        onClose={() => { setOpen(false); setError(''); }}
         title={editingClass ? 'Edit Class' : 'Add Class'}
         onSubmit={handleFormSubmit}
         submitText={editingClass ? 'Update' : 'Add'}
+        error={error}
       >
         <TextField
           fullWidth

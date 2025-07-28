@@ -1,9 +1,20 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { USER_ROLE, STORAGE_KEYS, DEFAULT_CREDENTIALS } from '@constants';
-import { studentsService, teachersService } from '@services/storageService';
+import { studentsService, teachersService } from '@services/baseService';
 
 const AuthContext = createContext();
+
+const findUser = async (email, password, role) => {
+  if (role === USER_ROLE.ADMIN && email === DEFAULT_CREDENTIALS.ADMIN.email && password === DEFAULT_CREDENTIALS.ADMIN.password) {
+    return { id: 'admin', email, firstName: 'Admin', lastName: 'User', role };
+  }
+  
+  const service = role === USER_ROLE.STUDENT ? studentsService : teachersService;
+  const users = await service.getAll();
+  const user = users.find(u => u.email === email && u.password === password);
+  return user ? { ...user, role } : null;
+};
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -13,55 +24,12 @@ export const AuthProvider = ({ children }) => {
   const isAuthenticated = !!user;
 
   const login = async (email, password, role) => {
-    setLoading(true);
-    try {
-      let foundUser = null;
-      
-      // Check admin credentials
-      if (role === USER_ROLE.ADMIN && email === DEFAULT_CREDENTIALS.ADMIN.email && password === DEFAULT_CREDENTIALS.ADMIN.password) {
-        foundUser = {
-          id: 'admin',
-          email: DEFAULT_CREDENTIALS.ADMIN.email,
-          firstName: 'Admin',
-          lastName: 'User',
-          role: USER_ROLE.ADMIN
-        };
-      } else {
-        // Get users from API
-        if (role === USER_ROLE.STUDENT) {
-          const students = await studentsService.getAll();
-          foundUser = students.find(s => s.email === email && s.password === password);
-          if (foundUser) foundUser.role = USER_ROLE.STUDENT;
-        } else if (role === USER_ROLE.TEACHER) {
-          const teachers = await teachersService.getAll();
-          foundUser = teachers.find(t => t.email === email && t.password === password);
-          if (foundUser) foundUser.role = USER_ROLE.TEACHER;
-        }
-      }
-      
-      if (!foundUser) {
-        throw new Error('Invalid credentials');
-      }
-      
-      const user = {
-        ...foundUser,
-        isActive: true,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      };
-      
-      setUser(user);
-      localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(user));
-      
-      // Navigate based on role
-      if (user.role === USER_ROLE.ADMIN) navigate('/admin');
-      else if (user.role === USER_ROLE.TEACHER) navigate('/teacher');
-      else if (user.role === USER_ROLE.STUDENT) navigate('/student');
-    } catch (error) {
-      throw new Error('Invalid email or password');
-    } finally {
-      setLoading(false);
-    }
+    const foundUser = await findUser(email, password, role);
+    if (!foundUser) throw new Error('Invalid email or password');
+    
+    setUser(foundUser);
+    localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(foundUser));
+    navigate(`/${role}`);
   };
 
   const logout = () => {

@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Box, Card, CardContent, Grid, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Autocomplete, Button, ButtonGroup } from '@mui/material';
-import { PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { Typography, Box, Grid, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Autocomplete, Button } from '@mui/material';
 import { useAuth } from '@context/AuthContext';
-import MainLayout from '@components/common/MainLayout';
 import DashboardStats from '@components/common/DashboardStats';
 import AttendanceCharts from '@components/common/AttendanceCharts';
 import { useAttendanceStats } from '@hooks/useAttendanceStats';
-import { classesService, studentsService, teachersService, attendanceService } from '@services/storageService';
-import { colors } from '@theme';
-import { STORAGE_KEYS, ATTENDANCE_STATUS } from '@constants';
+import { classesService, studentsService, teachersService, attendanceService } from '@services/baseService';
+import { ATTENDANCE_STATUS } from '@constants';
 
 const TeacherDashboard = () => {
   const { user } = useAuth();
@@ -90,7 +87,7 @@ const TeacherDashboard = () => {
 
   return (
     <Box>
-          <Box>
+
             {/* Welcome Header */}
             <Box sx={{
               background: 'rgba(255,255,255,0.6)',
@@ -266,7 +263,6 @@ const TeacherDashboard = () => {
                 </Typography>
               </Box>
             )}
-          </Box>
     </Box>
   );
 };

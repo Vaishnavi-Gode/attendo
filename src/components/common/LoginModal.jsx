@@ -33,10 +33,9 @@ const LoginModal = ({ open, onClose }) => {
       await login(email, password, role);
       onClose();
     } catch (err) {
-      setError("Invalid credentials");
-    } finally {
-      setLoading(false);
+      setError(err.message || "Invalid credentials");
     }
+    setLoading(false);
   };
 
   return (

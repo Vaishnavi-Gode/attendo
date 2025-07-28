@@ -15,20 +15,7 @@ import {
   Autocomplete,
   Button,
 } from "@mui/material";
-import {
-  PieChart,
-  Pie,
-  Cell,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
 import { useAuth } from "@context/AuthContext";
-
 import DashboardStats from "@components/common/DashboardStats";
 import AttendanceCharts from "@components/common/AttendanceCharts";
 import { useAttendanceStats } from "@hooks/useAttendanceStats";
@@ -38,9 +25,6 @@ import {
   classesService,
   attendanceService,
 } from "@services/storageService";
-import { colors } from "@theme";
-import { STORAGE_KEYS } from "@constants";
-
 
 const AdminDashboard = () => {
   const { user } = useAuth();
@@ -181,7 +165,7 @@ const AdminDashboard = () => {
           Welcome back, {user?.firstName}!
         </Typography>
         <Typography variant="h6" color="text.secondary" sx={{ mb: 3 }}>
-          Here's your attendance overview for today
+          Here&apos;s your attendance overview for today
         </Typography>
         <TextField
           type="date"
@@ -212,11 +196,7 @@ const AdminDashboard = () => {
           mt: 4,
         }}
       >
-        <Typography
-          variant="h6"
-          gutterBottom
-          sx={{ fontWeight: 600, mb: 3 }}
-        >
+        <Typography variant="h6" gutterBottom sx={{ fontWeight: 600, mb: 3 }}>
           Attendance Records
         </Typography>
         <Grid container spacing={2} sx={{ mb: 3 }}>
@@ -260,9 +240,7 @@ const AdminDashboard = () => {
               />
               <Box sx={{ display: "flex", gap: 1 }}>
                 <Button
-                  variant={
-                    filterStatus === "all" ? "contained" : "outlined"
-                  }
+                  variant={filterStatus === "all" ? "contained" : "outlined"}
                   onClick={() => setFilterStatus("all")}
                   size="small"
                 >
@@ -279,9 +257,7 @@ const AdminDashboard = () => {
                   Present
                 </Button>
                 <Button
-                  variant={
-                    filterStatus === "absent" ? "contained" : "outlined"
-                  }
+                  variant={filterStatus === "absent" ? "contained" : "outlined"}
                   onClick={() => setFilterStatus("absent")}
                   size="small"
                   color="error"
@@ -320,9 +296,7 @@ const AdminDashboard = () => {
               <TableRow>
                 <TableCell sx={{ fontWeight: 600 }}>Class</TableCell>
                 <TableCell sx={{ fontWeight: 600 }}>Teacher</TableCell>
-                <TableCell sx={{ fontWeight: 600 }}>
-                  Student Name
-                </TableCell>
+                <TableCell sx={{ fontWeight: 600 }}>Student Name</TableCell>
                 <TableCell align="center" sx={{ fontWeight: 600 }}>
                   Present
                 </TableCell>
