@@ -67,14 +67,23 @@ const StudentsPage = () => {
   };
 
   const handleSubmit = async () => {
-    const validationError = validateStudent(formData, students, editingStudent);
+    const trimmedData = {
+      ...formData,
+      firstName: formData.firstName?.trim(),
+      lastName: formData.lastName?.trim(),
+      email: formData.email?.trim(),
+      password: formData.password?.trim(),
+      rollNumber: formData.rollNumber?.trim()
+    };
+    
+    const validationError = validateStudent(trimmedData, students, editingStudent);
     if (validationError) {
       setError(validationError);
       return;
     }
     setError("");
 
-    await baseSumbit(async (editing, formData) => {
+    await baseSumbit(async (editing, trimmedData) => {
       if (editing) {
         // Remove from previous class
         const previousClass = classes.find((c) =>
@@ -84,16 +93,16 @@ const StudentsPage = () => {
           await classesService.removeStudent(previousClass.id, editing.id);
         }
 
-        await studentsService.update(editing.id, formData);
+        await studentsService.update(editing.id, trimmedData);
 
         // Assign to new class
-        if (formData.classId) {
-          await classesService.assignStudent(formData.classId, editing.id);
+        if (trimmedData.classId) {
+          await classesService.assignStudent(trimmedData.classId, editing.id);
         }
       } else {
-        const newStudent = await studentsService.add(formData);
-        if (formData.classId) {
-          await classesService.assignStudent(formData.classId, newStudent.id);
+        const newStudent = await studentsService.add(trimmedData);
+        if (trimmedData.classId) {
+          await classesService.assignStudent(trimmedData.classId, newStudent.id);
         }
       }
     });

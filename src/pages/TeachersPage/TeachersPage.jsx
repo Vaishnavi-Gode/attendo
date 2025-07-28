@@ -57,8 +57,16 @@ const TeachersPage = () => {
   }, []);
 
   const handleSubmit = async () => {
+    const trimmedData = {
+      ...formData,
+      firstName: formData.firstName?.trim(),
+      lastName: formData.lastName?.trim(),
+      email: formData.email?.trim(),
+      password: formData.password?.trim()
+    };
+    
     const validationError = validateTeacher(
-      formData,
+      trimmedData,
       teachers,
       classes,
       editingTeacher
@@ -69,7 +77,7 @@ const TeachersPage = () => {
     }
     setError("");
 
-    await baseSubmit(async (editing, formData) => {
+    await baseSubmit(async (editing, trimmedData) => {
       if (editing) {
         // Remove teacher from previous class
         const previousClass = classes.find((c) => c.teacherId === editing.id);
@@ -77,16 +85,16 @@ const TeachersPage = () => {
           await classesService.assignTeacher(previousClass.id, null);
         }
 
-        await teachersService.update(editing.id, formData);
+        await teachersService.update(editing.id, trimmedData);
 
         // Assign to new class
-        if (formData.classId) {
-          await classesService.assignTeacher(formData.classId, editing.id);
+        if (trimmedData.classId) {
+          await classesService.assignTeacher(trimmedData.classId, editing.id);
         }
       } else {
-        const newTeacher = await teachersService.add(formData);
-        if (formData.classId) {
-          await classesService.assignTeacher(formData.classId, newTeacher.id);
+        const newTeacher = await teachersService.add(trimmedData);
+        if (trimmedData.classId) {
+          await classesService.assignTeacher(trimmedData.classId, newTeacher.id);
         }
       }
     });

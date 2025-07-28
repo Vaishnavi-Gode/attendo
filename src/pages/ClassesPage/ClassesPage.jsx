@@ -58,13 +58,20 @@ const ClassesPage = () => {
   };
 
   const handleFormSubmit = () => {
-    const validationError = validateClass(formData, classes, editingClass);
+    const trimmedData = {
+      ...formData,
+      name: formData.name?.trim(),
+      standard: formData.standard?.trim()
+    };
+    
+    const validationError = validateClass(trimmedData, classes, editingClass);
     if (validationError) {
       setError(validationError);
       return;
     }
     setError('');
     
+    setFormData(trimmedData);
     handleSubmit();
     toast.success(editingClass ? 'Class updated successfully!' : 'Class added successfully!');
   };
