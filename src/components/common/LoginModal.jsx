@@ -5,7 +5,6 @@ import {
   TextField,
   Button,
   Typography,
-  Box,
   Alert,
   Select,
   MenuItem,
@@ -40,12 +39,17 @@ const LoginModal = ({ open, onClose }) => {
 
   return (
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
-      <DialogContent sx={{ 
-        p: 4,
-        background: 'linear-gradient(135deg, #ECEFF1 0%, #e0f2f1 100%)',
-        borderRadius: '16px'
-      }}>
-        <Typography variant="h5" sx={{ mb: 3, fontWeight: 600, textAlign: 'center' }}>
+      <DialogContent
+        sx={{
+          p: 4,
+          background: "linear-gradient(135deg, #ECEFF1 0%, #e0f2f1 100%)",
+          borderRadius: "16px",
+        }}
+      >
+        <Typography
+          variant="h5"
+          sx={{ mb: 3, fontWeight: 600, textAlign: "center" }}
+        >
           Sign In to Attendo
         </Typography>
 
@@ -96,12 +100,12 @@ const LoginModal = ({ open, onClose }) => {
             size="large"
             disabled={loading}
             sx={{
-              background: 'linear-gradient(135deg, #4dd0e1 0%, #00acc1 100%)',
-              borderRadius: '50px',
+              background: "linear-gradient(135deg, #4dd0e1 0%, #00acc1 100%)",
+              borderRadius: "50px",
               py: 1.5,
-              '&:hover': {
-                background: 'linear-gradient(135deg, #00acc1 0%, #006064 100%)'
-              }
+              "&:hover": {
+                background: "linear-gradient(135deg, #00acc1 0%, #006064 100%)",
+              },
             }}
           >
             {loading ? "Signing in..." : "Sign In"}

@@ -35,8 +35,12 @@ export const validateClass = (formData, classes, editing) => {
   if (!formData.name?.trim()) return 'Class name is required';
   if (!formData.standard?.trim()) return 'Standard is required';
 
-  const nameExists = classes.find(c => c.name === formData.name && c.id !== editing?.id);
-  if (nameExists) return 'Class name already exists';
+  const nameExists = classes.find(c => 
+    c.name === formData.name && 
+    c.standard === formData.standard && 
+    c.id !== editing?.id
+  );
+  if (nameExists) return 'Class name already exists for this standard';
 
   return null;
 };
