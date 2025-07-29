@@ -15,12 +15,12 @@
   "students": [
     {
       "id": "s2",
-      "firstName": "Georgiamn",
+      "firstName": "Georgia",
       "lastName": "Rogers",
-      "email": "georgia.rogers@student.comd",
+      "email": "georgia.rogers@student.com",
       "password": "password",
       "rollNumber": "S002",
-      "classId": "c1"
+      "classId": "c6"
     },
     {
       "id": "s1",
@@ -257,10 +257,11 @@
     {
       "id": "s32",
       "firstName": "Norma",
-      "lastName": "Jimenez",
+      "lastName": "Jimen",
       "email": "norma.jimenez@student.com",
       "password": "password",
-      "rollNumber": "S032"
+      "rollNumber": "S032",
+      "classId": "c7"
     },
     {
       "id": "s33",
@@ -413,15 +414,25 @@
       "email": "clara.ruiz@student.com",
       "password": "password",
       "rollNumber": "S021"
+    },
+    {
+      "id": "1753818324495",
+      "firstName": "harry",
+      "lastName": "potter",
+      "email": "hp@example.com",
+      "password": "password",
+      "rollNumber": "56",
+      "classId": "c2"
     }
   ],
   "teachers": [
     {
       "id": "t2",
-      "firstName": "Minnie",
+      "firstName": "Miny",
       "lastName": "Perry",
       "email": "minnie.perry@school.com",
-      "password": "password"
+      "password": "password",
+      "classId": "1753813533643"
     },
     {
       "id": "t4",
@@ -492,7 +503,7 @@
       "id": "c3",
       "name": "Class C",
       "standard": "3rd Standard",
-      "teacherId": "t3",
+      "teacherId": null,
       "students": [
         "s11",
         "s12",
@@ -523,8 +534,7 @@
         "s1",
         "s3",
         "s4",
-        "s5",
-        "s2"
+        "s5"
       ]
     },
     {
@@ -545,13 +555,14 @@
       "id": "c2",
       "name": "Class B",
       "standard": "2nd Standard",
-      "teacherId": "t2",
+      "teacherId": null,
       "students": [
         "s6",
         "s7",
         "s8",
         "s9",
-        "s10"
+        "s10",
+        "1753818324495"
       ]
     },
     {
@@ -564,7 +575,8 @@
         "s27",
         "s28",
         "s29",
-        "s30"
+        "s30",
+        "s2"
       ]
     },
     {
@@ -587,10 +599,10 @@
       "teacherId": "t7",
       "students": [
         "s31",
-        "s32",
         "s33",
         "s34",
-        "s35"
+        "s35",
+        "s32"
       ]
     },
     {
@@ -624,7 +636,7 @@
       "name": "A",
       "standard": "2nd Standard",
       "students": [],
-      "teacherId": null
+      "teacherId": "t2"
     }
   ],
   "attendance": [

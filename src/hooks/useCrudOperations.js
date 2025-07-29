@@ -1,24 +1,31 @@
-import { useState, useEffect } from 'react';
+//Reuse to perform operations like add, delete, update in students, teachers, classes
+
+import { useState, useEffect } from "react";
 
 const useCrudOperations = (service, initialFormData = {}) => {
-  const [data, setData] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [searchColumn, setSearchColumn] = useState('all');
-  const [open, setOpen] = useState(false);
+  const [data, setData] = useState([]); //main data
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchColumn, setSearchColumn] = useState("all");
+  const [open, setOpen] = useState(false); //modal
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [editing, setEditing] = useState(null);
   const [deleting, setDeleting] = useState(null);
-  const [formData, setFormData] = useState(initialFormData);
+  const [formData, setFormData] = useState(initialFormData); // For form input data, with autofilled values
 
   const loadData = async () => setData(await service.getAll());
 
-  useEffect(() => { loadData(); }, []);
+  useEffect(() => {
+    loadData();
+  }, []);
 
   const handleSubmit = async (customLogic) => {
     if (customLogic) {
       await customLogic(editing, formData);
     } else {
-      await service[editing ? 'update' : 'add'](editing?.id || formData, editing ? formData : formData);
+      await service[editing ? "update" : "add"](
+        editing?.id || formData,
+        editing ? formData : formData
+      );
     }
     setOpen(false);
     setEditing(null);
@@ -69,7 +76,7 @@ const useCrudOperations = (service, initialFormData = {}) => {
     handleEdit,
     handleDelete,
     handleAdd,
-    confirmDelete
+    confirmDelete,
   };
 };
 

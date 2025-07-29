@@ -62,9 +62,9 @@ const TeachersPage = () => {
       firstName: formData.firstName?.trim(),
       lastName: formData.lastName?.trim(),
       email: formData.email?.trim(),
-      password: formData.password?.trim()
+      password: formData.password?.trim(),
     };
-    
+
     const validationError = validateTeacher(
       trimmedData,
       teachers,
@@ -81,20 +81,19 @@ const TeachersPage = () => {
       if (editing) {
         // Remove teacher from previous class
         const previousClass = classes.find((c) => c.teacherId === editing.id);
-        if (previousClass) {
+        if (trimmedData.classId != previousClass) {
           await classesService.assignTeacher(previousClass.id, null);
+          await classesService.assignTeacher(trimmedData.classId, editing.id);
         }
 
         await teachersService.update(editing.id, trimmedData);
-
-        // Assign to new class
-        if (trimmedData.classId) {
-          await classesService.assignTeacher(trimmedData.classId, editing.id);
-        }
       } else {
         const newTeacher = await teachersService.add(trimmedData);
         if (trimmedData.classId) {
-          await classesService.assignTeacher(trimmedData.classId, newTeacher.id);
+          await classesService.assignTeacher(
+            trimmedData.classId,
+            newTeacher.id
+          );
         }
       }
     });

@@ -28,13 +28,14 @@ const AdminDashboard = () => {
   const { user } = useAuth();
   const [selectedDate, setSelectedDate] = useState(
     new Date().toISOString().split("T")[0]
-  );
+  ); // Initialize to today's date by splitting date and time and take first part
   const [searchTerm, setSearchTerm] = useState("");
   const [searchColumn, setSearchColumn] = useState("all");
   const [attendanceData, setAttendanceData] = useState([]);
   const [filterStatus, setFilterStatus] = useState("all");
   const stats = useAttendanceStats(selectedDate, user?.role, user?.id);
 
+  //Fetch data from services
   const loadAttendanceData = async () => {
     const students = await studentsService.getAll();
     const teachers = await teachersService.getAll();
@@ -43,18 +44,21 @@ const AdminDashboard = () => {
 
     const data = [];
 
+    //Find teacher
     classes.forEach((classItem) => {
       const teacher = teachers.find((t) => t.id === classItem.teacherId);
       const teacherName = teacher
         ? `${teacher.firstName} ${teacher.lastName}`
         : "No Teacher";
 
+      //Initialize attendance counter
       classItem.students?.forEach((studentId) => {
         const student = students.find((s) => s.id === studentId);
         if (student) {
           let present = 0;
           let absent = 0;
 
+          //Calculate attendance
           attendanceRecords.forEach((record) => {
             if (
               record.classId === classItem.id &&
@@ -72,6 +76,7 @@ const AdminDashboard = () => {
           const todayStatus =
             todayRecord?.attendance[studentId] || "not_marked";
 
+          //For Table data
           data.push({
             className: `${classItem.name} - ${classItem.standard}`,
             teacherName,
@@ -87,6 +92,7 @@ const AdminDashboard = () => {
     setAttendanceData(data);
   };
 
+  //To reload data when date changes
   useEffect(() => {
     loadAttendanceData();
   }, [selectedDate]);
@@ -219,7 +225,9 @@ const AdminDashboard = () => {
           <Grid item xs={12} md={8}>
             <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
               <Autocomplete
+                // lets the user type anything
                 freeSolo
+                //list of suggestions in dropdown
                 options={[...new Set(getSearchOptions())]}
                 value={searchTerm}
                 onInputChange={(event, newValue) =>

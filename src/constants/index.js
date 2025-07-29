@@ -7,13 +7,7 @@ export const USER_ROLE = {
 };
 
 export const STORAGE_KEYS = {
-  STUDENTS: "attendo_students",
-  TEACHERS: "attendo_teachers",
-  CLASSES: "attendo_classes",
-  ATTENDANCE: "attendo_attendance",
   USER: "user",
-  TOKEN: "token",
-  THEME: "theme",
 };
 
 export const ATTENDANCE_STATUS = {

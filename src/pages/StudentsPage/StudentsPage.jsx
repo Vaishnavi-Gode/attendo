@@ -50,18 +50,9 @@ const StudentsPage = () => {
 
   useEffect(() => {
     loadRelatedData();
-
-    const handleStorageUpdate = () => {
-      loadRelatedData();
-    };
-
-    window.addEventListener("storageUpdated", handleStorageUpdate);
-
-    return () => {
-      window.removeEventListener("storageUpdated", handleStorageUpdate);
-    };
   }, []);
 
+  //Fetch classes
   const loadRelatedData = async () => {
     setClasses(await classesService.getAll());
   };
@@ -73,10 +64,14 @@ const StudentsPage = () => {
       lastName: formData.lastName?.trim(),
       email: formData.email?.trim(),
       password: formData.password?.trim(),
-      rollNumber: formData.rollNumber?.trim()
+      rollNumber: formData.rollNumber?.trim(),
     };
-    
-    const validationError = validateStudent(trimmedData, students, editingStudent);
+
+    const validationError = validateStudent(
+      trimmedData,
+      students,
+      editingStudent
+    );
     if (validationError) {
       setError(validationError);
       return;
@@ -89,20 +84,19 @@ const StudentsPage = () => {
         const previousClass = classes.find((c) =>
           c.students?.includes(editing.id)
         );
-        if (previousClass) {
+        if (trimmedData.classId != previousClass) {
           await classesService.removeStudent(previousClass.id, editing.id);
+          await classesService.assignStudent(trimmedData.classId, editing.id);
         }
 
         await studentsService.update(editing.id, trimmedData);
-
-        // Assign to new class
-        if (trimmedData.classId) {
-          await classesService.assignStudent(trimmedData.classId, editing.id);
-        }
       } else {
         const newStudent = await studentsService.add(trimmedData);
         if (trimmedData.classId) {
-          await classesService.assignStudent(trimmedData.classId, newStudent.id);
+          await classesService.assignStudent(
+            trimmedData.classId,
+            newStudent.id
+          );
         }
       }
     });
