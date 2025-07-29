@@ -1,16 +1,15 @@
 import { createTheme } from '@mui/material/styles';
 
-// Custom color palette
-const colors = {
-  primary: '#1A1A1A',      // Soft Black
-  secondary: '#B0BEC5',    // Cloud Gray
-  background: '#ECEFF1',   // Light Gray
-  accent: '#00ACC1',       // Aqua Blue
-  highlight: '#EF5350',    // Signal Red
-  text: '#F5F5F5',         // Light Grayish White
+export const colors = {
+  primary: '#1A1A1A',
+  secondary: '#B0BEC5',
+  background: '#ECEFF1',
+  accent: '#00ACC1',
+  highlight: '#EF5350',
+  text: '#F5F5F5',
 };
 
-const baseThemeOptions = {
+const theme = createTheme({
   typography: {
     fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
     h1: {
@@ -146,10 +145,6 @@ const baseThemeOptions = {
       },
     },
   },
-};
-
-export const lightTheme = createTheme({
-  ...baseThemeOptions,
   palette: {
     mode: 'light',
     primary: {
@@ -195,52 +190,4 @@ export const lightTheme = createTheme({
   },
 });
 
-export const darkTheme = createTheme({
-  ...baseThemeOptions,
-  palette: {
-    mode: 'dark',
-    primary: {
-      main: colors.text,
-      light: colors.background,
-      dark: colors.primary,
-      contrastText: colors.primary,
-    },
-    secondary: {
-      main: colors.secondary,
-      light: '#CFD8DC',
-      dark: '#607D8B',
-      contrastText: colors.text,
-    },
-    background: {
-      default: colors.primary,
-      paper: '#2A2A2A',
-    },
-    text: {
-      primary: colors.text,
-      secondary: colors.secondary,
-    },
-    error: {
-      main: colors.highlight,
-      light: '#FFCDD2',
-      dark: '#C62828',
-    },
-    info: {
-      main: colors.accent,
-      light: '#B2EBF2',
-      dark: '#00838F',
-    },
-    success: {
-      main: '#4CAF50',
-      light: '#C8E6C9',
-      dark: '#388E3C',
-    },
-    warning: {
-      main: '#FF9800',
-      light: '#FFE0B2',
-      dark: '#F57C00',
-    },
-  },
-});
-
-export { colors };
-export default lightTheme;
+export default theme;

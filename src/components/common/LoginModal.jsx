@@ -21,7 +21,7 @@ const LoginModal = ({ open, onClose }) => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const { login } = useAuth();
+  const { login } = useAuth(); //Login function
 
   const handleSubmit = async (e) => {
     e.preventDefault();

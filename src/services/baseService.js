@@ -1,51 +1,46 @@
-const API_BASE = 'http://localhost:3001';
+import axios from 'axios';
+
+const API_BASE = "http://localhost:3001";
 const generateId = () => Date.now().toString();
 
 const createService = (endpoint) => ({
   getAll: async () => {
-    const response = await fetch(`${API_BASE}/${endpoint}`);
-    return response.json();
+    const response = await axios.get(`${API_BASE}/${endpoint}`);
+    return response.data;
   },
   add: async (data) => {
-    const response = await fetch(`${API_BASE}/${endpoint}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...data, id: generateId() })
-    });
-    return response.json();
+    const response = await axios.post(`${API_BASE}/${endpoint}`, { ...data, id: generateId() });
+    return response.data;
   },
   update: async (id, data) => {
-    const response = await fetch(`${API_BASE}/${endpoint}/${id}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
-    return response.json();
+    const response = await axios.patch(`${API_BASE}/${endpoint}/${id}`, data);
+    return response.data;
   },
   delete: async (id) => {
-    await fetch(`${API_BASE}/${endpoint}/${id}`, { method: 'DELETE' });
+    await axios.delete(`${API_BASE}/${endpoint}/${id}`);
     return true;
-  }
+  },
 });
 
-export const studentsService = createService('students');
-export const teachersService = createService('teachers');
+export const studentsService = createService("students");
+export const teachersService = createService("teachers");
 export const classesService = {
-  ...createService('classes'),
+  ...createService("classes"),
   add: async (classData) => {
-    const response = await fetch(`${API_BASE}/classes`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...classData, id: generateId(), students: [], teacherId: null })
+    const response = await axios.post(`${API_BASE}/classes`, {
+      ...classData,
+      id: generateId(),
+      students: [],
+      teacherId: null,
     });
-    return response.json();
+    return response.data;
   },
   assignTeacher: async (classId, teacherId) => {
     return classesService.update(classId, { teacherId });
   },
   assignStudent: async (classId, studentId) => {
-    const response = await fetch(`${API_BASE}/classes/${classId}`);
-    const classData = await response.json();
+    const response = await axios.get(`${API_BASE}/classes/${classId}`);
+    const classData = response.data;
     if (!classData.students.includes(studentId)) {
       classData.students.push(studentId);
       return classesService.update(classId, classData);
@@ -53,41 +48,61 @@ export const classesService = {
     return classData;
   },
   removeStudent: async (classId, studentId) => {
-    const response = await fetch(`${API_BASE}/classes/${classId}`);
-    const classData = await response.json();
-    classData.students = classData.students.filter(id => id !== studentId);
+    const response = await axios.get(`${API_BASE}/classes/${classId}`);
+    const classData = response.data;
+    classData.students = classData.students.filter((id) => id !== studentId);
     return classesService.update(classId, classData);
-  }
+  },
 };
 
 export const attendanceService = {
   getAll: async () => {
-    const response = await fetch(`${API_BASE}/attendance`);
-    return response.json();
+    const response = await axios.get(`${API_BASE}/attendance`);
+    return response.data;
   },
   mark: async (classId, date, attendanceData) => {
-    const response = await fetch(`${API_BASE}/attendance?classId=${classId}&date=${date}`);
-    const existing = await response.json();
-    
+    const response = await axios.get(`${API_BASE}/attendance?classId=${classId}&date=${date}`);
+    const existing = response.data;
+
     const record = {
       id: existing.length > 0 ? existing[0].id : generateId(),
-      classId, date, attendance: attendanceData,
-      markedAt: new Date().toISOString()
+      classId,
+      date,
+      attendance: attendanceData,
+      markedAt: new Date().toISOString(),
     };
 
-    const method = existing.length > 0 ? 'PUT' : 'POST';
-    const url = existing.length > 0 ? `${API_BASE}/attendance/${existing[0].id}` : `${API_BASE}/attendance`;
-    
-    const updateResponse = await fetch(url, {
-      method,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(record)
-    });
-    return updateResponse.json();
+    if (existing.length > 0) {
+      const updateResponse = await axios.put(`${API_BASE}/attendance/${existing[0].id}`, record);
+      return updateResponse.data;
+    } else {
+      const createResponse = await axios.post(`${API_BASE}/attendance`, record);
+      return createResponse.data;
+    }
   },
   getByClassAndDate: async (classId, date) => {
-    const response = await fetch(`${API_BASE}/attendance?classId=${classId}&date=${date}`);
-    const records = await response.json();
+    const response = await axios.get(`${API_BASE}/attendance?classId=${classId}&date=${date}`);
+    const records = response.data;
     return records[0] || null;
+  },
+};
+
+export const clearAllData = async () => {
+  try {
+    const [students, teachers, classes, attendance] = await Promise.all([
+      axios.get(`${API_BASE}/students`).then(r => r.data),
+      axios.get(`${API_BASE}/teachers`).then(r => r.data),
+      axios.get(`${API_BASE}/classes`).then(r => r.data),
+      axios.get(`${API_BASE}/attendance`).then(r => r.data)
+    ]);
+
+    await Promise.all([
+      ...students.map(s => axios.delete(`${API_BASE}/students/${s.id}`)),
+      ...teachers.map(t => axios.delete(`${API_BASE}/teachers/${t.id}`)),
+      ...classes.map(c => axios.delete(`${API_BASE}/classes/${c.id}`)),
+      ...attendance.map(a => axios.delete(`${API_BASE}/attendance/${a.id}`))
+    ]);
+  } catch (error) {
+    console.error('Error clearing data:', error);
   }
 };

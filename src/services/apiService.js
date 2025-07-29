@@ -2,6 +2,7 @@ import axios from "axios";
 
 const API_BASE_URL = "https://randomuser.me/api/";
 
+//Get random users
 export const fetchRandomUsers = async (count = 60) => {
   try {
     const response = await axios.get(`${API_BASE_URL}?results=${count}&nat=us`);
@@ -11,6 +12,7 @@ export const fetchRandomUsers = async (count = 60) => {
   }
 };
 
+//Generate random dats
 export const generateRandomData = async () => {
   const users = await fetchRandomUsers(60);
 
@@ -21,18 +23,6 @@ export const generateRandomData = async () => {
     lastName: user.name.last,
     email: `${user.name.first.toLowerCase()}.${user.name.last.toLowerCase()}@school.com`,
     password: "password",
-    subject: [
-      "Mathematics",
-      "Physics",
-      "Chemistry",
-      "Biology",
-      "English",
-      "History",
-      "Geography",
-      "Computer Science",
-      "Art",
-      "Music",
-    ][index],
   }));
 
   // Generate students (next 50 users)
@@ -66,7 +56,7 @@ export const generateRandomData = async () => {
       name: `Class ${classNames[index]}`,
       standard: `${standards[index]} Standard`,
       teacherId: teachers[index].id,
-      students: students.slice(index * 5, (index + 1) * 5).map((s) => s.id),
+      students: students.slice(index * 5, (index + 1) * 5).map((s) => s.id), //creating 10 classes and assigning 5 students to each class.
     };
   });
 
@@ -101,34 +91,18 @@ export const generateRandomData = async () => {
 
   // Save to json-server
   await Promise.all([
-    ...teachers.map(teacher => 
-      fetch('http://localhost:3001/teachers', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(teacher)
-      })
+    ...teachers.map((teacher) =>
+      axios.post("http://localhost:3001/teachers", teacher)
     ),
-    ...students.map(student => 
-      fetch('http://localhost:3001/students', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(student)
-      })
+    ...students.map((student) =>
+      axios.post("http://localhost:3001/students", student)
     ),
-    ...classes.map(classItem => 
-      fetch('http://localhost:3001/classes', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(classItem)
-      })
+    ...classes.map((classItem) =>
+      axios.post("http://localhost:3001/classes", classItem)
     ),
-    ...attendanceRecords.map(record => 
-      fetch('http://localhost:3001/attendance', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(record)
-      })
-    )
+    ...attendanceRecords.map((record) =>
+      axios.post("http://localhost:3001/attendance", record)
+    ),
   ]);
 
   return { teachers, students, classes, attendanceRecords };

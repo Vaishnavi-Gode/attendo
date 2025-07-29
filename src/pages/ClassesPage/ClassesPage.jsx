@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, TextField, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 import toast from 'react-hot-toast';
-import { classesService, teachersService, studentsService } from '@services/storageService';
+import { classesService, teachersService, studentsService } from '@services/baseService';
 import PageHeader from '@components/common/PageHeader';
 import SearchFilter from '@components/common/SearchFilter';
 import DataTable from '@components/common/DataTable';

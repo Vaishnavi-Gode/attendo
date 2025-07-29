@@ -22,7 +22,7 @@ import {
   teachersService,
   classesService,
   attendanceService,
-} from "@services/storageService";
+} from "@services/baseService";
 
 const AdminDashboard = () => {
   const { user } = useAuth();

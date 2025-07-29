@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Box,
   AppBar,
   Toolbar,
-  Typography,
+
   IconButton,
   Drawer,
   List,
@@ -14,6 +14,7 @@ import {
   Menu,
   MenuItem,
 } from "@mui/material";
+import Logo from './Logo';
 import {
   Menu as MenuIcon,
   Dashboard,
@@ -34,26 +35,32 @@ const MainLayout = ({ children }) => {
   const location = useLocation();
 
   const getMenuItems = () => {
-    const baseRoute = `/${user?.role === 'admin' ? 'admin' : user?.role}`;
-    
-    if (user?.role === 'admin') {
+    const baseRoute = `/${user?.role === "admin" ? "admin" : user?.role}`;
+
+    if (user?.role === "admin") {
       return [
-        { text: 'Dashboard', icon: <Dashboard />, path: baseRoute },
-        { text: 'Students', icon: <People />, path: `${baseRoute}/students` },
-        { text: 'Teachers', icon: <People />, path: `${baseRoute}/teachers` },
-        { text: 'Classes', icon: <School />, path: `${baseRoute}/classes` },
-        { text: 'Attendance', icon: <EventNote />, path: `${baseRoute}/attendance` },
-        { text: 'Settings', icon: <Settings />, path: `${baseRoute}/settings` },
+        { text: "Dashboard", icon: <Dashboard />, path: baseRoute },
+        { text: "Students", icon: <People />, path: `${baseRoute}/students` },
+        { text: "Teachers", icon: <People />, path: `${baseRoute}/teachers` },
+        { text: "Classes", icon: <School />, path: `${baseRoute}/classes` },
+        {
+          text: "Attendance",
+          icon: <EventNote />,
+          path: `${baseRoute}/attendance`,
+        },
+        { text: "Settings", icon: <Settings />, path: `${baseRoute}/settings` },
       ];
-    } else if (user?.role === 'teacher') {
+    } else if (user?.role === "teacher") {
       return [
-        { text: 'Dashboard', icon: <Dashboard />, path: baseRoute },
-        { text: 'Attendance', icon: <EventNote />, path: `${baseRoute}/attendance` },
+        { text: "Dashboard", icon: <Dashboard />, path: baseRoute },
+        {
+          text: "Attendance",
+          icon: <EventNote />,
+          path: `${baseRoute}/attendance`,
+        },
       ];
     } else {
-      return [
-        { text: 'Dashboard', icon: <Dashboard />, path: baseRoute },
-      ];
+      return [{ text: "Dashboard", icon: <Dashboard />, path: baseRoute }];
     }
   };
 
@@ -85,39 +92,15 @@ const MainLayout = ({ children }) => {
             <MenuIcon />
           </IconButton>
 
-          <Box 
+          <Box
             sx={{ display: "flex", alignItems: "center", cursor: "pointer" }}
             onClick={() => {
-              const baseRoute = user?.role === 'admin' ? '/admin' : `/${user?.role}`;
+              const baseRoute =
+                user?.role === "admin" ? "/admin" : `/${user?.role}`;
               navigate(baseRoute);
             }}
           >
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{ marginRight: "10px" }}
-            >
-              <circle
-                cx="12"
-                cy="12"
-                r="11"
-                fill="#4dd0e1"
-                stroke="white"
-                strokeWidth="2"
-              />
-              <circle cx="12" cy="6" r="3" fill="white" />
-              <path d="M12 10c-2 0-4 1-4 3v6h8v-6c0-2-2-3-4-3z" fill="white" />
-              <path d="M16 12l3-6 2 1-3 6z" fill="white" />
-            </svg>
-            <Typography
-              variant="h6"
-              sx={{ fontWeight: "bold", color: "white" }}
-            >
-              Attendo
-            </Typography>
+            <Logo />
           </Box>
 
           <Box sx={{ flexGrow: 1 }} />

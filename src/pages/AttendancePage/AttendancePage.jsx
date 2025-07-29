@@ -99,13 +99,6 @@ const AttendancePage = () => {
     }
   }, [selectedClass, selectedDate, classes, students]);
 
-  const handleAttendanceChange = (studentId, status) => {
-    setAttendance((prev) => ({
-      ...prev,
-      [studentId]: status,
-    }));
-  };
-
   const handleSaveAttendance = async () => {
     if (!selectedClass || !selectedDate) {
       return;

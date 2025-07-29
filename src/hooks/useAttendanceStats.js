@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { colors } from '@theme';
 import { ATTENDANCE_STATUS } from '@constants';
-import { studentsService, classesService, attendanceService } from '@services/storageService';
+import { studentsService, classesService, attendanceService } from '@services/baseService';
 
 export const useAttendanceStats = (selectedDate, userRole, userId) => {
   const [stats, setStats] = useState({
