@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Box, TextField, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 import toast from 'react-hot-toast';
-import { classesService, teachersService, studentsService } from '@services/baseService';
-import { validateClass, validateClassDeletion } from '@utils/validations';
+import { classesService, teachersService, studentsService } from '@services/storageService';
 import PageHeader from '@components/common/PageHeader';
 import SearchFilter from '@components/common/SearchFilter';
 import DataTable from '@components/common/DataTable';
 import FormDialog from '@components/common/FormDialog';
+import ConfirmDialog from '@components/common/ConfirmDialog';
 import useCrudOperations from '@hooks/useCrudOperations';
 
 const ClassesPage = () => {
   const [teachers, setTeachers] = useState([]);
   const [students, setStudents] = useState([]);
-  const [error, setError] = useState('');
   const {
     data: classes,
     searchTerm,
@@ -21,17 +20,28 @@ const ClassesPage = () => {
     setSearchColumn,
     open,
     setOpen,
+    confirmOpen,
     editing: editingClass,
+    deleting: deletingClass,
     formData,
     setFormData,
     handleSubmit,
     handleEdit,
-    handleDelete: baseDelete,
-    handleAdd
+    handleDelete: baseHandleDelete,
+    handleAdd,
+    confirmDelete
   } = useCrudOperations(classesService, {
     name: '',
     standard: ''
   });
+
+  const handleDelete = (classItem) => {
+    if (classItem.teacherId || (classItem.students && classItem.students.length > 0)) {
+      toast.error('Cannot delete class with assigned teachers or students. Please remove assignments first.');
+      return;
+    }
+    baseHandleDelete(classItem);
+  };
 
   useEffect(() => {
     const loadData = async () => {
@@ -45,33 +55,13 @@ const ClassesPage = () => {
     loadData();
   }, []);
 
-  const handleDelete = (classItem) => {
-    const validationError = validateClassDeletion(classItem);
-    if (validationError) {
-      toast.error(validationError);
-      return;
-    }
-    
-    if (window.confirm('Delete this class?')) {
-      baseDelete(classItem);
-    }
-  };
+
 
   const handleFormSubmit = () => {
-    const trimmedData = {
-      ...formData,
-      name: formData.name?.trim(),
-      standard: formData.standard?.trim()
-    };
-    
-    const validationError = validateClass(trimmedData, classes, editingClass);
-    if (validationError) {
-      setError(validationError);
+    if (!formData.name || !formData.standard) {
+      toast.error('Please fill in all required fields');
       return;
     }
-    setError('');
-    
-    setFormData(trimmedData);
     handleSubmit();
     toast.success(editingClass ? 'Class updated successfully!' : 'Class added successfully!');
   };
@@ -123,7 +113,7 @@ const ClassesPage = () => {
     <Box>
       <PageHeader 
         title="Classes" 
-        onAdd={() => { handleAdd(); setError(''); }} 
+        onAdd={handleAdd} 
         addButtonText="Add Class" 
       />
       
@@ -145,11 +135,11 @@ const ClassesPage = () => {
       
       <FormDialog
         open={open}
-        onClose={() => { setOpen(false); setError(''); }}
+        onClose={() => setOpen(false)}
         title={editingClass ? 'Edit Class' : 'Add Class'}
         onSubmit={handleFormSubmit}
         submitText={editingClass ? 'Update' : 'Add'}
-        error={error}
+
       >
         <TextField
           fullWidth
@@ -173,6 +163,14 @@ const ClassesPage = () => {
           </Select>
         </FormControl>
       </FormDialog>
+      
+      <ConfirmDialog
+        open={confirmOpen}
+        title="Delete Class"
+        message={`Are you sure you want to delete ${deletingClass?.name}?`}
+        onConfirm={confirmDelete}
+        onCancel={() => setConfirmOpen(false)}
+      />
     </Box>
   );
 };

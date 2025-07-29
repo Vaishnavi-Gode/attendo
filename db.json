@@ -509,18 +509,6 @@
   ],
   "classes": [
     {
-      "id": "c1",
-      "name": "Class A",
-      "standard": "1st Standard",
-      "teacherId": "t1",
-      "students": [
-        "s2",
-        "s3",
-        "s4",
-        "s5"
-      ]
-    },
-    {
       "id": "c2",
       "name": "Class B",
       "standard": "2nd Standard",
@@ -588,7 +576,7 @@
     },
     {
       "id": "c8",
-      "name": "Class H",
+      "name": "Class Hl",
       "standard": "8th Standard",
       "teacherId": "t8",
       "students": [
@@ -637,19 +625,12 @@
         "s49",
         "s50"
       ]
-    },
-    {
-      "id": "1753724498885",
-      "name": "class f ",
-      "standard": "6th Standard",
-      "students": [],
-      "teacherId": null
     }
   ],
   "attendance": [
     {
       "id": "c1_2025-07-28",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-07-28",
       "attendance": {
         "s1": "present",
@@ -779,7 +760,7 @@
     },
     {
       "id": "c1_2025-07-25",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-07-25",
       "attendance": {
         "s1": "present",
@@ -909,7 +890,7 @@
     },
     {
       "id": "c1_2025-07-24",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-07-24",
       "attendance": {
         "s1": "present",
@@ -1039,7 +1020,7 @@
     },
     {
       "id": "c1_2025-07-23",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-07-23",
       "attendance": {
         "s1": "present",
@@ -1195,7 +1176,7 @@
     },
     {
       "id": "c1_2025-07-22",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-07-22",
       "attendance": {
         "s1": "present",
@@ -1299,7 +1280,7 @@
     },
     {
       "id": "c1_2025-07-21",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-07-21",
       "attendance": {
         "s1": "present",
@@ -1429,7 +1410,7 @@
     },
     {
       "id": "c1_2025-07-18",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-07-18",
       "attendance": {
         "s1": "present",
@@ -1559,7 +1540,7 @@
     },
     {
       "id": "c1_2025-07-17",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-07-17",
       "attendance": {
         "s1": "present",
@@ -1702,7 +1683,7 @@
     },
     {
       "id": "c1_2025-07-16",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-07-16",
       "attendance": {
         "s1": "absent",
@@ -1806,7 +1787,7 @@
     },
     {
       "id": "c1_2025-07-15",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-07-15",
       "attendance": {
         "s1": "present",
@@ -1949,7 +1930,7 @@
     },
     {
       "id": "c1_2025-07-14",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-07-14",
       "attendance": {
         "s1": "present",
@@ -2092,7 +2073,7 @@
     },
     {
       "id": "c1_2025-07-11",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-07-11",
       "attendance": {
         "s1": "present",
@@ -2209,7 +2190,7 @@
     },
     {
       "id": "c1_2025-07-10",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-07-10",
       "attendance": {
         "s1": "present",
@@ -2313,7 +2294,7 @@
     },
     {
       "id": "c1_2025-07-09",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-07-09",
       "attendance": {
         "s1": "absent",
@@ -2469,7 +2450,7 @@
     },
     {
       "id": "c1_2025-07-08",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-07-08",
       "attendance": {
         "s1": "present",
@@ -2573,7 +2554,7 @@
     },
     {
       "id": "c1_2025-07-07",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-07-07",
       "attendance": {
         "s1": "present",
@@ -2729,7 +2710,7 @@
     },
     {
       "id": "c1_2025-07-04",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-07-04",
       "attendance": {
         "s1": "present",
@@ -2859,7 +2840,7 @@
     },
     {
       "id": "c1_2025-07-03",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-07-03",
       "attendance": {
         "s1": "absent",
@@ -2989,7 +2970,7 @@
     },
     {
       "id": "c1_2025-07-02",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-07-02",
       "attendance": {
         "s1": "present",
@@ -3093,7 +3074,7 @@
     },
     {
       "id": "c1_2025-07-01",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-07-01",
       "attendance": {
         "s1": "absent",
@@ -3249,7 +3230,7 @@
     },
     {
       "id": "c1_2025-06-30",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-06-30",
       "attendance": {
         "s1": "present",
@@ -3379,7 +3360,7 @@
     },
     {
       "id": "c1_2025-06-27",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-06-27",
       "attendance": {
         "s1": "present",
@@ -3483,7 +3464,7 @@
     },
     {
       "id": "c1_2025-06-26",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-06-26",
       "attendance": {
         "s1": "present",
@@ -3665,7 +3646,7 @@
     },
     {
       "id": "c1_2025-06-25",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-06-25",
       "attendance": {
         "s1": "present",
@@ -3756,7 +3737,7 @@
     },
     {
       "id": "c1_2025-06-24",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-06-24",
       "attendance": {
         "s1": "present",
@@ -3977,7 +3958,7 @@
     },
     {
       "id": "c1_2025-06-20",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-06-20",
       "attendance": {
         "s1": "present",
@@ -4094,7 +4075,7 @@
     },
     {
       "id": "c1_2025-06-19",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-06-19",
       "attendance": {
         "s1": "present",
@@ -4250,7 +4231,7 @@
     },
     {
       "id": "c1_2025-06-18",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-06-18",
       "attendance": {
         "s1": "absent",
@@ -4406,7 +4387,7 @@
     },
     {
       "id": "c1_2025-06-17",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-06-17",
       "attendance": {
         "s1": "present",
@@ -4497,7 +4478,7 @@
     },
     {
       "id": "c1_2025-06-16",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-06-16",
       "attendance": {
         "s1": "absent",
@@ -4653,7 +4634,7 @@
     },
     {
       "id": "c1_2025-06-13",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-06-13",
       "attendance": {
         "s1": "present",
@@ -4770,7 +4751,7 @@
     },
     {
       "id": "c1_2025-06-12",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-06-12",
       "attendance": {
         "s1": "present",
@@ -4887,7 +4868,7 @@
     },
     {
       "id": "c1_2025-06-11",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-06-11",
       "attendance": {
         "s1": "present",
@@ -5030,7 +5011,7 @@
     },
     {
       "id": "c1_2025-06-10",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-06-10",
       "attendance": {
         "s1": "present",
@@ -5160,7 +5141,7 @@
     },
     {
       "id": "c1_2025-06-09",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-06-09",
       "attendance": {
         "s1": "present",
@@ -5303,7 +5284,7 @@
     },
     {
       "id": "c1_2025-06-06",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-06-06",
       "attendance": {
         "s1": "present",
@@ -5407,7 +5388,7 @@
     },
     {
       "id": "c1_2025-06-05",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-06-05",
       "attendance": {
         "s1": "present",
@@ -5537,7 +5518,7 @@
     },
     {
       "id": "c1_2025-06-04",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-06-04",
       "attendance": {
         "s1": "absent",
@@ -5680,7 +5661,7 @@
     },
     {
       "id": "c1_2025-06-03",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-06-03",
       "attendance": {
         "s1": "present",
@@ -5810,7 +5791,7 @@
     },
     {
       "id": "c1_2025-06-02",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-06-02",
       "attendance": {
         "s1": "present",
@@ -5940,7 +5921,7 @@
     },
     {
       "id": "c1_2025-05-30",
-      "classId": "c1",
+      "classId": null,
       "date": "2025-05-30",
       "attendance": {
         "s1": "present",
