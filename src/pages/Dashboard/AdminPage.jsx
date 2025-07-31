@@ -13,6 +13,10 @@ import {
   Autocomplete,
   Button,
 } from "@mui/material";
+import { Email } from "@mui/icons-material";
+import EmailReportDialog from "@components/common/EmailReportDialog";
+import toast from "react-hot-toast";
+import { captureChartAsImage } from "@utils/chartCapture";
 import { useAuth } from "@context/AuthContext";
 import DashboardStats from "@components/common/DashboardStats";
 import AttendanceCharts from "@components/common/AttendanceCharts";
@@ -33,6 +37,8 @@ const AdminDashboard = () => {
   const [searchColumn, setSearchColumn] = useState("all");
   const [attendanceData, setAttendanceData] = useState([]);
   const [filterStatus, setFilterStatus] = useState("all");
+  const [emailDialogOpen, setEmailDialogOpen] = useState(false);
+  const chartRef = useState(null);
   const stats = useAttendanceStats(selectedDate, user?.role, user?.id);
 
   //Fetch data from services
@@ -141,6 +147,62 @@ const AdminDashboard = () => {
     return matchesSearch && matchesFilter;
   });
 
+  const handleSendEmail = async (emails) => {
+    try {
+      // Calculate class-wise attendance for today
+      const classWiseData = {};
+      filteredAttendanceData.forEach(row => {
+        if (!classWiseData[row.className]) {
+          classWiseData[row.className] = { present: 0, total: 0 };
+        }
+        classWiseData[row.className].total++;
+        if (row.todayStatus === 'present') {
+          classWiseData[row.className].present++;
+        }
+      });
+
+      const classWiseAttendance = Object.entries(classWiseData).map(([className, data]) => ({
+        className: className.split(' - ')[0], // Just class name without standard
+        present: data.present,
+        total: data.total,
+        percentage: data.total > 0 ? Math.round((data.present / data.total) * 100) : 0
+      }));
+
+      const chartData = {
+        presentToday: stats.presentToday,
+        absentToday: stats.totalToday - stats.presentToday,
+        totalToday: stats.totalToday,
+        classWiseAttendance
+      };
+
+      const tableData = {
+        headers: ['Class', 'Teacher', 'Student Name', 'Present', 'Absent'],
+        rows: filteredAttendanceData.map(row => [
+          row.className,
+          row.teacherName,
+          row.studentName,
+          row.present,
+          row.absent
+        ])
+      };
+
+      const response = await fetch('http://localhost:3002/api/send-report', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ emails, chartData, tableData })
+      });
+
+      if (response.ok) {
+        toast.success('Report sent successfully!');
+      } else {
+        throw new Error('Failed to send email');
+      }
+    } catch (error) {
+      toast.error('Failed to send report');
+      throw error;
+    }
+  };
+
   return (
     <Box>
       {/* Welcome Header */}
@@ -187,7 +249,9 @@ const AdminDashboard = () => {
       </Box>
 
       <DashboardStats stats={stats} userRole={user?.role} />
-      <AttendanceCharts stats={stats} userRole={user?.role} />
+      <div ref={chartRef}>
+        <AttendanceCharts stats={stats} userRole={user?.role} />
+      </div>
 
       {/* Attendance Table */}
       <Box
@@ -200,9 +264,22 @@ const AdminDashboard = () => {
           mt: 4,
         }}
       >
-        <Typography variant="h6" gutterBottom sx={{ fontWeight: 600, mb: 3 }}>
-          Attendance Records
-        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+          <Typography variant="h6" sx={{ fontWeight: 600 }}>
+            Attendance Records
+          </Typography>
+          <Button
+            variant="contained"
+            startIcon={<Email />}
+            onClick={() => setEmailDialogOpen(true)}
+            sx={{
+              background: 'linear-gradient(135deg, #4dd0e1 0%, #00acc1 100%)',
+              borderRadius: '12px'
+            }}
+          >
+            Email Report
+          </Button>
+        </Box>
         <Grid container spacing={2} sx={{ mb: 3 }}>
           <Grid item xs={12} md={4}>
             <TextField
@@ -337,6 +414,12 @@ const AdminDashboard = () => {
           </Table>
         </TableContainer>
       </Box>
+      
+      <EmailReportDialog
+        open={emailDialogOpen}
+        onClose={() => setEmailDialogOpen(false)}
+        onSend={handleSendEmail}
+      />
     </Box>
   );
 };
